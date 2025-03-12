@@ -9,9 +9,9 @@
 
   home.packages = with pkgs; [
     # Essentials
-    yazi
+    superfile
     floorp
-    xfce.thunar
+    zathura
 
     # Astro
     gimp
@@ -45,7 +45,6 @@
     # Prod
     ffmpeg
     obsidian
-    kdePackages.kdenlive
 
     # Rice Stuff
     cava
@@ -145,6 +144,7 @@
     ".config/nvim/lua".source      = ./configs/nvim/lua;
     ".config/nvim/init.lua".source = ./configs/nvim/init.lua;
     ".config/siril/".source        = ./configs/siril;
+        # ".config/superfile/".source    = ./configs/superfile;
     ".zshrc".source                = ./configs/.zshrc;
     "wallpapers/".source           = ./theming/wallpapers;
     ".hyprshaders/".source         = ./configs/hypr/shaders;

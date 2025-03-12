@@ -1,7 +1,7 @@
 import { App, Astal } from "astal/gtk3";
 import { Variable, bind, exec } from "astal";
 
-const visible = Variable(true);
+const visible = Variable(false);
 
 function Cook({ profile }) {
     return <button
