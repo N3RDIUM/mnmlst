@@ -10,8 +10,10 @@
   home.packages = with pkgs; [
     # Essentials
     superfile
+    xfce.thunar
     floorp
     zathura
+    kdePackages.okular
 
     # Astro
     gimp
@@ -144,7 +146,6 @@
     ".config/nvim/lua".source      = ./configs/nvim/lua;
     ".config/nvim/init.lua".source = ./configs/nvim/init.lua;
     ".config/siril/".source        = ./configs/siril;
-        # ".config/superfile/".source    = ./configs/superfile;
     ".zshrc".source                = ./configs/.zshrc;
     "wallpapers/".source           = ./theming/wallpapers;
     ".hyprshaders/".source         = ./configs/hypr/shaders;
