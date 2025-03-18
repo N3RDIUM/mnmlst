@@ -4,7 +4,7 @@
 
 .BarContainer {
     min-width: 54px;
-    background: #282828;
+    background: rgba(40, 40, 40, 0.8);
 }
 .Separator {
     min-height: 2px;

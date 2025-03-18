@@ -11,6 +11,7 @@ function Separator() {
 
 export default function shybar() {
     return <window
+            name = "ShyBar"
             className = "ShyBar"
             monitor = {0}
             exclusivity = {Astal.Exclusivity.EXCLUSIVE}
