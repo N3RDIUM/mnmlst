@@ -26,7 +26,6 @@ const Workspace = ({ id }) => {
 			<box hexpand />
 			<button
 				className={"WorkspaceClick"}
-				onClick={() => hyprland.dispatch("workspace", `${id}`)}
 			>
 				<box className={className()} />
 			</button>

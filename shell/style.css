@@ -4,7 +4,7 @@
 
 .BarContainer {
     min-width: 54px;
-    background: rgba(40, 40, 40, 0.8);
+    background: rgba(40, 40, 40, 1.0);
 }
 .Separator {
     min-height: 2px;
@@ -19,6 +19,7 @@
 }
 .NixOS {
     font-size: 36px;
+    margin-bottom: 2px;
 }
 
 .Workspace {

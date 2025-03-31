@@ -15,7 +15,7 @@
         url = "github:aylur/ags";
         inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1?ref=0.47.0";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1?ref=0.48.0";
     hy3 = {
       url = "github:outfoxxed/hy3";
       inputs.hyprland.follows = "hyprland";

@@ -5,10 +5,6 @@ import Workspaces from "./widgets/workspaces.js";
 import Time from "./widgets/time.js";
 import { Tray, TrayWidgets } from "./widgets/tray.js"
 
-function Separator() {
-    return <box className="Separator" />
-}
-
 export default function shybar() {
     return <window
             name = "ShyBar"
@@ -24,15 +20,11 @@ export default function shybar() {
         >
             <box vertical className = "BarContainer" >
                 <NixOS />
-                <Separator />
                 <Workspaces />
-                <Separator />
 
                 <box hexpand vexpand />
 
-                <Separator />
                 <Time /> 
-                <Separator />
                 <Tray />
                 <TrayWidgets />
             </box>
