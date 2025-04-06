@@ -24,13 +24,13 @@ const year = Variable(0).poll(
 const transform = (v) =>
 	v.toString().length % 2 == 0 ? v.toString() : "0" + v.toString();
 
-export default function Time() {
+export default function Time({ minified }) {
 	return (
-		<box vertical className="TimeWidget">
-			<label className="DateLabel" label={dm(transform)} />
-			<label className="TimeLabel" label={hour(transform)} />
-			<label className="TimeLabel" label={minute(transform)} />
-			<label className="DateLabel" label={year(transform)} />
+		<box vertical className={ minified((v) => v ? "TimeWidgetMini" : "TimeWidget") }>
+            { minified((v) => !v ? <label className="DateLabel" label={dm(transform)} />  : "") }
+			<label className={ minified((v) => v ? "TimeLabelMini" : "TimeLabel") } label={hour(transform)} />
+			<label className={ minified((v) => v ? "TimeLabelMini" : "TimeLabel") } label={minute(transform)} />
+            { minified((v) => !v ? <label className="DateLabel" label={year(transform)} />  : "") }
 		</box>
 	);
 }

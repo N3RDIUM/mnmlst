@@ -1,10 +1,15 @@
 * {
     transition-timing-function: ease-in-out;
+    all: unset;
 }
 
 .BarContainer {
     min-width: 54px;
     background: rgba(40, 40, 40, 1.0);
+}
+.BarContainerMini {
+    min-width: 28px;
+    background: rgba(40, 40, 40, 1.0)
 }
 .Separator {
     min-height: 2px;
@@ -17,54 +22,26 @@
     padding: 8px 0;
     padding-bottom: 2px;
 }
+.NixOSContainerMini {
+    padding: 4px 0;
+    padding-bottom: 2px;
+}
 .NixOS {
     font-size: 36px;
     margin-bottom: 2px;
 }
-
-.Workspace {
-    background-color: #928734;
-    border-radius: 12px;
-    min-width: 12px;
-    min-height: 12px;
-    margin-top: 6px;
-    margin-bottom: 6px;
-    transition-duration: 150ms;
-}
-.Active {
-    background-color: #458588;
-    min-width: 21.32px; /* 16x9 */
-    min-height: 12px;
-    border-radius: 3px;
-}
-.Occupied {
-    background-color: #ebdbb2;
-}
-.WorkspaceClick {
-    background-color: transparent;
-    min-width: unset;
-    min-height: unset;
-    margin: unset;
-    padding: unset;
-    border: unset;
-    transition-duration: 240ms;
-}
-.WorkspaceClick:hover {
-    background-color: transparent;
-    min-width: unset;
-    min-height: unset;
-    margin: unset;
-    padding: unset;
-    border: unset;
-}
-.WorkspaceClick:hover {
-    min-width: 16px;
-    min-height: 16px;
+.NixOSMini {
+    font-size: 24px;
+    margin-bottom: 2px;
 }
 
 .TimeWidget {
     min-width: 54px;
     padding: 8px 0;
+}
+.TimeWidgetMini {
+    min-width: 28px;
+    margin-bottom: -12px;
 }
 .DateLabel {
     font-family: Fira Code;
@@ -74,41 +51,9 @@
     font-family: Fira Code;
     font-size: 24px;
 }
-
-.TrayItem {
-    all: unset;
-    border: 0px;
-    border-radius: 4px;
-    min-width: 26px;
-    min-height: 26px;
-    padding: 4px;
-    margin: 0 10px;
-    margin-bottom: 0px;
-    font-size: 22px;
-    transition-duration: 64ms;
-}
-.TrayItem:hover {
-    font-size: 24px;
-}
-.TrayItem:active {
-    font-size: 21px;
-}
-.TrayWidgets {
-    margin-bottom: 6px;
+.TimeLabelMini {
+    font-family: Fira Code;
+    font-size: 16px;
+    margin-bottom: -4px;
 }
 
-.WhatCook {
-    background: #282828;
-    border-radius: 10px;
-}
-.WhatCookContainer {
-    min-width: 690px;
-    min-height: 420px;
-    padding: 12px;
-}
-.CookItem {
-    margin: 6px;
-}
-.CookIcon {
-    font-size: 64px;
-}

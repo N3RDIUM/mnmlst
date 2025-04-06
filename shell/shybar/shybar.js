@@ -1,9 +1,33 @@
 import { App, Astal } from "astal/gtk3";
-import { Variable, bind } from "astal";
+import { Variable } from "astal";
+import Hyprland from "gi://AstalHyprland";
 import NixOS from "./widgets/nixos.js";
-import Workspaces from "./widgets/workspaces.js";
 import Time from "./widgets/time.js";
-import { Tray, TrayWidgets } from "./widgets/tray.js"
+
+const hyprland = Hyprland.get_default();
+const minified = Variable(true);
+let override = false;
+
+hyprland.connect("event", () => {
+    let found = 0;
+    for (const client of hyprland.get_clients()) {
+        if (client.workspace == hyprland.get_focused_workspace()) {
+            found++;
+        }
+    }
+
+    if(found == 0) {
+        setTimeout(() => {
+            override = true;
+            minified.set(false);
+        }, 800);
+    } else {
+        setTimeout(() => {
+            override = false;
+            minified.set(true);
+        }, 800);
+    }
+})
 
 export default function shybar() {
     return <window
@@ -12,22 +36,25 @@ export default function shybar() {
             monitor = {0}
             exclusivity = {Astal.Exclusivity.EXCLUSIVE}
             anchor = {
-                Astal.WindowAnchor.RIGHT |
+                Astal.WindowAnchor.LEFT |
                 Astal.WindowAnchor.TOP |
                 Astal.WindowAnchor.BOTTOM
             }
             application={App}
         >
-            <box vertical className = "BarContainer" >
-                <NixOS />
-                <Workspaces />
-
-                <box hexpand vexpand />
-
-                <Time /> 
-                <Tray />
-                <TrayWidgets />
-            </box>
+            <eventbox 
+                onHover = { () => { if(!override) minified.set(false) } }
+                onHoverLost = { () => { if(!override) minified.set(true) } }
+            >
+                <box 
+                    vertical
+                    className = { minified((value) => value ? "BarContainerMini" : "BarContainer") }
+                >
+                    <NixOS minified = { minified } />
+                    <box hexpand vexpand />
+                    <Time minified = {minified} />
+                </box>
+            </eventbox>
         </window>;
 }
 
