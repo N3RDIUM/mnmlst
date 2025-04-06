@@ -1,4 +1,7 @@
 export default function NixOS({ minified }) {
+    // TODO: Turn this into a current window thing.
+    // TODO: Basically, if nowin or logo_404, nixos.
+    // TODO: Else, window icon.
 	return (
 		<box 
             vertical
