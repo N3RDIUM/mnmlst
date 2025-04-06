@@ -6,7 +6,7 @@ import Time from "./widgets/time.js";
 
 const hyprland = Hyprland.get_default();
 const minified = Variable(true);
-let override = false;
+let nowin = false;
 let currentTimeout = null;
 
 hyprland.connect("event", () => {
@@ -22,7 +22,7 @@ hyprland.connect("event", () => {
             clearTimeout(currentTimeout)
         }
         currentTimeout = setTimeout(() => {
-            override = true;
+            nowin = true;
             minified.set(false);
         }, 200);
     } else {
@@ -30,7 +30,7 @@ hyprland.connect("event", () => {
             clearTimeout(currentTimeout)
         }
         currentTimeout = setTimeout(() => {
-            override = false;
+            nowin = false;
             minified.set(true);
         }, 800);
     }
@@ -50,8 +50,8 @@ export default function shybar() {
             application={App}
         >
             <eventbox 
-                onHover = { () => { if(!override) minified.set(false) } }
-                onHoverLost = { () => { if(!override) minified.set(true) } }
+                onHover = { () => { if(!nowin) minified.set(false) } }
+                onHoverLost = { () => { if(!nowin) minified.set(true) } }
             >
                 <box 
                     vertical
