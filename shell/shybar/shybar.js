@@ -7,6 +7,7 @@ import Time from "./widgets/time.js";
 const hyprland = Hyprland.get_default();
 const minified = Variable(true);
 let override = false;
+let currentTimeout = null;
 
 hyprland.connect("event", () => {
     let found = 0;
@@ -17,12 +18,18 @@ hyprland.connect("event", () => {
     }
 
     if(found == 0) {
-        setTimeout(() => {
+        if(currentTimeout) {
+            clearTimeout(currentTimeout)
+        }
+        currentTimeout = setTimeout(() => {
             override = true;
             minified.set(false);
-        }, 800);
+        }, 200);
     } else {
-        setTimeout(() => {
+        if(currentTimeout) {
+            clearTimeout(currentTimeout)
+        }
+        currentTimeout = setTimeout(() => {
             override = false;
             minified.set(true);
         }, 800);
