@@ -30,6 +30,9 @@ vim.opt.isfname:append("@-@")
 
 vim.g.mapleader = " "
 
+-- Say goodbye to your mouse!
+vim.opt.mouse = ""
+
 -- Custom keymaps!
 local builtin = require('telescope.builtin')
 
