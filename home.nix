@@ -72,7 +72,7 @@
     atuin
     pure-prompt
     oh-my-zsh
-    git-credential-oauth
+    git-credential-manager
 
     # Miscellaneous
     ollama
@@ -116,7 +116,9 @@
     enable      = true;
     userName    = "n3rdium";
     userEmail   = "n3rdium@gmail.com";
-    extraConfig = { credential.helper = "oauth"; };
+    extraConfig = {
+        credential.credentialStore = "secretservice";
+    };
   };
 
   gtk = {
