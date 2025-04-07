@@ -46,10 +46,12 @@
 .DateLabel {
     font-family: Fira Code;
     font-size: 12px;
+    margin: -3px;
 }
 .TimeLabel {
     font-family: Fira Code;
     font-size: 24px;
+    margin: -2px;
 }
 .TimeLabelMini {
     font-family: Fira Code;
