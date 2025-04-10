@@ -35,6 +35,17 @@
   # Boot faster (for systemd, you're on grub rn)!
   systemd.services.systemd-udev-settle.enable        = false;
   systemd.services.NetworkManager-wait-online.enable = false;
+
+    # Nix storage optimizations
+    nix.optimise.automatic = true;
+    nix.optimise.dates = [ "04:00" ];
+
+    nix.gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 30d";
+    };
+
   
     # Nvidia stuff start
   # Load nvidia driver for Xorg and Wayland

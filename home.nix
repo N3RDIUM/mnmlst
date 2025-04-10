@@ -14,6 +14,8 @@
     floorp
     zathura
     kdePackages.okular
+    gnome-keyring
+    seahorse
 
     # Astro
     gimp
@@ -72,7 +74,6 @@
     atuin
     pure-prompt
     oh-my-zsh
-    git-credential-manager
 
     # Miscellaneous
     ollama
@@ -117,7 +118,9 @@
     userName    = "n3rdium";
     userEmail   = "n3rdium@gmail.com";
     extraConfig = {
-        credential.credentialStore = "secretservice";
+      credential.helper = "${
+        pkgs.git.override { withLibsecret = true; }
+      }/bin/git-credential-libsecret";
     };
   };
 
