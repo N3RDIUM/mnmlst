@@ -1,7 +1,7 @@
 import { App, Astal } from "astal/gtk3";
 import { Variable } from "astal";
 import Hyprland from "gi://AstalHyprland";
-import NixOS from "./widgets/nixos.js";
+import Icon from "./widgets/icon.js";
 import Time from "./widgets/time.js";
 
 const hyprland = Hyprland.get_default();
@@ -46,9 +46,9 @@ export default function shybar() {
                     vertical
                     className = { minified((value) => value ? "BarContainerMini" : "BarContainer") }
                 >
-                    <NixOS minified = { minified } />
+                    <Icon minified = { minified } />
                     <box hexpand vexpand />
-                    <Time minified = {minified} />
+                    <Time minified = { minified } />
                 </box>
             </eventbox>
         </window>;
