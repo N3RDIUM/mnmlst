@@ -2,10 +2,10 @@
 cd /home/n3rdium/.dotfiles || exit
 
 # Sync repo
-git pull
+git pull || true
 git add .
 git commit || true
-git push
+git push || true
 
 # Update & rebuild
 sudo nix flake update
