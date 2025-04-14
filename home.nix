@@ -48,6 +48,8 @@
 
     # Prod
     ffmpeg
+    kdePackages.kdenlive
+    blender
     obsidian
 
     # Rice Stuff
