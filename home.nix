@@ -14,8 +14,7 @@
     floorp
     zathura
     kdePackages.okular
-    gnome-keyring
-    seahorse
+    gcr
 
     # Astro
     gimp
@@ -161,6 +160,8 @@
   };
 
   home.sessionVariables = { EDITOR = "nvim"; };
+
+  services.gnome-keyring.enable = true;
 
   programs.home-manager.enable = true;
 }
