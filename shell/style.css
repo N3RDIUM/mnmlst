@@ -35,6 +35,12 @@
     margin-bottom: 2px;
 }
 
+.WindowTitle {
+    font-family: Fira Code;
+    font-size: 13px;
+    min-width: 28px;
+}
+
 .TimeWidget {
     min-width: 54px;
     padding: 8px 0;

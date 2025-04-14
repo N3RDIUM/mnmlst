@@ -3,6 +3,7 @@ import { Variable } from "astal";
 import Hyprland from "gi://AstalHyprland";
 import Icon from "./widgets/icon.js";
 import Time from "./widgets/time.js";
+import Title from "./widgets/title.js";
 
 const hyprland = Hyprland.get_default();
 const minified = Variable(true);
@@ -47,7 +48,10 @@ export default function shybar() {
                     className = { minified((value) => value ? "BarContainerMini" : "BarContainer") }
                 >
                     <Icon minified = { minified } />
+                    <Title minified = { minified } />
+
                     <box hexpand vexpand />
+
                     <Time minified = { minified } />
                 </box>
             </eventbox>
