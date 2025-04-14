@@ -20,6 +20,11 @@ hyprland.connect("event", () => {
             found = true;
             break;
         }
+        for (const app of apps.fuzzy_query(client.title)) {
+            icon.set(app.get_icon_name());
+            found = true;
+            break;
+        }
     
         if(!found) {
             icon.set("/home/n3rdium/.zenithassets/nixos.svg");
