@@ -9,8 +9,9 @@ git push || true
 
 # (optional) Update & rebuild
 
-read -p "Update? (y/N): " UPDATE
-if [ $UPDATE == "y" ]; then
+echo -p "Update? (y/N) "
+read x
+if [ $(x) == "y" ]; then
     sudo nix flake update
 fi
 
