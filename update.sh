@@ -7,7 +7,12 @@ git add .
 git commit || true
 git push || true
 
-# Update & rebuild
-sudo nix flake update
+# (optional) Update & rebuild
+
+read -p "Update? (y/N): " UPDATE
+if [ $UPDATE == "y" ]; then
+    sudo nix flake update
+fi
+
 sudo nixos-rebuild switch --flake .#n3rdium --upgrade
 
