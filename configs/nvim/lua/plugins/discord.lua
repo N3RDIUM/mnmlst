@@ -6,7 +6,7 @@ return {
             -- General options
             auto_connect        = true,          -- Automatically connect to Discord RPC
             logo                = "auto",        -- "auto" or url
-            logo_tooltip        = "The Only Text Editor", -- nil or string
+            logo_tooltip        = "The Chosen Text Editor", -- nil or string
             main_image          = "language",    -- "language" or "logo"
             client_id           = "1233867420330889286", -- Use your own Discord application client id (not recommended)
             log_level           = nil,           -- Log messages at or above this level (one of the following: "debug", "info", "warn", "error")
