@@ -1,99 +1,32 @@
 {
-  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
-  "general": {
-    "playerName": "youtube-music"
-  },
-  "modules": [
-    {// TODO: Remove these. They look kinda ugly.
-        "type": "custom",
-        "format": "\u001b[90m┌─────────────────────────────────────────────────────────────┐"
-    },
-    {
-        "key": "  ",
-        "type": "title"
-    },
-    {
-        "type": "custom",
-        "format": "\u001b[90m└─────────────────────────────────────────────────────────────┘"
-    },
-
-    {
-        "type": "custom",
-        "format": "\u001b[90m┌─────────────────────────────────────────────────────────────┐"
-    },
-    {
-        "key": "  CPU",
-        "type": "cpu"
-    },
-    {
-        "key": "  GPU",
-        "type": "gpu"
-    },
-    {
-        "key": "  Memory",
-        "type": "memory"
-    },
-    {
-        "key": "  Display",
-        "type": "display"
-    },
-    {
-        "key": "  Host",
-        "type": "host"
-    },
-    {
-        "type": "custom",
-        "format": "\u001b[90m└─────────────────────────────────────────────────────────────┘"
-    },
-
-    {
-        "type": "custom",
-        "format": "\u001b[90m┌─────────────────────────────────────────────────────────────┐"
-    },
-    {
-        "key": "  Distro",
-        "type": "os"
-    },
-    {
-        "key": "  Kernel",
-        "type": "kernel"
-    },
-    {
-        "key": "  Uptime",
-        "type": "uptime"
-    },
-    {
-        "key": "  Packages",
-        "type": "packages"
-    },
-    {
-        "key": "  Local IP",
-        "type": "localip"
-    },
-    {
-        "type": "custom",
-        "format": "\u001b[90m└─────────────────────────────────────────────────────────────┘"
-    },
-
-    {
-        "type": "custom",
-        "format": "\u001b[90m┌─────────────────────────────────────────────────────────────┐"
-    },
-
-    {
-        "key": "  Shell",
-        "type": "shell"
-    },
-    {
-        "key": "  Terminal",
-        "type": "terminal"
-    },
-    {
-        "type": "custom",
-        "format": "\u001b[90m└─────────────────────────────────────────────────────────────┘"
-    }
-  ],
-  "display": {
-      "separator": " "
-  }
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "modules": [
+        "title",
+        "separator",
+        "os",
+        {
+            "type": "host",
+            "format": "{/2}{-}{/}{2}{?3} {3}{?}"
+        },
+        "kernel",
+        "uptime",
+        {
+            "type": "battery",
+            "format": "{/4}{-}{/}{4}{?5} [{5}]{?}"
+        },
+        "break",
+        "packages",
+        "shell",
+        "display",
+        "terminal",
+        "break",
+        "cpu",
+        {
+            "type": "gpu",
+            "key": "GPU"
+        },
+        "memory",
+        "break",
+        "colors"
+    ]
 }

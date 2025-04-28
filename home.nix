@@ -57,8 +57,11 @@
     swww
     dunst
     kooha
+    cmatrix
+    pipes-rs
     hyprshot
     fastfetch
+    hollywood
     playerctl
     obs-studio
     hyprpicker
