@@ -19,7 +19,7 @@
     # Astro
     gimp
     wine64Packages.wayland
-    stellarium
+    # stellarium
 
     # Code
     trashy
