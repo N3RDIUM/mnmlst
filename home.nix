@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, hyprland, hy3, textfox, ... }:
+{ inputs, config, pkgs, hyprland, zen-browser, ... }:
 
 {
   imports = [ inputs.ags.homeManagerModules.default ];
@@ -15,6 +15,8 @@
     zathura
     kdePackages.okular
     gcr
+
+    inputs.zen-browser.packages."${system}".specific
 
     # Astro
     gimp
@@ -91,7 +93,7 @@
     enable = true;
     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     plugins = [
-        inputs.hy3.packages.x86_64-linux.hy3
+        pkgs.hyprlandPlugins.hy3
     ];
     extraConfig = builtins.readFile (builtins.path {
         path = ./configs/hypr/hyprland.conf;

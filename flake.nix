@@ -15,15 +15,11 @@
         url = "github:aylur/ags";
         inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1?ref=0.48.0";
-    hy3 = {
-      url = "github:outfoxxed/hy3";
-      inputs.hyprland.follows = "hyprland";
-    };
-    textfox.url = "github:adriankarlen/textfox";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    zen-browser.url = "github:MarceColl/zen-browser-flake";
   };
 
-  outputs = { nixpkgs, home-manager, hyprland, hy3, textfox, ... }@inputs:
+  outputs = { nixpkgs, home-manager, hyprland, zen-browser, ... }@inputs:
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
