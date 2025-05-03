@@ -2,15 +2,16 @@
 My minimal NixOS x Hyprland Dotfiles!
 
 ## Screenshots
-![image](https://github.com/user-attachments/assets/6bce806a-696e-4196-bd39-17bf7955d646)
-![image](https://github.com/user-attachments/assets/36679497-983d-42ef-b24f-a4ba91499c2c)
-![image](https://github.com/user-attachments/assets/edac872a-9e3b-4181-b11d-1bd72c302d1d)
-![image](https://github.com/user-attachments/assets/ff1df35d-8422-4665-808b-9f8cb6d91217)
+![image](https://github.com/user-attachments/assets/b41a34c8-5cdd-4028-9f82-e46f798d12b6)
+![image](https://github.com/user-attachments/assets/326a0aeb-b415-46f6-b9c4-c76060aa4dac)
+![image](https://github.com/user-attachments/assets/a58fba11-754d-449b-8573-3e4f5c7bfe15)
+![image](https://github.com/user-attachments/assets/a2c05215-181b-410d-9aea-41fa08c5b810)
+![image](https://github.com/user-attachments/assets/0672d157-04c3-4431-9db4-2f3a10fa3e33)
 
 ## TODO
 TODO:
 - General
-    - [ ] Autoswitch screen shaders based on time (py)
+    - [x] Autoswitch screen shaders based on time (py)
     - [x] Figure out how to make everything keyboard-centric
     - [ ] Ditch mouse?
     - [ ] Somehow revive previous session if possible (hibernate?)
