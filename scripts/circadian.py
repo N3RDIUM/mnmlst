@@ -2,9 +2,21 @@ import os
 from datetime import datetime
 from time import sleep
 
+# Ensure single instance
+try:
+    with open(".circadian_lastpid") as f:
+        pid = f.read()
+    os.system(f"kill {pid}")
+except FileNotFoundError:
+    pass
+
+with open(".circadian_lastpid", "w") as f:
+    f.write(str(os.getpid()))
+
 def get_hour() -> int:
     return datetime.now().hour
 
+# Mainloop
 while True:
     hour = get_hour()
 
@@ -15,5 +27,5 @@ while True:
     else:
         os.system("hyprctl keyword decoration:screen_shader \"~/.hyprshaders/astro.glsl\"")
 
-    sleep(60)
+    sleep(20)
 

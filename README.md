@@ -28,7 +28,7 @@ TODO:
     - [x] Reformat config
     - [x] Actually configure `hy3`
     - [ ] Remake keybinds
-    - [ ] Auto brightness/warmth based on time
+    - [x] Auto brightness/warmth based on time
 - fastfetch
     - [ ] Redo config for minimalism instead of showoff
     - [ ] Make an icon for this rice ("zenith") and show it
