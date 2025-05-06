@@ -70,6 +70,15 @@
     background-color: #504945;
     border-radius: 2px;
 }
+.Notification {
+    transition-duration: 80ms;
+}
+.Notification:hover {
+    background-color: #665c54;
+}
+.Notification:active {
+    background-color: #928374;
+}
 .NotificationIconContainer {
     margin: 4px;
     min-width: 42px;

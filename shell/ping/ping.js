@@ -2,38 +2,61 @@ import { App, Astal } from "astal/gtk3";
 import { Variable, bind } from "astal";
 import Notifd from "gi://AstalNotifd";
 
+const notifd = Notifd.get_default();
+const visibleNotifications = Variable([]);
+let map = {};
+let hidden = {};
+
+function rebuildList() {
+    visibleNotifications.set(
+        Object.values(map)
+            .filter(x => !(x.get_id() in hidden))
+            .map(x => <Notification notification = { x }></Notification>)
+    );
+}
+
+notifd.connect("notified", (_, id) => {
+    map[id] = notifd.get_notification(id);
+    rebuildList();
+});
+notifd.connect("resolved", (_, id) => {
+    delete map[id];
+    rebuildList();
+});
+
 function Notification({ notification, state }) {
-    return <eventbox>
-        <box
-            className = "Notification"
-        >
-            <box vertical className = "NotificationIconContainer">
-                <icon
-                    className = "NotificationIcon"
-                    icon = "kitty"
-                />
-                <box vexpand></box>
-            </box>
+    let icon = null;
+    if(notification.get_app_icon()) {
+        icon = notification.get_app_icon();
+    }
+    if(notification.get_image()) {
+        icon = notification.get_image();
+    }
+
+    // TODO: Play audio file, custom actions,
+    // TODO: hide to pane notification list
+
+    return <button
+        className = "Notification"
+        onClicked = {() => {
+            hidden[notification.get_id()] = true;
+            rebuildList();
+        }}
+    >
+        <box>
+            {
+                icon != null ? <box vertical className = "NotificationIconContainer">
+                    <icon
+                        className = "NotificationIcon"
+                        icon = "kitty"
+                    />
+                    <box vexpand></box>
+                </box> : <box css="min-width: 6px;"></box>
+            }
             <box vertical className = "NotificationContent">
                 <box>
                     <label className = "NotificationSummary" wrap>{ notification.get_summary() }</label>
                     <box hexpand></box>
-                    <button
-                        className = "NotificationAction"
-                        onClicked = {() => {
-                            console.log("Hide", notification.get_id());
-                        }}
-                    >
-                        
-                    </button>
-                    <button
-                        className = "NotificationAction"
-                        onClicked = {() => {
-                            console.log("Close", notification.get_id());
-                        }}
-                    >
-                        
-                    </button>
                 </box>
                 <box>
                     <label className = "NotificationBody" wrap>{ notification.get_body() }</label>
@@ -41,27 +64,10 @@ function Notification({ notification, state }) {
                 </box>
             </box>
         </box>
-    </eventbox>
+    </button>
 }
 
 export default function Ping(state) {
-    const notifd = Notifd.get_default();
-    const visibleNotifications = Variable([]);
-    let map = {};
-
-    function rebuildList() {
-        visibleNotifications.set(Object.values(map).map(x => <Notification notification = { x } state = { state }></Notification>));
-    }
-
-    notifd.connect("notified", (_, id) => {
-        map[id] = notifd.get_notification(id);
-        rebuildList(id);
-    });
-    notifd.connect("resolved", (_, id) => {
-        delete map[id];
-        rebuildList(id);
-    });
-
     return <window
         name = "Ping"
         className = "Ping"
