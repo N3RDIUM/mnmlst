@@ -70,3 +70,43 @@
     background-color: #504945;
     border-radius: 2px;
 }
+.NotificationIconContainer {
+    margin: 4px;
+    min-width: 42px;
+    min-height: 42px;
+}
+.NotificationIcon {
+    font-size: 42px;
+}
+.NotificationSummary {
+    margin: 4px;
+    margin-bottom: -4px;
+    font-family: Iosevka;
+    font-weight: bold;
+    font-size: 17px;
+}
+.NotificationBody {
+    margin: 4px;
+    margin-bottom: 7px;
+    font-family: Iosevka;
+    font-size: 14px;
+}
+.NotificationAction {
+    font-family: Iosevka;
+    font-size: 20px;
+    min-width: 25px;
+    min-height: 20px;
+    margin-right: 4px;
+    margin-top: 4px;
+    background: #665c54;
+    border-radius: 2px;
+    transition-duration: 80ms;
+}
+.NotificationAction:hover {
+    background: #7c6f64;
+}
+.NotificationAction:active {
+    background: #ebdbb2;
+    color: #928374;
+}
+

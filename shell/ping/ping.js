@@ -2,14 +2,46 @@ import { App, Astal } from "astal/gtk3";
 import { Variable, bind } from "astal";
 import Notifd from "gi://AstalNotifd";
 
-function Notification({ notification }) {
-    return <box
-        className = "Notification"
-        vertical
-    >
-        { notification.get_summary() }
-        { notification.get_body() }
-    </box>
+function Notification({ notification, state }) {
+    return <eventbox>
+        <box
+            className = "Notification"
+        >
+            <box vertical className = "NotificationIconContainer">
+                <icon
+                    className = "NotificationIcon"
+                    icon = "kitty"
+                />
+                <box vexpand></box>
+            </box>
+            <box vertical className = "NotificationContent">
+                <box>
+                    <label className = "NotificationSummary" wrap>{ notification.get_summary() }</label>
+                    <box hexpand></box>
+                    <button
+                        className = "NotificationAction"
+                        onClicked = {() => {
+                            console.log("Hide", notification.get_id());
+                        }}
+                    >
+                        
+                    </button>
+                    <button
+                        className = "NotificationAction"
+                        onClicked = {() => {
+                            console.log("Close", notification.get_id());
+                        }}
+                    >
+                        
+                    </button>
+                </box>
+                <box>
+                    <label className = "NotificationBody" wrap>{ notification.get_body() }</label>
+                    <box hexpand></box>
+                </box>
+            </box>
+        </box>
+    </eventbox>
 }
 
 export default function Ping(state) {
@@ -18,7 +50,7 @@ export default function Ping(state) {
     let map = {};
 
     function rebuildList() {
-        visibleNotifications.set(Object.values(map).map(x => <Notification notification = { x }></Notification>))
+        visibleNotifications.set(Object.values(map).map(x => <Notification notification = { x } state = { state }></Notification>));
     }
 
     notifd.connect("notified", (_, id) => {
@@ -45,8 +77,7 @@ export default function Ping(state) {
             vertical
             className = "NotificationContainer"
             children = { visibleNotifications() }
-        >
-        </box>
+        ></box>
     </window>
 }
 
