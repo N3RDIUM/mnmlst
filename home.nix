@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, hyprland, zen-browser, ... }:
+{ inputs, config, pkgs, hyprland, hy3, textfox, ... }:
 
 {
   imports = [ inputs.ags.homeManagerModules.default ];
@@ -15,7 +15,6 @@
     zathura
     kdePackages.okular
     gcr
-
     inputs.zen-browser.packages."${system}".specific
 
     # Astro
@@ -71,6 +70,7 @@
     # Fonts
     fira-code
     jetbrains-mono
+    iosevka-bin
 
     # Shell Stuff
     fzf
@@ -93,7 +93,7 @@
     enable = true;
     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     plugins = [
-        pkgs.hyprlandPlugins.hy3
+        # inputs.hy3.packages.x86_64-linux.hy3
     ];
     extraConfig = builtins.readFile (builtins.path {
         path = ./configs/hypr/hyprland.conf;

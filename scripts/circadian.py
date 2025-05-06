@@ -22,7 +22,7 @@ while True:
 
     if hour >= 8 and hour <= 18:
         os.system("hyprctl keyword decoration:screen_shader \"\"")
-    elif (hour > 18 and hour <= 21) or (hour > 4 and hour < 8):
+    elif (hour > 18 and hour < 21) or (hour > 4 and hour < 8):
         os.system("hyprctl keyword decoration:screen_shader \"~/.hyprshaders/warm.glsl\"")
     else:
         os.system("hyprctl keyword decoration:screen_shader \"~/.hyprshaders/astro.glsl\"")

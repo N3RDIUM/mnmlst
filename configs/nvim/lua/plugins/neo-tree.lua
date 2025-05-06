@@ -14,6 +14,25 @@ return {
                 "buffers",
                 "git_status",
                 "document_symbols"
+            },
+            renderers = {
+                directory = {
+                    {
+                        "icon",
+                        padding = " "
+                    },
+                    "name"
+                },
+                file = {
+                    {
+                        "icon",
+                        default = "*",
+                        padding = " "
+                    },
+                    "name",
+                    "bufnr",
+                    "git_status"
+                }
             }
         })
     end

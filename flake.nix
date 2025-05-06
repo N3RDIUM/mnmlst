@@ -16,10 +16,15 @@
         inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    hy3 = {
+      # Temporary: revert to github:outfoxxed/hy3 after outfoxxed/hy3#209 is merged
+      url = "github:Daholli/hy3/fb2832c2d376332e612cd36a3273e793ecd6b62e";
+      inputs.hyprland.follows = "hyprland";
+    };
     zen-browser.url = "github:MarceColl/zen-browser-flake";
   };
 
-  outputs = { nixpkgs, home-manager, hyprland, zen-browser, ... }@inputs:
+  outputs = { nixpkgs, home-manager, hyprland, hy3, zen-browser, ... }@inputs:
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
