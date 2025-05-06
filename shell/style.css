@@ -66,12 +66,14 @@
 }
 
 .NotificationContainer {
+    padding: 22px;
+}
+.Notification {
     min-width: 420px;
     background-color: #504945;
     border-radius: 2px;
-}
-.Notification {
     transition-duration: 80ms;
+    margin-bottom: 6px;
 }
 .Notification:hover {
     background-color: #665c54;
