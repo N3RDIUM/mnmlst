@@ -68,8 +68,6 @@
     hyprpicker
 
     # Fonts
-    fira-code
-    jetbrains-mono
     iosevka-bin
 
     # Shell Stuff
@@ -93,7 +91,7 @@
     enable = true;
     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     plugins = [
-        # inputs.hy3.packages.x86_64-linux.hy3
+        inputs.hy3.packages.x86_64-linux.hy3
     ];
     extraConfig = builtins.readFile (builtins.path {
         path = ./configs/hypr/hyprland.conf;

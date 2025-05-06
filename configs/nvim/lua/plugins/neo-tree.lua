@@ -29,9 +29,9 @@ return {
                         default = "*",
                         padding = " "
                     },
-                    "name",
-                    "bufnr",
-                    "git_status"
+                    { "name" },
+                    { "bufnr" },
+                    { "git_status" }
                 }
             }
         })
