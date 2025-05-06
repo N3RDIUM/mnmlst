@@ -119,3 +119,11 @@
     color: #928374;
 }
 
+.OSDContainer {
+    margin-bottom: 180px;
+    min-width: 240px;
+    min-height: 42px;
+    background: #504945;
+    border-radius: 2px;
+}
+
