@@ -56,7 +56,6 @@
     cava
     wofi
     swww
-    dunst
     kooha
     cmatrix
     pipes-rs
