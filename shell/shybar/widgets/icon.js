@@ -9,7 +9,10 @@ const apps = new Apps.Apps({
 })
 const hyprland = Hyprland.get_default();
 
-const icon = Variable("/home/n3rdium/.zenithassets/nixos.svg")
+const icon = Variable("/home/n3rdium/.zenithassets/nixos.svg");
+const aliases = {
+    "zen-alpha": "zen"
+};
 hyprland.connect("event", () => {
     let client = hyprland.get_focused_client();
     
@@ -20,14 +23,13 @@ hyprland.connect("event", () => {
             found = true;
             break;
         }
-        // for (const app of apps.fuzzy_query(client.title)) {
-        //    icon.set(app.get_icon_name());
-        //    found = true;
-        //    break;
-        // }
     
         if(!found) {
             icon.set("/home/n3rdium/.zenithassets/nixos.svg");
+        }
+
+        if(client.class in aliases) {
+            icon.set(aliases[client.class]);
         }
     } else {
         icon.set("/home/n3rdium/.zenithassets/nixos.svg");
