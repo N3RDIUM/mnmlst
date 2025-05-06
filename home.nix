@@ -62,6 +62,7 @@
     pipes-rs
     hyprshot
     fastfetch
+    libnotify
     hollywood
     playerctl
     obs-studio
