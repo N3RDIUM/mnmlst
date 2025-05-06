@@ -36,7 +36,7 @@
 }
 
 .WindowTitle {
-    font-family: Fira Code;
+    font-family: Iosevka;
     font-size: 13px;
     min-width: 28px;
 }
@@ -50,17 +50,17 @@
     margin-bottom: -12px;
 }
 .DateLabel {
-    font-family: Fira Code;
+    font-family: Iosevka;
     font-size: 12px;
     margin: -3px;
 }
 .TimeLabel {
-    font-family: Fira Code;
+    font-family: Iosevka;
     font-size: 24px;
     margin: -2px;
 }
 .TimeLabelMini {
-    font-family: Fira Code;
+    font-family: Iosevka;
     font-size: 16px;
     margin-bottom: -4px;
 }
