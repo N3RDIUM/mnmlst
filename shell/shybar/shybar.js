@@ -26,7 +26,7 @@ hyprland.connect("event", () => {
     }
 })
 
-export default function shybar() {
+export default function shybar(state) {
     return <window
             name = "ShyBar"
             className = "ShyBar"

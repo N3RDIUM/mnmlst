@@ -5,11 +5,11 @@
 
 .BarContainer {
     min-width: 54px;
-    background: rgba(40, 40, 40, 1.0);
+    background: #282828;
 }
 .BarContainerMini {
     min-width: 28px;
-    background: rgba(40, 40, 40, 1.0)
+    background: #282828;
 }
 .Separator {
     min-height: 2px;
@@ -65,3 +65,8 @@
     margin-bottom: -4px;
 }
 
+.NotificationContainer {
+    min-width: 420px;
+    background-color: #504945;
+    border-radius: 2px;
+}
