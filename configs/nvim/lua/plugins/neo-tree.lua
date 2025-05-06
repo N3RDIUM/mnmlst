@@ -19,15 +19,15 @@ return {
                 directory = {
                     {
                         "icon",
-                        padding = " "
+                        padding = "  "
                     },
-                    "name"
+                    { "name" }
                 },
                 file = {
                     {
                         "icon",
                         default = "*",
-                        padding = " "
+                        padding = "  "
                     },
                     { "name" },
                     { "bufnr" },
