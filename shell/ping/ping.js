@@ -34,7 +34,8 @@ function Notification({ notification, state }) {
     }
 
     // TODO: Play audio file, custom actions,
-    // TODO: hide to pane notification list
+    // TODO: move to pane notification list
+    // TODO: on click instead of just hiding
 
     return <button
         className = "Notification"
