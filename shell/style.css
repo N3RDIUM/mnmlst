@@ -128,4 +128,11 @@
     background: #504945;
     border-radius: 2px;
 }
+.OSDText {
+    font-family: Iosevka;
+    min-width: 240px;
+    min-height: 42px;
+    color: #ebdbb2;
+    font-size: 16px;
+}
 

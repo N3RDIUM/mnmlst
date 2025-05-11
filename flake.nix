@@ -17,8 +17,7 @@
     };
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     hy3 = {
-      # Temporary: revert to github:outfoxxed/hy3 after outfoxxed/hy3#209 is merged
-      url = "github:Daholli/hy3/fb2832c2d376332e612cd36a3273e793ecd6b62e";
+      url = "github:outfoxxed/hy3";
       inputs.hyprland.follows = "hyprland";
     };
     zen-browser.url = "github:MarceColl/zen-browser-flake";
