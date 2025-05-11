@@ -1,5 +1,23 @@
 import { App, Astal } from "astal/gtk3";
-import { Variable, bind } from "astal";
+import { Variable, bind, exec } from "astal";
+
+function parseVolume(string) {
+    return Math.round(parseFloat(string.split(": ")[1].replace("%", "")) * 100)
+}
+function parseMuted(string) {
+    return string.includes("[MUTED]");
+}
+
+const volume = Variable(0).poll(
+    100,
+    "wpctl get-volume @DEFAULT_AUDIO_SINK@",
+    (out, prev) => parseVolume(out),
+);
+const muted = Variable(false).poll(
+    100,
+    "wpctl get-volume @DEFAULT_AUDIO_SINK@",
+    (out, prev) => parseMuted(out),
+);
 
 function OSDWidget({ state }) {
     let content;
@@ -11,9 +29,22 @@ function OSDWidget({ state }) {
             <box hexpand />
         </box>;
     } else if(state.osd_type == "volume") {
+        let current = {
+            volume: volume.get(),
+            muted: muted.get()
+        };
+
+        let volume_icon = "";
+        if(current.volume < 20) {
+            volume_icon = "";
+        }
+        if(current.muted) {
+            volume_icon = "";
+        }
+
         content = <box className="OSDText">
             <box hexpand />
-            {state.osd_state[1]} Volume: {state.osd_state[0]}%
+            {volume_icon} Volume: {current.volume.toString()}%
             <box hexpand />
         </box>
     } else if(state.osd_type == "circadian") {
