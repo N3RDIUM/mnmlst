@@ -10,7 +10,7 @@ return {
                 packages = { enable = false },
                 project = { enable = false },
                 mru = { enable = false },
-                footer = { "What am I supposed to write here?" },
+                footer = { "Mankind was born on Earth. It was never meant to die here." },
                 disable_move = { true },
             }
         }

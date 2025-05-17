@@ -48,7 +48,6 @@ export default function shybar(state) {
                     className = { minified((value) => value ? "BarContainerMini" : "BarContainer") }
                 >
                     <Icon minified = { minified } />
-                    <Title minified = { minified } />
 
                     <box hexpand vexpand />
 

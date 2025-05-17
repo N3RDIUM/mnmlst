@@ -2,10 +2,20 @@ return {
     "dundalek/lazy-lsp.nvim",
     dependencies = {
         "neovim/nvim-lspconfig",
-        "hrsh7th/cmp-nvim-lsp",
-        "hrsh7th/cmp-path",
-        "hrsh7th/nvim-cmp",
+        { "ms-jpq/coq_nvim", branch = "coq" },
+        { "ms-jpq/coq.artifacts", branch = "artifacts" },
+        { 'ms-jpq/coq.thirdparty', branch = "3p" }
     },
+    init = function()
+        vim.g.coq_settings = {
+            auto_start = true,
+            display = {
+                pum = {
+                    source_context = { "˹", "˼" }
+                }
+            }
+        }
+    end,
     config = function()
         require("lazy-lsp").setup {
             excluded_servers = {
@@ -56,5 +66,6 @@ return {
                 }
             },
         }
-    end,
+    end
 }
+

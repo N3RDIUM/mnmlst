@@ -181,8 +181,9 @@ capslock = overload(meta, esc);
   # Install firefox.
   programs.firefox.enable = true;
 
-  # Enable GVFS
-  services.gvfs.enable = true;
+services.devmon.enable = true;
+services.gvfs.enable = true;
+services.udisks2.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree          = true;

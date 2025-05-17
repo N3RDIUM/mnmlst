@@ -11,11 +11,11 @@
     # Essentials
     superfile
     xfce.thunar
-    floorp
     zathura
     kdePackages.okular
     gcr
     inputs.zen-browser.packages."${system}".specific
+    protonvpn-gui
 
     # Astro
     gimp
