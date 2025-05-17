@@ -39,11 +39,13 @@ local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>fn', ':Neotree filesystem toggle right<cr>', { desc = 'Neotree filesystem' })
 vim.keymap.set('n', '<leader>bn', ':Neotree buffers reveal float<cr>', { desc = 'Neotree buffers' })
 vim.keymap.set('n', '<leader>gn', ':Neotree git_status reveal float<cr>', { desc = 'Neotree git status' })
-vim.keymap.set('n', '<leader>ls', ':Neotree document_symbols toggle left<cr>', { desc = 'Neotree document symbols' })
+vim.keymap.set('n', '<leader>sn', ':Neotree document_symbols toggle left<cr>', { desc = 'Neotree document symbols' })
 
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
 vim.keymap.set('n', '<leader>fo', builtin.oldfiles, { desc = 'Telescope old buffers' })
+
+vim.keymap.set('n', '<leader>st', builtin.treesitter, { desc = 'Telescope treesitter symbols' })
 
 vim.keymap.set('n', '<leader>ct', builtin.commands, { desc = 'Telescope commands' })
 vim.keymap.set('c', '<leader>ch', builtin.command_history, { desc = 'Telescope command history' })
