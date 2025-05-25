@@ -135,14 +135,9 @@ capslock = overload(meta, esc);
   };
   services.desktopManager.plasma6.enable = true;
 
-  # Switch to ZSH
-  programs.zsh = {
-    enable                    = true;
-    enableCompletion          = true;
-    autosuggestions.enable    = true;
-    syntaxHighlighting.enable = true;
-  };
-  users.defaultUserShell = pkgs.zsh;
+  # Fish
+  programs.fish.enable = true;
+  users.defaultUserShell = pkgs.fish;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -205,7 +200,6 @@ services.udisks2.enable = true;
     cmake
     meson
     cpio
-    oh-my-zsh
     xdg-desktop-portal-hyprland
     xdg-desktop-portal-gtk
 

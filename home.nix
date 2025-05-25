@@ -20,7 +20,6 @@
     # Astro
     gimp
     wine64Packages.wayland
-    # stellarium
 
     # Code
     trashy
@@ -76,9 +75,8 @@
     fd
     imagemagick
     poppler
-    atuin
-    pure-prompt
-    oh-my-zsh
+    starship
+    zoxide
 
     # Miscellaneous
     ollama
@@ -86,7 +84,6 @@
     ani-cli
     mangal
   ];
-
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -112,11 +109,6 @@
       inputs.ags.packages.${pkgs.system}.tray
       inputs.ags.packages.${pkgs.system}.notifd
     ];
-  };
-
-  programs.zoxide = {
-    enable               = true;
-    enableZshIntegration = true;
   };
 
   programs.git = {
@@ -158,11 +150,11 @@
     ".config/nvim/init.lua".source = ./configs/nvim/init.lua;
     ".config/siril/".source        = ./configs/siril;
     ".config/superfile/".source    = ./configs/superfile;
-    ".zshrc".source                = ./configs/.zshrc;
     "wallpapers/".source           = ./theming/wallpapers;
     ".hyprshaders/".source         = ./configs/hypr/shaders;
     ".zenithassets/".source        = ./assets;
     ".zenithscripts/".source       = ./scripts;
+    ".config/fish/config.fish".source = ./configs/config.fish;
   };
 
   home.sessionVariables = { EDITOR = "nvim"; };
