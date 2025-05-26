@@ -26,7 +26,7 @@ def set_wall(name):
     )
 
 DAY = "von.jpg"
-NIGHT = "pxl.jpg"
+NIGHT = "pxl.png"
 
 previous = None
 current = NIGHT
