@@ -1,3 +1,5 @@
+// The name "pain" is NOT a misspelling. It's deliberate.
+
 import { App, Astal, Gtk } from "astal/gtk3";
 import { Variable } from "astal";
 import { notifications } from "../ping/ping.js";
