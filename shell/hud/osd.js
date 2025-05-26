@@ -72,8 +72,9 @@ export function osd_request_handler(req, res, state) {
 
 export function osd(state) {
     return <window
-        name = "OSD"
-        className = "OSD"
+        name = "osd"
+        className = "osd"
+        namespace = "osd"
         monitor = { 0 }
         exclusivity = { Astal.Exclusivity.IGNORE }
         layer = { Astal.Layer.OVERLAY }

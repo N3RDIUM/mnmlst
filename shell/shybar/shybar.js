@@ -28,8 +28,9 @@ hyprland.connect("event", () => {
 
 export default function shybar(state) {
     return <window
-            name = "ShyBar"
-            className = "ShyBar"
+            name = "shybar"
+            className = "shybar"
+            namespace = "shybar"
             monitor = {0}
             exclusivity = {Astal.Exclusivity.EXCLUSIVE}
             anchor = {

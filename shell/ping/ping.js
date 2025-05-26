@@ -73,8 +73,9 @@ function Notification({ notification, state }) {
 
 export function ping(state) {
     return <window
-        name = "Ping"
-        className = "Ping"
+        name = "ping"
+        className = "ping"
+        namespace = "ping"
         monitor = { 0 }
         exclusivity = { Astal.Exclusivity.IGNORE }
         anchor = {

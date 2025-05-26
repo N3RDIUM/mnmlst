@@ -28,8 +28,8 @@ function StackSwitcher({ children }) {
 
 export default function pain(state) {
     return <window
-        name = "Pain"
-        className = "Pain"
+        name = "pain"
+        className = "pain"
         namespace = "pain"
         monitor = {0}
         exclusivity = {Astal.Exclusivity.EXCLUSIVE}
