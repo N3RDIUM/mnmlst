@@ -5,13 +5,13 @@ import subprocess
 
 # Ensure single instance
 try:
-    with open(".circadian_lastpid") as f:
+    with open(".wallsetter_lastpid") as f:
         pid = f.read()
     os.system(f"kill {pid}")
 except FileNotFoundError:
     pass
 
-with open(".circadian_lastpid", "w") as f:
+with open(".wallsetter_lastpid", "w") as f:
     f.write(str(os.getpid()))
 
 
