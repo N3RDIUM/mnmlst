@@ -2,8 +2,9 @@ import { Variable } from "astal";
 import { App } from "astal/gtk3";
 import style from "./style.css";
 import shybar from "./shybar/shybar.js";
-import ping from "./ping/ping.js";
+import { ping } from "./ping/ping.js";
 import { osd, osd_request_handler } from "./hud/osd.js";
+import pain from "./pain/pain.js";
 
 const state = Variable({
     osd_visible: 1,
@@ -22,6 +23,7 @@ App.start({
         shybar(state);
         ping(state);
         osd(state);
+        pain(state);
     },
     requestHandler(req, res) {
         req = parseRequest(req);

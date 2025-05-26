@@ -4,24 +4,29 @@ import Notifd from "gi://AstalNotifd";
 
 const notifd = Notifd.get_default();
 const visibleNotifications = Variable([]);
+export const notifications = Variable([]);
 let map = {};
 let hidden = {};
 
-function rebuildList() {
+function rebuildLists() {
     visibleNotifications.set(
         Object.values(map)
             .filter(x => !(x.get_id() in hidden))
+            .map(x => <Notification notification = { x }></Notification>)
+    );
+    notifications.set(
+        Object.values(map)
             .map(x => <Notification notification = { x }></Notification>)
     );
 }
 
 notifd.connect("notified", (_, id) => {
     map[id] = notifd.get_notification(id);
-    rebuildList();
+    rebuildLists();
 });
 notifd.connect("resolved", (_, id) => {
     delete map[id];
-    rebuildList();
+    rebuildLists();
 });
 
 function Notification({ notification, state }) {
@@ -34,14 +39,12 @@ function Notification({ notification, state }) {
     }
 
     // TODO: Play audio file, custom actions,
-    // TODO: move to pane notification list
-    // TODO: on click instead of just hiding
 
     return <button
         className = "Notification"
         onClicked = {() => {
             hidden[notification.get_id()] = true;
-            rebuildList();
+            rebuildLists();
         }}
     >
         <box>
@@ -49,7 +52,7 @@ function Notification({ notification, state }) {
                 icon != null ? <box vertical className = "NotificationIconContainer">
                     <icon
                         className = "NotificationIcon"
-                        icon = "kitty"
+                        icon = { icon }
                     />
                     <box vexpand></box>
                 </box> : <box css="min-width: 6px;"></box>
@@ -68,7 +71,7 @@ function Notification({ notification, state }) {
     </button>
 }
 
-export default function Ping(state) {
+export function ping(state) {
     return <window
         name = "Ping"
         className = "Ping"

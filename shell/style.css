@@ -136,3 +136,10 @@
     font-size: 16px;
 }
 
+.Pain {
+    background: #282828;
+}
+.PaneContainer {
+    min-width: 420px;
+}
+

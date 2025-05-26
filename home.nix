@@ -20,6 +20,7 @@
     # Astro
     gimp
     wine64Packages.wayland
+    stellarium
 
     # Code
     trashy
@@ -35,7 +36,6 @@
     prettierd
     gcc
     tree-sitter
-    ripgrep
 
     # Music
     musescore
@@ -72,11 +72,29 @@
 
     # Shell Stuff
     fzf
-    fd
     imagemagick
     poppler
+
+    # Oxidised shell stuff
     starship
     zoxide
+    eza
+    xh
+    fd
+    du-dust
+    dua
+    hyperfine
+    bacon
+    cargo-info
+    fselect
+    rusty-man
+    ripgrep
+    ripgrep-all
+    tokei
+    wiki-tui
+    just
+    mask
+    mprocs
 
     # Miscellaneous
     ollama
