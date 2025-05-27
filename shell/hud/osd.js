@@ -58,7 +58,7 @@ function OSDWidget({ state }) {
     return <box>{ content }</box>;
 }
 
-export function osd_request_handler(req, res, state) {
+export function osdRequestHandler(req, res, state) {
     let osd_type = req[0]
     let osd_state = req.slice(1, req.length);
     state.set({

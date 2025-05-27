@@ -4,7 +4,8 @@ import Notifd from "gi://AstalNotifd";
 
 const notifd = Notifd.get_default();
 const visibleNotifications = Variable([]);
-export const notifications = Variable([]);
+const hiddenNotifications = Variable([]);
+const paneVisible = Variable(0);
 let map = {};
 let hidden = {};
 
@@ -14,8 +15,9 @@ function rebuildLists() {
             .filter(x => !(x.get_id() in hidden))
             .map(x => <Notification notification = { x }></Notification>)
     );
-    notifications.set(
+    hiddenNotifications.set(
         Object.values(map)
+            .filter(x => (x.get_id() in hidden))
             .map(x => <Notification notification = { x }></Notification>)
     );
 }
@@ -43,6 +45,9 @@ function Notification({ notification, state }) {
     return <button
         className = "Notification"
         onClicked = {() => {
+            if(notification.get_id() in hidden) {
+                notification.dismiss();
+            }
             hidden[notification.get_id()] = true;
             rebuildLists();
         }}
@@ -84,11 +89,26 @@ export function ping(state) {
         }
         application = { App }
     >
-        <box
-            vertical
-            className = "NotificationContainer"
-            children = { visibleNotifications() }
-        ></box>
+        <eventbox
+            onHover = { () => { paneVisible.set(true) } }
+            onHoverLost = { () => { paneVisible.set(false) } }
+        >
+            <box 
+                vertical
+                className = {paneVisible(v => !v ? "NotificationContainer" : "NotificationContainerActive")}
+        >
+                <box
+                    vertical
+                    children = { visibleNotifications() }
+                ></box>
+                <box className = "NotificationSeparator" visible = { paneVisible() } />
+                <box
+                    vertical
+                    children = { hiddenNotifications() }
+                    visible = {paneVisible()}
+                ></box>
+            </box>
+        </eventbox>
     </window>
 }
 

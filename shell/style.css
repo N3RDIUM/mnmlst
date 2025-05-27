@@ -3,51 +3,14 @@
     all: unset;
 }
 
-.BarContainer {
-    min-width: 54px;
-    background: #282828;
-}
-.BarContainerMini {
-    min-width: 28px;
-    background: #282828;
-}
-.Separator {
-    min-height: 2px;
-    margin: 6px;
-    border-radius: 2px;
-    background: #665c54;
-}
-
-.NixOSContainer {
-    padding: 8px 0;
-    padding-bottom: 2px;
-}
-.NixOSContainerMini {
-    padding: 4px 0;
-    padding-bottom: 2px;
-}
-.NixOS {
-    font-size: 36px;
-    margin-bottom: 2px;
-}
-.NixOSMini {
-    font-size: 24px;
-    margin-bottom: 2px;
-}
-
-.WindowTitle {
-    font-family: Iosevka;
-    font-size: 13px;
-    min-width: 28px;
-}
-
 .TimeWidget {
-    min-width: 54px;
-    padding: 8px 0;
-}
-.TimeWidgetMini {
-    min-width: 28px;
-    margin-bottom: -12px;
+    background: #282828;
+    min-width: 42px;
+    padding: 18px 0;
+    border: solid 1px #7c6f64;
+    border-left: none;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
 }
 .DateLabel {
     font-family: Iosevka;
@@ -59,14 +22,20 @@
     font-size: 24px;
     margin: -2px;
 }
-.TimeLabelMini {
-    font-family: Iosevka;
-    font-size: 16px;
-    margin-bottom: -4px;
-}
 
 .NotificationContainer {
-    padding: 22px;
+    padding: 4px;
+    min-width: 420px;
+}
+.NotificationContainerActive {
+    padding: 4px;
+    background: #282828;
+}
+.NotificationSeparator {
+    min-width: 400px;
+    margin: 10px;
+    min-height: 1px;
+    background: #ebdbb2;
 }
 .Notification {
     min-width: 420px;
@@ -134,12 +103,5 @@
     min-height: 42px;
     color: #ebdbb2;
     font-size: 16px;
-}
-
-.Pain {
-    background: #282828;
-}
-.PaneContainer {
-    min-width: 420px;
 }
 

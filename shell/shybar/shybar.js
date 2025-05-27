@@ -1,30 +1,10 @@
-import { App, Astal } from "astal/gtk3";
-import { Variable } from "astal";
+import { App, Astal, Gtk } from "astal/gtk3";
+import { Variable, timeout } from "astal";
 import Hyprland from "gi://AstalHyprland";
-import Icon from "./widgets/icon.js";
 import Time from "./widgets/time.js";
-import Title from "./widgets/title.js";
 
 const hyprland = Hyprland.get_default();
-const minified = Variable(true);
-let nowin = false;
-
-hyprland.connect("event", () => {
-    let found = 0;
-    for (const client of hyprland.get_clients()) {
-        if (client.workspace == hyprland.get_focused_workspace()) {
-            found++;
-        }
-    }
-
-    if(found == 0) {
-        nowin = true;
-        minified.set(false);
-    } else {
-        nowin = false;
-        minified.set(true);
-    }
-})
+const timeVisible = Variable(false);
 
 export default function shybar(state) {
     return <window
@@ -32,7 +12,7 @@ export default function shybar(state) {
             className = "shybar"
             namespace = "shybar"
             monitor = {0}
-            exclusivity = {Astal.Exclusivity.EXCLUSIVE}
+            exclusivity = {Astal.Exclusivity.IGNORE}
             anchor = {
                 Astal.WindowAnchor.LEFT |
                 Astal.WindowAnchor.TOP |
@@ -40,21 +20,26 @@ export default function shybar(state) {
             }
             application={App}
         >
-            <eventbox 
-                onHover = { () => { if(!nowin) minified.set(false) } }
-                onHoverLost = { () => { if(!nowin) minified.set(true) } }
+            <box 
+                vertical
+                className = { "BarContainer" }
             >
-                <box 
-                    vertical
-                    className = { minified((value) => value ? "BarContainerMini" : "BarContainer") }
+                <box hexpand vexpand />
+
+                <eventbox 
+                    onHover = { () => { timeVisible.set(true) } }
+                    onHoverLost = { () => { timeVisible.set(false) } }
                 >
-                    <Icon minified = { minified } />
+                    <revealer
+                        transitionType={Gtk.RevealerTransitionType.SLIDE_RIGHT}
+                        revealChild={timeVisible()}
+                    >
+                        <Time />
+                    </revealer>
+                </eventbox>
 
-                    <box hexpand vexpand />
-
-                    <Time minified = { minified } />
-                </box>
-            </eventbox>
+                <box hexpand vexpand />
+            </box>
         </window>;
 }
 
