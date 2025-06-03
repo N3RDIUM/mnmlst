@@ -37,6 +37,9 @@
     gcc
     tree-sitter
 
+    # Pwnage
+    wireshark
+
     # Music
     musescore
     muse-sounds-manager
@@ -71,6 +74,7 @@
     font-awesome
 
     # Shell Stuff
+    sl
     fzf
     imagemagick
     poppler

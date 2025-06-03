@@ -89,26 +89,13 @@ export function ping(state) {
         }
         application = { App }
     >
-        <eventbox
-            onHover = { () => { paneVisible.set(true) } }
-            onHoverLost = { () => { paneVisible.set(false) } }
-        >
-            <box 
+        <box vertical>
+            <box
                 vertical
-                className = {paneVisible(v => !v ? "NotificationContainer" : "NotificationContainerActive")}
-        >
-                <box
-                    vertical
-                    children = { visibleNotifications() }
-                ></box>
-                <box className = "NotificationSeparator" visible = { paneVisible() } />
-                <box
-                    vertical
-                    children = { hiddenNotifications() }
-                    visible = {paneVisible()}
-                ></box>
-            </box>
-        </eventbox>
+                className = "NotificationContainer"
+                children = { visibleNotifications() }
+            ></box>
+        </box>
     </window>
 }
 

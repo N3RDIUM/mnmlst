@@ -27,6 +27,10 @@
     padding: 4px;
     min-width: 420px;
 }
+.NotificationEmpty {
+    padding: 4px;
+    min-width: 420px;
+}
 .NotificationContainerActive {
     padding: 4px;
     background: #282828;
