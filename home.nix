@@ -16,6 +16,7 @@
     gcr
     inputs.zen-browser.packages."${system}".specific
     protonvpn-gui
+    noisetorch
 
     # Astro
     gimp
