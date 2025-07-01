@@ -2,13 +2,6 @@
 
 {
 	imports = [ ./hardware-configuration.nix ];
-	
-	# For now.
-	nixpkgs.overlays = [
-		(self: super: {
-			python3Packages = self.python312Packages;
-		})
-	];
 		
 	# Bootloader.
 	boot = {

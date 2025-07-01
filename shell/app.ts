@@ -1,7 +1,7 @@
 import { Variable } from "astal";
 import { App } from "astal/gtk3";
 import style from "./style.css";
-import shybar from "./shybar/shybar.js";
+import { clock, timeRequestHandler } from "./clock/clock.js";
 import { ping } from "./ping/ping.js";
 import { osd, osdRequestHandler } from "./hud/osd.js";
 
@@ -20,9 +20,9 @@ function parseRequest(req) {
 App.start({
     css: style,
     main() {
-        shybar(state);
         ping(state);
         osd(state);
+        clock(state);
     },
     requestHandler(req, res) {
         req = parseRequest(req);
@@ -31,6 +31,8 @@ App.start({
 
         if(to == "osd") {
             osdRequestHandler(body, res, state);
+        } if(to == "time") {
+            timeRequestHandler(body, res, state);
         }
     },
 });

@@ -14,7 +14,7 @@ TODO:
     - [x] Autoswitch screen shaders based on time (py)
     - [x] Figure out how to make everything keyboard-centric
     - [ ] Ditch mouse?
-    - [ ] Somehow revive previous session if possible (hibernate?)
+    - [x] Somehow revive previous session if possible (hibernate?)
     - [x] Move the profile pics to assets, they're annoying. Move all assets to a single dir (`~/.zenithassets`)
     - [x] Write an actual todo list
 - Neovim
@@ -27,7 +27,7 @@ TODO:
     - [x] Nuke unneeded stuff 
     - [x] Reformat config
     - [x] Actually configure `hy3`
-    - [ ] Remake keybinds
+    - [x] Remake keybinds
     - [x] Auto brightness/warmth based on time
 - fastfetch
     - [ ] Redo config for minimalism instead of showoff

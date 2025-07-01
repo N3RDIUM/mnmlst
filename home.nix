@@ -77,29 +77,16 @@
 		# Shell Stuff
 		sl
 		fzf
-		imagemagick
-		poppler
 		atuin
 
 		# Oxidised shell stuff
 		starship
 		zoxide
-		eza
-		xh
 		fd
 		du-dust
-		dua
-		hyperfine
-		bacon
-		cargo-info
-		fselect
-		rusty-man
 		ripgrep
 		ripgrep-all
 		tokei
-		wiki-tui
-		just
-		mask
 		mprocs
 
 		# Miscellaneous
@@ -112,11 +99,8 @@
 	wayland.windowManager.hyprland = {
 		enable = true;
 		package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-		plugins = [
-				# inputs.hy3.packages.x86_64-linux.hy3
-		];
 		extraConfig = builtins.readFile (builtins.path {
-				path = ./configs/hypr/hyprland.conf;
+			path = ./configs/hypr/hyprland.conf;
 		});
 	};
 
