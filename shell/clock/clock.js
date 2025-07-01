@@ -24,22 +24,22 @@ export function timeRequestHandler(req, res, state) {
 
 export function clock(state) {
     return <window
-            name = "clock"
-            className = "clock"
-            namespace = "clock"
-            monitor = {0}
-            exclusivity = {Astal.Exclusivity.IGNORE}
-            anchor = {
-                Astal.WindowAnchor.TOP
-            }
-            application={App}
-        >
-            <box className = "TimeWidget" visible={visible()}>
-                <box className = "TimeLeft" vertical>
-                    <label className="TimeLabel" label={hour(transform)} />
-                    <label className="TimeLabel" label={minute(transform)} />
-                </box>
+        name = "clock"
+        className = "clock"
+        namespace = "clock"
+        monitor = {0}
+        exclusivity = {Astal.Exclusivity.IGNORE}
+        anchor = {
+            Astal.WindowAnchor.TOP
+        }
+        application={App}
+    >
+        <box className = "TimeWidget" visible={visible()}>
+            <box className = "TimeLeft" vertical>
+                <label className="TimeLabel" label={hour(transform)} />
+                <label className="TimeLabel" label={minute(transform)} />
             </box>
-        </window>;
+        </box>
+    </window>;
 }
 
