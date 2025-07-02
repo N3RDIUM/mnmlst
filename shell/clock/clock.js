@@ -48,6 +48,7 @@ export function clock(state) {
                     }}
                 />
             </box>
+            <Gtk.Calendar />
         </box>
     </window>;
 }

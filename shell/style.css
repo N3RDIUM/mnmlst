@@ -14,8 +14,13 @@
     padding-left: 32px;
     padding-top: calc((321px - 256px) / 2);
 }
-.clock {
+.Clock {
     font-size: 256px;
+}
+.Calendar {
+    min-width: 42px;
+    min-height: 42px;
+    background: red;
 }
 
 .NotificationContainer {
