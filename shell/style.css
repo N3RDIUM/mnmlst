@@ -10,16 +10,12 @@
     margin-top: 12px;
     border: solid 1px #ebdbb2;
 }
-.TimeLabel {
-    font-family: Iosevka;
-    font-size: 128px;
-    font-weight: lighter;
-    margin: -2px;
-}
 .TimeLeft {
-    padding: 0 42px;
-    padding-top: 4px;
-    border-right: solid 1px #7c6f64;
+    padding-left: 32px;
+    padding-top: calc((321px - 256px) / 2);
+}
+.clock {
+    font-size: 256px;
 }
 
 .NotificationContainer {

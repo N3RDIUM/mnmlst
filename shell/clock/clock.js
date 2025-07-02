@@ -36,8 +36,15 @@ export function clock(state) {
     >
         <box className = "TimeWidget" visible={visible()}>
             <box className = "TimeLeft" vertical>
-                <label className="TimeLabel" label={hour(transform)} />
-                <label className="TimeLabel" label={minute(transform)} />
+                <icon 
+                    icon="/home/n3rdium/.clock.svg"
+                    className="Clock"
+                    setup = {(self) => {
+                        setInterval(() => {
+                            self.icon = "/home/n3rdium/.clock.svg";
+                        }, 42);
+                    }}
+                />
             </box>
         </box>
     </window>;
