@@ -43,7 +43,7 @@ def generate_clock_svg():
     return svg
 
 while True:
-    time.sleep(0.1)
+    time.sleep(1)
     svg_content = generate_clock_svg()
     with open("/home/n3rdium/.clock.svg", "w") as f:
         f.write(svg_content)

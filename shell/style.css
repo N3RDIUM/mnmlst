@@ -8,7 +8,7 @@
     min-width: 684px;
     min-height: 321px;
     margin-top: 12px;
-    border: solid 1px #ebdbb2;
+    border: solid 1px #665c54;
 }
 .TimeLeft {
     padding-left: 32px;
@@ -39,7 +39,7 @@
 .Notification {
     min-width: 420px;
     background-color: #504945;
-    border-radius: 2px;
+    border: solid 1px #665c54;
     transition-duration: 80ms;
     margin-bottom: 6px;
 }
@@ -94,7 +94,7 @@
     min-width: 240px;
     min-height: 42px;
     background: #504945;
-    border-radius: 2px;
+    border: solid 1px #665c54;
 }
 .OSDText {
     font-family: Iosevka;

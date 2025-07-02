@@ -1,5 +1,5 @@
-import { App, Astal } from "astal/gtk3";
-import { Variable } from "astal";
+import { App, Astal, Gtk } from "astal/gtk3";
+import { Variable, subprocess } from "astal";
 
 const hour = Variable(0).poll(
 	1000,
@@ -23,6 +23,8 @@ export function timeRequestHandler(req, res, state) {
 }
 
 export function clock(state) {
+    const process = subprocess("python /home/n3rdium/.zenithscripts/clock.py");
+
     return <window
         name = "clock"
         className = "clock"
