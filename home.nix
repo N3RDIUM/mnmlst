@@ -94,6 +94,10 @@
 		discord
 		ani-cli
 		mangal
+
+        # Shell stuff
+        inputs.astal.packages.${pkgs.system}.io
+        inputs.astal.packages.${pkgs.system}.notifd
 	];
 
 	wayland.windowManager.hyprland = {
@@ -110,11 +114,6 @@
 
 		# additional packages to add to gjs's runtime
 		extraPackages = [
-			inputs.ags.packages.${pkgs.system}.astal3
-			inputs.ags.packages.${pkgs.system}.apps
-			inputs.ags.packages.${pkgs.system}.mpris
-			inputs.ags.packages.${pkgs.system}.hyprland
-			inputs.ags.packages.${pkgs.system}.tray
 			inputs.ags.packages.${pkgs.system}.notifd
 		];
 	};
