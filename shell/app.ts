@@ -1,7 +1,8 @@
 import { Variable } from "astal";
 import { App } from "astal/gtk3";
 import style from "./style.css";
-import { clock, timeRequestHandler } from "./clock/clock.js";
+import { timeWidget, timeRequestHandler } from "./time/time.js";
+import { searchWidget, searchRequestHandler } from "./search/search.js";
 import { ping } from "./ping/ping.js";
 import { osd, osdRequestHandler } from "./hud/osd.js";
 
@@ -22,7 +23,8 @@ App.start({
     main() {
         ping(state);
         osd(state);
-        clock(state);
+        timeWidget(state);
+        searchWidget(state);
     },
     requestHandler(req, res) {
         req = parseRequest(req);
@@ -31,8 +33,10 @@ App.start({
 
         if(to == "osd") {
             osdRequestHandler(body, res, state);
-        } if(to == "time") {
+        } else if(to == "time") {
             timeRequestHandler(body, res, state);
+        } else if(to == "search") {
+            searchRequestHandler(body, res, state);
         }
     },
 });

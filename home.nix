@@ -90,7 +90,7 @@
 		mprocs
 
 		# Miscellaneous
-		ollama
+        # ollama
 		discord
 		ani-cli
 		mangal

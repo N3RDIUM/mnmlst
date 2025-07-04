@@ -109,3 +109,9 @@
     font-size: 16px;
 }
 
+.SearchWidget {
+    min-width: 720px;
+    min-height: 384px;
+    background: #282828;
+    border: solid 1px #665c54;
+}
