@@ -50,7 +50,7 @@ function OSDWidget({ state }) {
     } else if(state.osd_type == "circadian") {
         content = <box className="OSDText">
             <box hexpand />
-            {state.osd_state[1]} Warmth: {state.osd_state[0]}
+            {state.osd_state[1]} {state.osd_state[0]}
             <box hexpand />
         </box>
     }

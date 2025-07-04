@@ -44,7 +44,7 @@ export function clock(state) {
                     setup = {(self) => {
                         setInterval(() => {
                             self.icon = "/home/n3rdium/.clock.svg";
-                        }, 42);
+                        }, 250);
                     }}
                 />
             </box>
