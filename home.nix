@@ -42,9 +42,7 @@
 		wireshark
 
 		# Music
-		musescore
-		muse-sounds-manager
-		lmms
+        # lmms
 		audacity
 		pavucontrol
 		youtube-music

@@ -1,22 +1,14 @@
 {
     "$schema": "https://json.schemastore.org/tsconfig",
     "compilerOptions": {
-        "experimentalDecorators": true,
         "strict": true,
-        "target": "ES2022",
         "module": "ES2022",
+        "target": "ES2020",
+        "lib": ["ES2023"],
         "moduleResolution": "Bundler",
         // "checkJs": true,
         // "allowJs": true,
         "jsx": "react-jsx",
-        "jsxImportSource": "/home/n3rdium/.local/share/ags/gtk3",
-        "paths": {
-            "astal": [
-                "/home/n3rdium/.local/share/ags"
-            ],
-            "astal/*": [
-                "/home/n3rdium/.local/share/ags/*"
-            ]
-        },
+        "jsxImportSource": "ags/gtk4"
     }
 }
