@@ -1,0 +1,15 @@
+@use "./theme";
+
+.osd-container {
+  background: theme.$bg;
+  padding: 12px 42px;
+  border: solid 1px theme.$border;
+  border-radius: theme.$radius;
+}
+.osd-text {
+  font-family: theme.$font;
+  font-size: 17px;
+  color: theme.$fg;
+  font-weight: 400;
+}
+

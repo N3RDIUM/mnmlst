@@ -89,6 +89,18 @@ capslock = overload(meta, esc);
         };
     };
 
+    i18n.inputMethod = {
+        type = "fcitx5";
+        enable = true;
+        fcitx5 = {
+            waylandFrontend = true;
+            addons = with pkgs; [
+                fcitx5-mozc
+                fcitx5-gtk
+            ];
+        };
+    };
+
 	# Enable SDDM and KDE Plasma
 	services.displayManager.sddm = {
 		enable				 = true;

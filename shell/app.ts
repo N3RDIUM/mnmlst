@@ -1,10 +1,15 @@
 import app from "ags/gtk4/app"
-import style from "./style.scss"
-import Bar from "./widget/Bar"
+import theme from "./index.scss"
+import { Osd } from "./widget/Osd"
 
 app.start({
-  css: style,
-  main() {
-    app.get_monitors().map(Bar)
-  },
+    css: theme,
+    main() {
+        const main_monitor = app.get_monitors()[0];
+        Osd(main_monitor);
+    },
+    requestHandler(request, res) {
+        console.log(request);
+        res("ok");
+    }
 })
