@@ -1,8 +1,13 @@
 @use "./theme";
 
+.osd-window {
+  background: transparent;
+  padding: 0;
+  margin: 0;
+}
 .osd-container {
   background: theme.$bg;
-  padding: 12px 42px;
+  padding: 12px 24px;
   border: solid 1px theme.$border;
   border-radius: theme.$radius;
 }
