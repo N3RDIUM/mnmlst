@@ -17,31 +17,11 @@ with open(".wallsetter_lastpid", "w") as f:
 
 _ = subprocess.call("swww-daemon")
 
-def get_hour() -> int:
-    return datetime.now().hour
-
 def set_wall(name):
     _ = os.system(
         f"swww img {os.path.join(os.path.dirname(__file__), name)}"
     )
 
-DAY = "von.jpg"
-NIGHT = "pxl.png"
-
-previous = None
-current = NIGHT
-
 while True:
-    hour = get_hour()
-
-    if hour >= 6 and hour <= 18:
-        current = DAY
-    else:
-        current = NIGHT
-
-    if current != previous:
-        set_wall(current)
-        previous = current
-
-    sleep(20)
+    set_wall("classroom.jpg")
 

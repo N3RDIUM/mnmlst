@@ -107,19 +107,17 @@
 	};
 
 	programs.ags = {
-		enable		= true;
+		enable = true;
 		configDir = ./shell;
-
-		# additional packages to add to gjs's runtime
 		extraPackages = [
 			inputs.ags.packages.${pkgs.system}.notifd
 		];
 	};
 
 	programs.git = {
-		enable			= true;
-		userName		= "n3rdium";
-		userEmail	 = "n3rdium@gmail.com";
+		enable = true;
+		userName = "n3rdium";
+		userEmail = "n3rdium@gmail.com";
 		extraConfig = {
 			credential.helper = "${
 				pkgs.git.override { withLibsecret = true; }
