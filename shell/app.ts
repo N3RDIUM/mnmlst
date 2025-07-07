@@ -1,6 +1,6 @@
 import app from "ags/gtk4/app"
 import theme from "./index.scss"
-import { Osd, OsdRequestHandler } from "./widget/Osd"
+import { Osd, OsdRequestHandler } from "./widget/Osd/Osd"
 
 function parseRequest(req: String) {
     return req.toString().split(" ")
