@@ -154,7 +154,6 @@
 		".config/siril/".source = ./configs/siril;
 		".config/superfile/".source = ./configs/superfile;
 		"wallpapers/".source = ./theming/wallpapers;
-		".hyprshaders/".source = ./configs/hypr/shaders;
 		".zenithassets/".source = ./assets;
 		".zenithscripts/".source = ./scripts;
 		".config/fish/config.fish".source = ./configs/config.fish;
