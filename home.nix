@@ -15,11 +15,11 @@
 		kdePackages.okular
 		gcr
 		inputs.zen-browser.packages."${system}".specific
-		protonvpn-gui
-		noisetorch
+        wayvnc
+        tigervnc
 
 		# Astro
-		gimp
+        # gimp
 		wine64Packages.wayland
 		stellarium
 
@@ -42,7 +42,7 @@
 		wireshark
 
 		# Music
-        # lmms
+        lmms
 		audacity
 		pavucontrol
 		youtube-music

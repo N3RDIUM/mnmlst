@@ -53,7 +53,27 @@
 
 	# Enable networking
 	networking.networkmanager.enable = true;
-	networking.hostName	= "n3rdiums-machine";
+	networking.hostName	= "n3rdium-rig";
+    networking.extraHosts = ''127.0.1.1 n3rdium-rig.local'';
+
+    networking.firewall.allowedTCPPorts = [ 5900 ];
+
+    # Avahi
+    services.avahi = {
+        enable = true;
+        ipv4 = true;
+        ipv6 = false;
+        nssmdns4 = true;
+        nssmdns6 = false;
+        openFirewall = true;
+    };
+
+    # mDNS Setup
+    system.nssModules = pkgs.lib.optional true pkgs.nssmdns;
+    system.nssDatabases.hosts = pkgs.lib.optionals true (pkgs.lib.mkMerge [
+        (pkgs.lib.mkBefore [ "mdns4_minimal [NOTFOUND=return]" ]) # before resolve
+        (pkgs.lib.mkAfter [ "mdns4" ]) # after dns
+    ]);
 
 	# Enable experimental features
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];

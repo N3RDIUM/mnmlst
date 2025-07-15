@@ -8,5 +8,5 @@ def set_wall(name):
         f"swww img {os.path.join(os.path.dirname(__file__), name)}"
     )
 
-set_wall("classroom.jpg")
+set_wall("firewatch.png")
 
