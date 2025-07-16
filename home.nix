@@ -16,7 +16,6 @@
 		gcr
 		inputs.zen-browser.packages."${system}".specific
         wayvnc
-        tigervnc
 
 		# Astro
         # gimp
