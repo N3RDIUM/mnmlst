@@ -16,6 +16,8 @@
 		gcr
 		inputs.zen-browser.packages."${system}".specific
         wayvnc
+        btop
+        gnome-pomodoro
 
 		# Astro
         # gimp
