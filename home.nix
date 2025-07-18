@@ -20,7 +20,7 @@
         gnome-pomodoro
 
 		# Astro
-        # gimp
+        # gimp # Won't build, currently installed using nix-env.
 		wine64Packages.wayland
 		stellarium
 
