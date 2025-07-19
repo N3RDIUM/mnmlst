@@ -6,13 +6,13 @@
 	# Bootloader.
 	boot = {
 		# Latest kernel
-		kernelPackages = pkgs.linuxPackages_xanmod_latest;
+		kernelPackages = pkgs.linuxPackages_latest;
 
 		# Grub
 		loader.grub = {
-			enable			 = true;
-			device			 = "nodev";
-			efiSupport	 = true;
+			enable = true;
+			device = "nodev";
+			efiSupport = true;
 			timeoutStyle = "menu";
 		};
 		loader.efi.canTouchEfiVariables = true;
@@ -109,18 +109,6 @@ capslock = overload(meta, esc);
         };
     };
 
-    i18n.inputMethod = {
-        type = "fcitx5";
-        enable = true;
-        fcitx5 = {
-            waylandFrontend = true;
-            addons = with pkgs; [
-                fcitx5-mozc
-                fcitx5-gtk
-            ];
-        };
-    };
-
 	# Enable SDDM and KDE Plasma
 	services.displayManager.sddm = {
 		enable				 = true;
@@ -128,7 +116,7 @@ capslock = overload(meta, esc);
 	};
 	services.desktopManager.plasma6.enable = true;
 
-	# Fish
+	# Fish fish fish fish fish
 	programs.fish.enable = true;
 	users.defaultUserShell = pkgs.fish;
 
@@ -139,16 +127,16 @@ capslock = overload(meta, esc);
 	};
 
 	# Enable CUPS to print documents.
-	services.printing.enable = true;
+    # services.printing.enable = true;
 
 	# Enable sound with pipewire.
 	services.pulseaudio.enable = false;
-	security.rtkit.enable			= true;
+	security.rtkit.enable = true;
 	services.pipewire = {
-		enable						= true;
-		alsa.enable			 = true;
+		enable = true;
+		alsa.enable	= true;
 		alsa.support32Bit = true;
-		pulse.enable			= true;
+		pulse.enable = true;
 	};
 
 	# Define user accounts.
@@ -192,8 +180,7 @@ capslock = overload(meta, esc);
 		cmake
 		meson
 		cpio
-		xdg-desktop-portal-hyprland
-		xdg-desktop-portal-gtk
+        efibootmgr
 	];
 
 	# Automount

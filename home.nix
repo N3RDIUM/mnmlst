@@ -23,6 +23,7 @@
         # gimp # Won't build, currently installed using nix-env.
 		wine64Packages.wayland
 		stellarium
+        kdePackages.filelight
 
 		# Code
 		trashy
@@ -114,6 +115,18 @@
 			inputs.ags.packages.${pkgs.system}.notifd
 		];
 	};
+
+    i18n.inputMethod = {
+        type = "fcitx5";
+        enable = true;
+        fcitx5 = {
+            waylandFrontend = true;
+            addons = with pkgs; [
+                fcitx5-mozc
+                fcitx5-gtk
+            ];
+        };
+    };
 
 	programs.git = {
 		enable = true;

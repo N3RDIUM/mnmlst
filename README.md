@@ -62,6 +62,7 @@ TODO:
     - [ ] Reorganize nixos config
     - [ ] Enable automatic updates (w/ desktop notif)
     - [x] Enable auto gc
+    - [ ] Move the second monitor config to this repo.
 - Theming
     - [x] Get a good wallpaper (live/dynamic based on time)
     - [x] Decide a name for this rice
