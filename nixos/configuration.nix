@@ -96,6 +96,19 @@
 		LC_TIME = "en_US.UTF-8";
 	};
 
+    # Keyboard and input manager stuff
+    i18n.inputMethod = {
+        type = "fcitx5";
+        enable = true;
+        fcitx5 = {
+            waylandFrontend = true;
+            addons = with pkgs; [
+                fcitx5-mozc
+                fcitx5-gtk
+            ];
+        };
+    };
+
 	services.keyd = {
         enable = true;
         keyboards = {
