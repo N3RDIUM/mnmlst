@@ -18,6 +18,7 @@
         wayvnc
         btop
         gnome-pomodoro
+        kdePackages.filelight
 
 		# Astro
         # gimp # Won't build, currently installed using nix-env.
@@ -45,7 +46,7 @@
 
 		# Music
         lmms
-		audacity
+        # audacity # Also won't build
 		pavucontrol
 		youtube-music
 
