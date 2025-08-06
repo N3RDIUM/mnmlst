@@ -46,7 +46,19 @@
     };
 
 	# OpenGL
-	hardware.graphics.enable = true;
+    hardware.graphics.enable = true;
+
+    # Nvidia f-
+#     services.xserver.videoDrivers = ["nvidia"];
+
+#     hardware.nvidia = {
+#         modesetting.enable = true;
+#         powerManagement.enable = false;
+#         powerManagement.finegrained = false;
+#         open = false;
+#         nvidiaSettings = true;
+#         package = config.boot.kernelPackages.nvidiaPackages.legacy_470;
+#     };
 
 	# Whatever this is
 	programs.dconf.enable = true;		
@@ -190,8 +202,9 @@ capslock = overload(meta, esc);
     services.gvfs.enable = true;
     services.udisks2.enable = true;
 
-	# Allow unfree packages
+	# Stuff
 	nixpkgs.config.allowUnfree = true;
+    nixpkgs.config.nvidia.acceptLicense = true;
 
 	# List packages installed in system profile.
 	environment.variables.EDITOR = "nvim";
@@ -211,6 +224,11 @@ capslock = overload(meta, esc);
 		cpio
         efibootmgr
         polkit_gnome
+        nvidia-vaapi-driver
+        egl-wayland
+        mesa
+        mesa-gl-headers
+        mesa_glu
 	];
 
 	# Automount

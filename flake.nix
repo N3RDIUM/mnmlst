@@ -17,8 +17,14 @@
 		let
 			system = "x86_64-linux";
 			lib = nixpkgs.lib;
+            pkgs-unstable = inputs.hyprland.inputs.nixpkgs.legacyPkgs.${nixpkgs.stdenv.hostPlatform.system};
 
 		in {
+            hardware.graphics = {
+                enable = true;
+                package = pkgs-unstable.mesa;
+            };
+
             nixosConfigurations.n3rdium = lib.nixosSystem {
                 inherit system;
                 modules = [

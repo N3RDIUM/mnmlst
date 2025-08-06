@@ -46,7 +46,7 @@
 
 		# Music
         lmms
-        # audacity # Also won't build
+        audacity
 		pavucontrol
 		youtube-music
 
