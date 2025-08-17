@@ -7,7 +7,12 @@ function parseRequest(req: String) {
 }
 
 const requestMap = {
-    osd: OsdRequestHandler
+    osd: OsdRequestHandler,
+    xf86tools: () => { console.log("undecided") },
+    xf86homepage: () => { console.log("dashboard") },
+    xf86mail: () => { console.log("notifications") },
+    xf86explorer: () => { console.log("search") },
+    xf86calculator: () => { console.log("assistant") },
 };
 
 app.start({
