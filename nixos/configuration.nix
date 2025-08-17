@@ -67,6 +67,11 @@
 	networking.networkmanager.enable = true;
 	networking.hostName	= "n3rdium-rig";
     networking.extraHosts = ''127.0.1.1 n3rdium-rig.local'';
+    networking.interfaces.eno1.ipv4.addresses = [
+        { address = "192.168.1.42"; prefixLength = 24; }
+    ];
+    networking.defaultGateway = "192.168.1.1";
+    networking.nameservers = [ "192.168.1.1" "8.8.8.8" ];
 
     networking.firewall.allowedTCPPorts = [ 5900 ];
 
@@ -185,12 +190,14 @@ capslock = overload(meta, esc);
 		n3rdium = {
 			isNormalUser = true;
 			description	= "n3rdium";
+            shell = pkgs.fish;
 			extraGroups	= [ "networkmanager" "wheel" ];
 		};
 
 		not-n3rdium = {
 			isNormalUser = true;
 			description	= "not-n3rdium";
+            shell = pkgs.fish;
 			extraGroups	= [ "networkmanager" ];
 		};
 	};
@@ -208,8 +215,9 @@ capslock = overload(meta, esc);
 
 	# List packages installed in system profile.
 	environment.variables.EDITOR = "nvim";
-	environment.systemPackages	 = with pkgs; [
+	environment.systemPackages = with pkgs; [
 		pkgs.home-manager
+        any-nix-shell
 		usbutils
 		jmtpfs
 		mpv

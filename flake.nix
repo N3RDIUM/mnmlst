@@ -10,7 +10,10 @@
 		astal.url = "github:aylur/astal";
 		ags.url = "github:aylur/ags";
 		hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-		zen-browser.url = "github:MarceColl/zen-browser-flake";
+        zen-browser = {
+            url = "github:0xc000022070/zen-browser-flake";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
 	};
 
 	outputs = { nixpkgs, home-manager, ... }@inputs:

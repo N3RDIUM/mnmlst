@@ -8,3 +8,5 @@ enable_transience
 
 zoxide init fish | source
 atuin init fish | source
+
+any-nix-shell fish --info-right | source

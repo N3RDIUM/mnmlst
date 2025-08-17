@@ -19,3 +19,21 @@ const muted = createPoll(
     "wpctl get-volume @DEFAULT_AUDIO_SINK@",
     (out, prev) => parseMuted(out),
 );
+
+function volumeIcon() {
+    if(muted.get()) {
+        return "";
+    }
+
+    let icon = "";
+    if(volume.get() < 21) {
+        icon = "";
+    }
+    
+    return icon;
+}
+
+export function volumeTransform(state: Object) {
+    return `${volumeIcon()} ${volume.get()}`;
+}
+

@@ -2,6 +2,7 @@ import app from "ags/gtk4/app"
 import { Astal, Gdk } from "ags/gtk4"
 import { createState } from "ags";
 import { welcomeTransform } from "./welcome";
+import { volumeTransform } from "./volume";
 
 const [state, setState] = createState({
     visible: false,
@@ -38,7 +39,8 @@ export function OsdRequestHandler(req: Array<String>, res: any) {
 }
 
 const transformMap = {
-    welcome: welcomeTransform
+    welcome: welcomeTransform,
+    volume: volumeTransform,
 }
 
 function osdTextTransform(state: Object) {

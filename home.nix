@@ -1,7 +1,10 @@
 { inputs, pkgs, ... }:
 
 {
-	imports = [ inputs.ags.homeManagerModules.default ];
+	imports = [ 
+        inputs.ags.homeManagerModules.default
+        inputs.zen-browser.homeModules.beta
+    ];
 
 	home.username = "n3rdium";
 	home.homeDirectory = "/home/n3rdium";
@@ -14,17 +17,19 @@
 		zathura
 		kdePackages.okular
 		gcr
-		inputs.zen-browser.packages."${system}".specific
         wayvnc
         btop
         gnome-pomodoro
         kdePackages.filelight
+        dunst
+        libreoffice-fresh
 
 		# Astro
-        # gimp # Won't build, currently installed using nix-env.
+        gimp
 		wine64Packages.wayland
 		stellarium
         kdePackages.filelight
+        siril
 
 		# Code
 		trashy
@@ -40,6 +45,7 @@
 		prettierd
 		gcc
 		tree-sitter
+        postman
 
 		# Pwnage
 		wireshark
@@ -49,6 +55,8 @@
         audacity
 		pavucontrol
 		youtube-music
+        musescore
+        muse-sounds-manager
 
 		# Prod
 		ffmpeg
@@ -91,7 +99,7 @@
 		mprocs
 
 		# Miscellaneous
-        # ollama
+        ollama
 		discord
 		ani-cli
 		mangal
@@ -108,6 +116,8 @@
 			path = ./configs/hypr/hyprland.conf;
 		});
 	};
+
+    programs.zen-browser.enable = true;
 
 	programs.ags = {
 		enable = true;
