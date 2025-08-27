@@ -9,12 +9,16 @@
 		kernelPackages = pkgs.linuxPackages_latest;
 
 		# Grub
-		loader.grub = {
-			enable = true;
-			device = "nodev";
-			efiSupport = true;
-			timeoutStyle = "menu";
-		};
+		loader = {
+            grub = {
+                enable = true;
+                device = "nodev";
+                efiSupport = true;
+                timeoutStyle = "menu";
+            };
+
+            timeout = 1;
+        };
 		loader.efi.canTouchEfiVariables = true;
 
 		### Boot animation
@@ -32,6 +36,7 @@
 		];
 	};
 
+    # Boot Optimizations
 	systemd.services.systemd-udev-settle.enable	= false;
 	systemd.services.NetworkManager-wait-online.enable = false;
 
@@ -156,11 +161,11 @@ capslock = overload(meta, esc);
     };
 
 	# Enable SDDM and KDE Plasma
-	services.displayManager.sddm = {
-		enable				 = true;
-		wayland.enable = true;
-	};
-	services.desktopManager.plasma6.enable = true;
+    # services.displayManager.sddm = {
+    #	 enable = true;
+    #	 wayland.enable = true;
+    # };
+    # services.desktopManager.plasma6.enable = true;
 
 	# Fish fish fish fish fish
 	programs.fish.enable = true;
@@ -243,12 +248,12 @@ capslock = overload(meta, esc);
 	boot.supportedFilesystems = [ "ntfs" ];
 	fileSystems."/mnt/Code"	 = {
 		device = "/dev/disk/by-uuid/b95320b3-3df1-4904-a55e-da1e8d819231";
-		options = [ "nofail" ];
+		options = [ "x-systemd.automount" "nofail" ];
 	};
 	fileSystems."/mnt/Space"	= {
 		device = "/dev/disk/by-uuid/0A956B927E2FFFE8";
 		fsType = "ntfs-3g";
-		options = [ "rw" "uid=1000" "nofail" ];
+		options = [ "x-systemd.automount" "rw" "uid=1000" "nofail" ];
 	};
 
 	system.stateVersion = "24.11";

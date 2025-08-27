@@ -23,10 +23,15 @@
         kdePackages.filelight
         dunst
         libreoffice-fresh
+		obsidian
+        calibre
+        calibre-web
 
 		# Astro
         gimp
-		wine64Packages.wayland
+        wineWowPackages.waylandFull
+        bottles-unwrapped
+        pkgs.winetricks
 		stellarium
         kdePackages.filelight
         siril
@@ -47,11 +52,16 @@
 		tree-sitter
         postman
 
-		# Pwnage
-		wireshark
+        # Fonts
+        iosevka-bin
+        font-awesome
+        noto-fonts
+        noto-fonts-cjk-sans
+        noto-fonts-emoji
+        liberation_ttf
 
 		# Music
-        lmms
+        # lmms
         audacity
 		pavucontrol
 		youtube-music
@@ -62,7 +72,6 @@
 		ffmpeg
 		kdePackages.kdenlive
 		blender
-		obsidian
 
 		# Rice Stuff
 		cava
@@ -78,10 +87,6 @@
 		playerctl
 		obs-studio
 		hyprpicker
-
-		# Fonts
-		iosevka-bin
-		font-awesome
 
 		# Shell Stuff
 		sl
@@ -136,6 +141,19 @@
                 fcitx5-mozc
                 fcitx5-gtk
             ];
+        };
+    };
+
+    fonts = {
+        fontconfig = {
+            enable = true;
+            hinting = "full";
+
+            defaultFonts = {
+                serif = [ "Iosevka-Regular" ];
+                sansSerif = [ "Iosevka-Regular" ];
+                monospace = [ "Iosevka" ];
+            };
         };
     };
 
