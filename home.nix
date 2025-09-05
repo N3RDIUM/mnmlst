@@ -24,8 +24,7 @@
         dunst
         libreoffice-fresh
 		obsidian
-        calibre
-        calibre-web
+        protonvpn-gui
 
 		# Astro
         gimp
@@ -51,6 +50,7 @@
 		gcc
 		tree-sitter
         postman
+        arduino
 
         # Fonts
         iosevka-bin
@@ -194,7 +194,6 @@
 		".config/atuin/".source = ./configs/atuin;
 		".config/nvim/lua".source = ./configs/nvim/lua;
 		".config/nvim/init.lua".source = ./configs/nvim/init.lua;
-		".config/siril/".source = ./configs/siril;
 		".config/superfile/".source = ./configs/superfile;
 		"wallpapers/".source = ./theming/wallpapers;
 		".zenithassets/".source = ./assets;

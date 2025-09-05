@@ -161,11 +161,11 @@ capslock = overload(meta, esc);
     };
 
 	# Enable SDDM and KDE Plasma
-    # services.displayManager.sddm = {
-    #	 enable = true;
-    #	 wayland.enable = true;
-    # };
-    # services.desktopManager.plasma6.enable = true;
+    services.displayManager.sddm = {
+   	    enable = true;
+   	    wayland.enable = true;
+    };
+    services.desktopManager.plasma6.enable = true;
 
 	# Fish fish fish fish fish
 	programs.fish.enable = true;
@@ -196,7 +196,7 @@ capslock = overload(meta, esc);
 			isNormalUser = true;
 			description	= "n3rdium";
             shell = pkgs.fish;
-			extraGroups	= [ "networkmanager" "wheel" ];
+			extraGroups	= [ "networkmanager" "wheel" "dialout" "uucp" ];
 		};
 
 		not-n3rdium = {
