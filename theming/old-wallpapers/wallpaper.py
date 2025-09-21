@@ -1,4 +1,5 @@
 import os
+import time
 import subprocess
 
 _ = subprocess.call("swww-daemon")
@@ -13,5 +14,9 @@ def set_wall(name):
 # A lot that I might require one day.
 # And I might be too lazy to set this up,
 # on that particular day. That's why.
-set_wall("current.png")
+# set_wall("current.png")
+
+# Also, what's a wallpaper?
+time.sleep(0.1)
+_ = os.system("swww clear 282828")
 

@@ -49,8 +49,6 @@
 		prettierd
 		gcc
 		tree-sitter
-        postman
-        arduino
 
         # Fonts
         iosevka-bin
@@ -195,9 +193,7 @@
 		".config/nvim/lua".source = ./configs/nvim/lua;
 		".config/nvim/init.lua".source = ./configs/nvim/init.lua;
 		".config/superfile/".source = ./configs/superfile;
-		"wallpapers/".source = ./theming/wallpapers;
-		".zenithassets/".source = ./assets;
-		".zenithscripts/".source = ./scripts;
+		".zenith/assets/".source = ./assets;
 		".config/fish/config.fish".source = ./configs/config.fish;
 	};
 

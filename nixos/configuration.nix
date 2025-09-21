@@ -40,6 +40,9 @@
 	systemd.services.systemd-udev-settle.enable	= false;
 	systemd.services.NetworkManager-wait-online.enable = false;
 
+    # Cpufreq Governor Performance
+    powerManagement.cpuFreqGovernor = "performance";
+
     # Nix storage optimizations
     nix.optimise.automatic = true;
     nix.optimise.dates = [ "04:00" ];
