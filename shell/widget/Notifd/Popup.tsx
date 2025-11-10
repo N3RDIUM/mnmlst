@@ -1,9 +1,31 @@
 import app from "ags/gtk4/app"
-import { Astal, Gdk } from "ags/gtk4"
-import { createState } from "ags";
+import { Astal, Gdk, Gtk } from "ags/gtk4"
+import { createState } from "ags"
+import Notifd from "gi://AstalNotifd";
+import { Notification } from "./Notification";
+import { For, Accessor } from "ags"
 
+const notifd = Notifd.get_default();
+notifd.set_ignore_timeout(true);
+
+var map = [];
 const [state, setState] = createState({
     visible: true,
+});
+const [notifications, setNotifications] = createState([]);
+
+function rebuildList() {
+    const value = Object.values(map).map(Notification);
+    setNotifications(value);
+}
+
+notifd.connect("notified", (_, id) => {
+    map[id] = notifd.get_notification(id);
+    rebuildList();
+});
+notifd.connect("resolved", (_, id) => {
+    delete map[id];
+    rebuildList();
 });
 
 export function NotifdPopup(gdkmonitor: Gdk.Monitor) {
@@ -23,8 +45,12 @@ export function NotifdPopup(gdkmonitor: Gdk.Monitor) {
             margin_right={12}
             visible={state(x => x.visible)}
         >
-            <box class="notifd-popup-container">
-                asdfh903r8 sdfo
+            <box 
+                orientation={Gtk.Orientation.VERTICAL}
+            >
+                <For each={notifications}>
+                  {(item, index: Accessor<number>) => item}
+                </For>
             </box>
         </window>
     )

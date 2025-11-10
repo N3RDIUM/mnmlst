@@ -18,9 +18,11 @@
 			url = "github:nix-community/home-manager";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+
 		astal.url = "github:aylur/astal";
 		ags.url = "github:aylur/ags";
 		hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+
         zen-browser = {
             url = "github:0xc000022070/zen-browser-flake";
             inputs.nixpkgs.follows = "nixpkgs";

@@ -20,7 +20,6 @@
         wayvnc
         btop
         gnome-pomodoro
-        kdePackages.filelight
         dunst
         libreoffice-fresh
 		obsidian
@@ -55,7 +54,7 @@
         font-awesome
         noto-fonts
         noto-fonts-cjk-sans
-        noto-fonts-emoji
+        noto-fonts-color-emoji
         liberation_ttf
 
 		# Music
@@ -95,7 +94,7 @@
 		starship
 		zoxide
 		fd
-		du-dust
+		dust
 		ripgrep
 		ripgrep-all
 		tokei
@@ -115,6 +114,7 @@
 	wayland.windowManager.hyprland = {
 		enable = true;
 		package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+        plugins = [];
 		extraConfig = builtins.readFile (builtins.path {
 			path = ./configs/hypr/hyprland.conf;
 		});

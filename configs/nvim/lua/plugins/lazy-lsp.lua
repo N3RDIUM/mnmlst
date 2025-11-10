@@ -15,9 +15,28 @@ return {
                 }
             }
         }
+
+        -- Enable virtual text and signs
+        vim.diagnostic.config({
+            virtual_text = true,  -- shows inline messages
+            signs = true,         -- shows gutter symbols
+            underline = true,     -- underlines errors/warnings
+            update_in_insert = false,
+            severity_sort = true,
+        })
+
     end,
     config = function()
         require("lazy-lsp").setup {
+            use_vim_lsp_config = true,
+
+            on_attach = function(client, bufnr)
+                -- enable inlay hints if supported
+                if client.server_capabilities.inlayHintProvider then
+                    vim.lsp.buf.inlay_hint(bufnr, true)
+                end
+            end,
+
             excluded_servers = {
                 "ccls",                            -- prefer clangd
                 "denols",                          -- prefer eslint and ts_ls
@@ -28,6 +47,7 @@ return {
                 "scry",                            -- archived on Jun 1, 2023
                 "tailwindcss",                     -- associates with too many filetypes
                 "biome",                           -- not mature enough to be default
+                "glslls",                          -- very annoying
             },
             preferred_servers = {
                 python = { "basedpyright", "ruff" },
@@ -35,7 +55,8 @@ return {
                 html = {},
                 rust = { "rust_analyzer" },
                 typescript = { "ts_ls" },
-                javascript = { "eslint" }
+                javascript = { "eslint" },
+                glsl = { "glslls" },
             },
             prefer_local = true,
 
@@ -55,15 +76,6 @@ return {
                         },
                     },
                 },
-                rust_analyzer = {
-                    settings = {
-                        ['rust-analyzer'] = {
-                            cargo = {
-                                extraArgs = { "--profile", "rust-analyzer" },
-                            },
-                        }
-                    }
-                }
             },
         }
     end

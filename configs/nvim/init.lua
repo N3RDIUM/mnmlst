@@ -33,6 +33,9 @@ vim.g.mapleader = " "
 -- Say goodbye to your mouse!
 vim.opt.mouse = ""
 
+-- Recommended maximum line width?
+vim.opt.colorcolumn = { "80" }
+
 -- Cursor blinking thing
 vim.o.guicursor = table.concat({
   "n-v-c:block-Cursor/lCursor-blinkwait1000-blinkon100-blinkoff100",

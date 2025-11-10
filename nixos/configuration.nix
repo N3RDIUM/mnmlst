@@ -7,6 +7,9 @@
 	boot = {
 		# Latest kernel
 		kernelPackages = pkgs.linuxPackages_latest;
+        extraModulePackages = with config.boot.kernelPackages; [ nct6687d ];
+        kernelModules = [ "nct6687" ];
+        blacklistedKernelModules = [ "nct6683" ];
 
 		# Grub
 		loader = {
@@ -36,6 +39,11 @@
 		];
 	};
 
+    services.logind.settings.Login = {
+        HandlePowerKey = "ignore";
+        HandleSuspendKey = "ignore";
+    };
+
     # Boot Optimizations
 	systemd.services.systemd-udev-settle.enable	= false;
 	systemd.services.NetworkManager-wait-online.enable = false;
@@ -56,18 +64,6 @@
 	# OpenGL
     hardware.graphics.enable = true;
 
-    # Nvidia f-
-#     services.xserver.videoDrivers = ["nvidia"];
-
-#     hardware.nvidia = {
-#         modesetting.enable = true;
-#         powerManagement.enable = false;
-#         powerManagement.finegrained = false;
-#         open = false;
-#         nvidiaSettings = true;
-#         package = config.boot.kernelPackages.nvidiaPackages.legacy_470;
-#     };
-
 	# Whatever this is
 	programs.dconf.enable = true;		
 
@@ -81,7 +77,7 @@
     networking.defaultGateway = "192.168.1.1";
     networking.nameservers = [ "192.168.1.1" "8.8.8.8" ];
 
-    networking.firewall.allowedTCPPorts = [ 5900 ];
+    networking.firewall.allowedTCPPorts = [ 5900 8000 ];
 
     # Polkit
     security.polkit.enable = true;
@@ -240,7 +236,6 @@ capslock = overload(meta, esc);
 		cpio
         efibootmgr
         polkit_gnome
-        nvidia-vaapi-driver
         egl-wayland
         mesa
         mesa-gl-headers

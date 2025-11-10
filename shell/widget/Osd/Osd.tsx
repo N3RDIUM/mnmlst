@@ -55,7 +55,7 @@ export function Osd(gdkmonitor: Gdk.Monitor) {
     return (
         <window
             name="osd"
-            class="osd-window"
+            class="osd"
             namespace="Osd"
             gdkmonitor={gdkmonitor}
             exclusivity={Astal.Exclusivity.IGNORE}

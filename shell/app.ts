@@ -1,7 +1,7 @@
 import app from "ags/gtk4/app"
 import theme from "./index.scss"
 import { Osd, OsdRequestHandler } from "./widget/Osd/Osd"
-import { NotifdPopup } from "./widget/Notifd/Popup.tsx"
+import { NotifdPopup } from "./widget/Notifd/Popup"
 
 function parseRequest(req: String) {
     return req.toString().split(" ")
