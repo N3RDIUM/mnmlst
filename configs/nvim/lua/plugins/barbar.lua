@@ -6,7 +6,15 @@ return {
     },
     init = function() vim.g.barbar_auto_setup = false end,
     opts = {
-        animate = false
+        animation = false,
+        icons = {
+            filetype = {
+                enabled = true,
+                custom = function(_, _, icon)
+                    return icon .. "  "
+                end,
+            },
+        },
     },
     version = '^1.0.0'
 }

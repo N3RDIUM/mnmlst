@@ -23,7 +23,7 @@
         dunst
         libreoffice-fresh
 		obsidian
-        protonvpn-gui
+        # protonvpn-gui
 
 		# Astro
         gimp
@@ -80,7 +80,6 @@
 		hyprshot
 		fastfetch
 		libnotify
-		hollywood
 		playerctl
 		obs-studio
 		hyprpicker
