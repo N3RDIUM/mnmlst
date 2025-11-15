@@ -43,14 +43,10 @@ vim.o.guicursor = table.concat({
   "r:hor50-Cursor/lCursor-blinkwait100-blinkon100-blinkoff100"
 }, ",")
 
-
 -- Custom keymaps!
 local builtin = require('telescope.builtin')
 
-vim.keymap.set('n', '<leader>fn', ':Neotree filesystem toggle right<cr>', { desc = 'Neotree filesystem' })
-vim.keymap.set('n', '<leader>bn', ':Neotree buffers reveal float<cr>', { desc = 'Neotree buffers' })
-vim.keymap.set('n', '<leader>gn', ':Neotree git_status reveal float<cr>', { desc = 'Neotree git status' })
-vim.keymap.set('n', '<leader>sn', ':Neotree document_symbols toggle left<cr>', { desc = 'Neotree document symbols' })
+vim.keymap.set('n', '<leader>fn', ':NvimTreeToggle<cr>', { desc = 'Toggle nvim-tree' })
 
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
@@ -68,4 +64,73 @@ vim.keymap.set('n', '<leader>qo', ':q<cr>', { desc = 'Close buffer' })
 
 vim.keymap.set('n', '<leader>sh', ':split<cr>', { desc = 'Split horizontal' })
 vim.keymap.set('n', '<leader>sv', ':vsplit<cr>', { desc = 'Split vertical' })
+
+-- barbar.nvim
+local map = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
+
+map('n', '<A-,>', '<Cmd>BufferPrevious<CR>', opts)
+map('n', '<A-.>', '<Cmd>BufferNext<CR>', opts)
+
+map('n', '<A-C-,>', '<Cmd>BufferMovePrevious<CR>', opts)
+map('n', '<A-C-.>', '<Cmd>BufferMoveNext<CR>', opts)
+
+map('n', '<A-1>', '<Cmd>BufferGoto 1<CR>', opts)
+map('n', '<A-2>', '<Cmd>BufferGoto 2<CR>', opts)
+map('n', '<A-3>', '<Cmd>BufferGoto 3<CR>', opts)
+map('n', '<A-4>', '<Cmd>BufferGoto 4<CR>', opts)
+map('n', '<A-5>', '<Cmd>BufferGoto 5<CR>', opts)
+map('n', '<A-6>', '<Cmd>BufferGoto 6<CR>', opts)
+map('n', '<A-7>', '<Cmd>BufferGoto 7<CR>', opts)
+map('n', '<A-8>', '<Cmd>BufferGoto 8<CR>', opts)
+map('n', '<A-9>', '<Cmd>BufferGoto 9<CR>', opts)
+map('n', '<A-0>', '<Cmd>BufferLast<CR>', opts)
+
+map('n', '<A-c>', '<Cmd>BufferClose<CR>', opts)
+
+-- leap.nvim
+-- I'm not ready for this yet, I guess
+--[[
+vim.keymap.set({'n', 'o'}, 'gs', function ()
+  require('leap.remote').action {
+    -- Automatically enter Visual mode when coming from Normal.
+    input = vim.fn.mode(true):match('o') and '' or 'v'
+  }
+end)
+-- Forced linewise version (`gS{leap}jjy`):
+vim.keymap.set({'n', 'o'}, 'gS', function ()
+  require('leap.remote').action { input = 'V' }
+end)
+
+vim.keymap.set({'x', 'o'}, 'R',  function ()
+  require('leap.treesitter').select {
+    opts = require('leap.user').with_traversal_keys('R', 'r')
+  }
+end)
+
+-- Highly recommended: define a preview filter to reduce visual noise
+-- and the blinking effect after the first keypress
+-- (`:h leap.opts.preview`). You can still target any visible
+-- positions if needed, but you can define what is considered an
+-- exceptional case.
+-- Exclude whitespace and the middle of alphabetic words from preview:
+--   foobar[baaz] = quux
+--   ^----^^^--^^-^-^--^
+require('leap').opts.preview = function (ch0, ch1, ch2)
+  return not (
+    ch1:match('%s')
+    or (ch0:match('%a') and ch1:match('%a') and ch2:match('%a'))
+  )
+end
+
+-- Define equivalence classes for brackets and quotes, in addition to
+-- the default whitespace group:
+require('leap').opts.equivalence_classes = {
+  ' \t\r\n', '([{', ')]}', '\'"`'
+}
+
+-- Use the traversal keys to repeat the previous motion without
+-- explicitly invoking Leap:
+require('leap.user').set_repeat_keys('<enter>', '<backspace>')
+]]--
 
