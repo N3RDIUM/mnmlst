@@ -13,6 +13,12 @@
     services.displayManager.enable = false;
     services.xserver.enable = false; # no X11
 
+    # Boot Optimizations
+	systemd.services.systemd-udev-settle.enable	= false;
+	systemd.services.NetworkManager-wait-online.enable = false;
+    networking.waitForInterfaces = false;
+    systemd.network.wait-online.enable = false;
+
     # wol
     networking = {
         interfaces = {

@@ -47,6 +47,8 @@
     # Boot Optimizations
 	systemd.services.systemd-udev-settle.enable	= false;
 	systemd.services.NetworkManager-wait-online.enable = false;
+    networking.waitForInterfaces = false;
+    systemd.network.wait-online.enable = false;
 
     # Cpufreq Governor Performance
     powerManagement.cpuFreqGovernor = "performance";
@@ -246,12 +248,12 @@ capslock = overload(meta, esc);
 	boot.supportedFilesystems = [ "ntfs" ];
 	fileSystems."/mnt/Code"	 = {
 		device = "/dev/disk/by-uuid/b95320b3-3df1-4904-a55e-da1e8d819231";
-		options = [ "x-systemd.automount" "nofail" ];
+		options = [ "x-systemd.automount" "x-systemd.device-timeout=0" "nofail" ];
 	};
 	fileSystems."/mnt/Space"	= {
 		device = "/dev/disk/by-uuid/0A956B927E2FFFE8";
 		fsType = "ntfs-3g";
-		options = [ "x-systemd.automount" "rw" "uid=1000" "nofail" ];
+		options = [ "x-systemd.automount" "x-systemd.device-timeout=0" "rw" "uid=1000" "nofail" ];
 	};
 
 	system.stateVersion = "24.11";
