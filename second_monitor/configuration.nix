@@ -26,21 +26,7 @@
     };
 
 	boot = {
-		kernelPackages = pkgs.linuxPackages_latest;
-
-		### Boot animation
-		plymouth.enable = true;
-		consoleLogLevel = 4;
-		initrd.verbose	= false;
-		kernelParams = [
-			"quiet"
-			"splash"
-			"boot.shell_on_fail"
-			"loglevel=3"
-			"rd.systemd.show_status=false"
-			"rd.udev.log_level=3"
-			"udev.log_priority=3"
-		];
+		kernelPackages = pkgs.linuxPackages_latest_xen_dom0;
 	};
 
     programs.hyprland = {
@@ -52,6 +38,16 @@
     boot.loader.efi.canTouchEfiVariables = true;
     boot.loader.systemd-boot.graceful = true;
     boot.loader.timeout = 1;
+
+    systemd.services.wakeonlan = {
+        description = "Enable Wake-on-LAN (WoL)";
+        after = [ "network.target" ];
+        wantedBy = [ "multi-user.target" ];
+        serviceConfig = {
+            Type = "oneshot";
+            ExecStart = "${pkgs.ethtool}/bin/ethtool -s eno1 wol g";
+        };
+    };
 
     services.getty.autologinUser = "n3rdium";
 
