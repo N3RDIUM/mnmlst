@@ -98,6 +98,7 @@
         wget
         git
         wlvncc
+        ethtool
     ];
 
     programs.mtr.enable = true;
