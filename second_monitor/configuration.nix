@@ -13,6 +13,18 @@
     services.displayManager.enable = false;
     services.xserver.enable = false; # no X11
 
+    # wol
+    networking = {
+        interfaces = {
+            ens3 = {
+                wakeOnLan.enable = true;
+            };
+        };
+        firewall = {
+            allowedUDPPorts = [ 9 ];
+        };
+    };
+
 	boot = {
 		kernelPackages = pkgs.linuxPackages_latest;
 
@@ -39,6 +51,16 @@
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
     boot.loader.systemd-boot.graceful = true;
+    boot.loader.timeout = 1;
+
+    boot.initrd.includeDefaultModules = false;
+    boot.initrd.availableKernelModules = [ "xhci_pci" "usbhid" "usb_storage" ];
+
+    systemd.services."systemd-journal-flush".serviceConfig.ExecStart = "";
+    systemd.target.multi-user.wants = [];
+    systemd.target.graphical.wants = [];
+
+    systemd.enableLinger = true;
 
     services.getty.autologinUser = "n3rdium";
 

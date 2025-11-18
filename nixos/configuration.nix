@@ -22,7 +22,7 @@
 
             timeout = 1;
         };
-		loader.efi.canTouchEfiVariables = true;
+        loader.efi.canTouchEfiVariables = true;
 
 		### Boot animation
 		plymouth.enable = true;
