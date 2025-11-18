@@ -24,6 +24,7 @@
         libreoffice-fresh
 		obsidian
         # protonvpn-gui
+        wakeonlan
 
 		# Astro
         gimp
