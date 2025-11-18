@@ -56,7 +56,7 @@
 
     environment.systemPackages = with pkgs; [
         kitty
-        vim
+        neovim
         wget
         git
         multivnc

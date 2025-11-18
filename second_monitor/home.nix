@@ -8,7 +8,8 @@
 	home.file = {
         ".bash_profile".source = ./.bash_profile;
         ".bashrc".source = ./.bashrc;
-		".config/hypr/hyprland.conf".source = ./hyprland.conf;
+        ".config/nvim".source = ../configs/nvim;
+		".confrg/hypr/hyprland.conf".source = ./hyprland.conf;
 	};
 
 	home.sessionVariables = { EDITOR = "nvim"; };
