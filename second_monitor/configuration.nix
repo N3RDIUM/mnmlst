@@ -59,7 +59,7 @@
         neovim
         wget
         git
-        multivnc
+        wlvncc
     ];
 
     programs.mtr.enable = true;
