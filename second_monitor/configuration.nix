@@ -21,7 +21,7 @@
     # wol
     networking = {
         interfaces = {
-            ens3 = {
+            eno1 = {
                 wakeOnLan.enable = true;
             };
         };
@@ -43,16 +43,6 @@
     boot.loader.efi.canTouchEfiVariables = true;
     boot.loader.systemd-boot.graceful = true;
     boot.loader.timeout = 1;
-
-    systemd.services.wakeonlan = {
-        description = "Enable Wake-on-LAN (WoL)";
-        after = [ "network.target" ];
-        wantedBy = [ "multi-user.target" ];
-        serviceConfig = {
-            Type = "oneshot";
-            ExecStart = "${pkgs.ethtool}/bin/ethtool -s eno1 wol g";
-        };
-    };
 
     services.getty.autologinUser = "n3rdium";
 
