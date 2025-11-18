@@ -71,8 +71,6 @@
         useXkbConfig = true;
     };
 
-    services.printing.enable = false;
-
     users.users.n3rdium = {
         isNormalUser = true;
         extraGroups = [ "wheel" "video" ]; 
