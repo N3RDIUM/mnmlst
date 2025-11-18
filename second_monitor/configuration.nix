@@ -26,7 +26,7 @@
     };
 
 	boot = {
-		kernelPackages = pkgs.linuxPackages_latest_xen_dom0;
+		kernelPackages = pkgs.linuxPackages_latest;
 	};
 
     programs.hyprland = {
