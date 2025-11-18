@@ -53,13 +53,6 @@
     boot.loader.systemd-boot.graceful = true;
     boot.loader.timeout = 1;
 
-    boot.initrd.includeDefaultModules = false;
-    boot.initrd.availableKernelModules = [ "xhci_pci" "usbhid" "usb_storage" ];
-
-    systemd.services."systemd-journal-flush".serviceConfig.ExecStart = "";
-    systemd.target.multi-user.wants = [];
-    systemd.target.graphical.wants = [];
-
     services.getty.autologinUser = "n3rdium";
 
     services.openssh = {
