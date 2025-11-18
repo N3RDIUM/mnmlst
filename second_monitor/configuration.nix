@@ -4,6 +4,15 @@
         ./hardware-configuration.nix
     ];
 
+    # remove bloat
+    services.printing.enable = false;
+    hardware.bluetooth.enable = false;
+    services.pipewire.enable = false;
+    services.avahi.enable = false;
+    programs.ssh.startAgent = false;
+    services.displayManager.enable = false;
+    services.xserver.enable = false; # no X11
+
 	boot = {
 		kernelPackages = pkgs.linuxPackages_latest;
 
