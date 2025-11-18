@@ -1,5 +1,5 @@
 {
-	description = "N3RDIUM's Flake!";
+	description = "N3RDIUM's Lite Flake!";
 
 	inputs = {
 		nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -7,15 +7,6 @@
 			url = "github:nix-community/home-manager";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
-
-		astal.url = "github:aylur/astal";
-		ags.url = "github:aylur/ags";
-		hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-
-        zen-browser = {
-            url = "github:0xc000022070/zen-browser-flake";
-            inputs.nixpkgs.follows = "nixpkgs";
-        };
 	};
 
 	outputs = { nixpkgs, home-manager, ... }@inputs:
@@ -33,7 +24,7 @@
             nixosConfigurations.n3rdium = lib.nixosSystem {
                 inherit system;
                 modules = [
-                    ./nixos/configuration.nix
+                    ./configuration.nix
                     home-manager.nixosModules.home-manager
                         {
                             home-manager.useGlobalPkgs = true;
@@ -41,7 +32,7 @@
                             home-manager.backupFileExtension = "backup";
                             home-manager.users.n3rdium = import ./home.nix;
                             home-manager.extraSpecialArgs = { inherit inputs; };
-                        }
+                    }
                 ];
             };
 		};
