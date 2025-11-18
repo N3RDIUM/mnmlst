@@ -60,8 +60,6 @@
     systemd.target.multi-user.wants = [];
     systemd.target.graphical.wants = [];
 
-    systemd.enableLinger = true;
-
     services.getty.autologinUser = "n3rdium";
 
     services.openssh = {
