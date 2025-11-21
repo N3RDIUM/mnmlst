@@ -14,7 +14,6 @@
 		# Essentials
 		superfile
 		xfce.thunar
-		zathura
 		kdePackages.okular
 		gcr
         wayvnc
@@ -23,22 +22,21 @@
         dunst
         libreoffice-fresh
 		obsidian
-        # protonvpn-gui
+        protonvpn-gui
         wakeonlan
 
 		# Astro
         gimp
         wineWowPackages.waylandFull
-        bottles-unwrapped
         pkgs.winetricks
 		stellarium
-        kdePackages.filelight
         siril
 
 		# Code
 		trashy
 		lua5_1
 		nixd
+		gcc
 		ruff
 		rustup
 		python3
@@ -47,7 +45,6 @@
 		stylua
 		luarocks
 		prettierd
-		gcc
 		tree-sitter
 
         # Fonts
@@ -59,7 +56,7 @@
         liberation_ttf
 
 		# Music
-        # lmms
+        lmms
         audacity
 		pavucontrol
 		youtube-music
