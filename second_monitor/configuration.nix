@@ -15,6 +15,9 @@
         ];
     };
 
+	# enable experimental features
+	nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
     # remove bloat
     services.printing.enable = false;
     hardware.bluetooth.enable = false;
@@ -38,6 +41,16 @@
         };
         firewall = {
             allowedUDPPorts = [ 9 ];
+        };
+    };
+
+    systemd.services.wakeonlan = {
+        description = "Enable Wake-on-LAN (WoL)";
+        after = [ "network.target" ];
+        wantedBy = [ "multi-user.target" ];
+        serviceConfig = {
+            Type = "oneshot";
+            ExecStart = "${pkgs.ethtool}/bin/ethtool -s eno1 wol g";
         };
     };
 

@@ -21,7 +21,7 @@ function rebuildList() {
 
 notifd.connect("notified", (_, id) => {
     map[id] = notifd.get_notification(id);
-    rebuildList();
+    // rebuildList();
 });
 notifd.connect("resolved", (_, id) => {
     delete map[id];

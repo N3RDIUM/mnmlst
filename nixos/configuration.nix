@@ -3,17 +3,6 @@
 {
 	imports = [ ./hardware-configuration.nix ];
 
-    nix.settings = {
-        substituters = [
-            "https://nix-community.cachix.org"
-            "https://hyprland.cachix.org"
-        ];
-        trusted-public-keys = [
-            "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-            "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-        ];
-    };
-		
 	# Bootloader.
 	boot = {
 		# Latest kernel
@@ -89,7 +78,7 @@
     networking.defaultGateway = "192.168.1.1";
     networking.nameservers = [ "192.168.1.1" "8.8.8.8" ];
 
-    networking.firewall.allowedTCPPorts = [ 5900 8000 ];
+    networking.firewall.allowedTCPPorts = [ 5900 8000 5000 ];
 
     # Polkit
     security.polkit.enable = true;

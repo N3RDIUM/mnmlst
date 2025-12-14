@@ -4,6 +4,7 @@
 	imports = [ 
         inputs.ags.homeManagerModules.default
         inputs.zen-browser.homeModules.beta
+        inputs.hyprcursor-phinger.homeManagerModules.hyprcursor-phinger
     ];
 
 	home.username = "n3rdium";
@@ -98,7 +99,7 @@
 		mprocs
 
 		# Miscellaneous
-        ollama
+        ollama-vulkan
 		discord
 		ani-cli
 		mangal
@@ -108,10 +109,11 @@
         inputs.astal.packages.${pkgs.system}.notifd
 	];
 
+    programs.hyprcursor-phinger.enable = true;
 	wayland.windowManager.hyprland = {
 		enable = true;
 		package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-        plugins = [];
+        plugins = [  ];
 		extraConfig = builtins.readFile (builtins.path {
 			path = ./configs/hypr/hyprland.conf;
 		});

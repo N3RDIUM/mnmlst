@@ -23,7 +23,7 @@ app.start({
         const second_monitor = app.get_monitors()[1];
 
         Osd(main_monitor);
-        NotifdPopup(second_monitor);
+        // NotifdPopup(main_monitor);
     },
     requestHandler(request, res) {
         let req = parseRequest(request);

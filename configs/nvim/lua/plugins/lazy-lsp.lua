@@ -16,15 +16,6 @@ return {
             }
         }
 
-        -- Enable virtual text and signs
-        vim.diagnostic.config({
-            virtual_text = true,  -- shows inline messages
-            signs = true,         -- shows gutter symbols
-            underline = true,     -- underlines errors/warnings
-            update_in_insert = false,
-            severity_sort = true,
-        })
-
     end,
     config = function()
         require("lazy-lsp").setup {

@@ -1,0 +1,3 @@
+[submodule "realwidget"]
+	path = realwidget
+	url = https://github.com/n3rdium/realwidget
