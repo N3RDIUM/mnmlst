@@ -3,6 +3,12 @@
 {
 	imports = [ ./hardware-configuration.nix ];
 
+    nix.settings = {
+        substituters = ["https://hyprland.cachix.org"];
+        trusted-substituters = ["https://hyprland.cachix.org"];
+        trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+    };
+
 	# Bootloader.
 	boot = {
 		# Latest kernel
@@ -62,8 +68,15 @@
         options = "--delete-older-than 30d";
     };
 
-	# OpenGL
+    # AMDGPU config
+    hardware.amdgpu.initrd.enable = true;
+    hardware.amdgpu.opencl.enable = true;
+    environment.variables = {
+        ROC_ENABLE_PRE_VEGA = "1";
+    };
     hardware.graphics.enable = true;
+    hardware.graphics.enable32Bit = true;
+    services.lact.enable = true;
 
 	# Whatever this is
 	programs.dconf.enable = true;		
@@ -237,10 +250,6 @@ capslock = overload(meta, esc);
 		cpio
         efibootmgr
         polkit_gnome
-        egl-wayland
-        mesa
-        mesa-gl-headers
-        mesa_glu
 	];
 
 	# Automount

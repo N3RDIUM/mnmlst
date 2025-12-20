@@ -34,14 +34,6 @@
             nixosConfigurations.n3rdium = lib.nixosSystem {
                 inherit system;
                 modules = [
-                    {
-                        nix.settings.substituters = [
-                            "https://hyprland.cachix.org"
-                        ];
-                        nix.settings.trusted-public-keys = [
-                            "hyprland.cachix.org-1:a7pgxzMz7+chw+KCw2O7BbRjZ8FkkpLVNRdpP+gCEhg="
-                        ];
-                    }
                     ./nixos/configuration.nix
                     home-manager.nixosModules.home-manager
                     {

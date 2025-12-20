@@ -16,6 +16,7 @@
 		superfile
 		xfce.thunar
 		kdePackages.okular
+        git-credential-oauth
 		gcr
         wayvnc
         btop
@@ -67,7 +68,7 @@
 		# Prod
 		ffmpeg
 		kdePackages.kdenlive
-		blender
+		blender-hip
 
 		# Rice Stuff
 		cava
@@ -156,12 +157,11 @@
 
 	programs.git = {
 		enable = true;
+        package = pkgs.gitFull;
 		userName = "n3rdium";
 		userEmail = "n3rdium@gmail.com";
 		extraConfig = {
-			credential.helper = "${
-				pkgs.git.override { withLibsecret = true; }
-			}/bin/git-credential-libsecret";
+			credential.helper = "oauth";
 		};
 	};
 

@@ -20,7 +20,10 @@
     };
 
     swapDevices = [
-        { device = "/dev/disk/by-uuid/a2aa0657-35c3-41ca-b0eb-1a5e0dd5314c"; }
+        { 
+            device = "/dev/disk/by-uuid/a2aa0657-35c3-41ca-b0eb-1a5e0dd5314c"; 
+            options = [ "discard" ];
+        }
     ];
     boot.resumeDevice = "/dev/disk/by-uuid/a2aa0657-35c3-41ca-b0eb-1a5e0dd5314c";
     powerManagement.enable = true;
