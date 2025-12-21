@@ -19,7 +19,7 @@
         git-credential-oauth
 		gcr
         wayvnc
-        btop
+        btop-rocm
         gnome-pomodoro
         dunst
         libreoffice-fresh
@@ -30,7 +30,9 @@
 		# Astro
         gimp
         wineWowPackages.waylandFull
-        pkgs.winetricks
+        wineWowPackages.fonts
+        wineWow64Packages.fonts
+        winetricks
 		stellarium
         siril
 
@@ -114,7 +116,8 @@
 	wayland.windowManager.hyprland = {
 		enable = true;
 		package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-        plugins = [  ];
+        plugins = [ 
+        ];
 		extraConfig = builtins.readFile (builtins.path {
 			path = ./configs/hypr/hyprland.conf;
 		});
@@ -193,6 +196,7 @@
 		".config/nvim/init.lua".source = ./configs/nvim/init.lua;
 		".config/superfile/".source = ./configs/superfile;
 		".zenith/assets/".source = ./assets;
+        ".wallpapers/".source = ./theming/wallpapers;
 		".config/fish/config.fish".source = ./configs/config.fish;
 	};
 
