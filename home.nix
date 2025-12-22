@@ -16,7 +16,6 @@
 		superfile
 		xfce.thunar
 		kdePackages.okular
-        git-credential-oauth
 		gcr
         wayvnc
         btop-rocm
@@ -164,9 +163,10 @@
 		userName = "n3rdium";
 		userEmail = "n3rdium@gmail.com";
 		extraConfig = {
-			credential.helper = "oauth";
-		};
-	};
+			credential.helper = "libsecret";
+        };
+    };
+
 
 	gtk = {
 		enable = true;
