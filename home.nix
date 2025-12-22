@@ -160,13 +160,14 @@
 	programs.git = {
 		enable = true;
         package = pkgs.gitFull;
-		userName = "n3rdium";
-		userEmail = "n3rdium@gmail.com";
-		extraConfig = {
+        settings = {
+            user = {
+                name = "n3rdium";
+                email = "n3rdium@gmail.com";
+            };
 			credential.helper = "libsecret";
         };
     };
-
 
 	gtk = {
 		enable = true;
