@@ -33,6 +33,11 @@
         ipv6 = false;
         nssmdns4 = true;
         nssmdns6 = false;
+        publish = {
+            enable = true;
+            addresses = true;
+            workstation = true;
+        };
         openFirewall = true;
     };
 
