@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, ... }:
+{ inputs, config, pkgs, lib, ... }:
 
 {
 	imports = [ ./hardware-configuration.nix ];
@@ -71,9 +71,6 @@
     # AMDGPU config
     hardware.amdgpu.initrd.enable = true;
     hardware.amdgpu.opencl.enable = true;
-    environment.variables = {
-        ROC_ENABLE_PRE_VEGA = "1";
-    };
     hardware.graphics.enable = true;
     hardware.graphics.enable32Bit = true;
     services.lact.enable = true;
@@ -201,6 +198,7 @@ capslock = overload(meta, esc);
 		alsa.enable	= true;
 		alsa.support32Bit = true;
 		pulse.enable = true;
+        jack.enable = true;
 	};
 
 	# Define user accounts.
@@ -209,7 +207,7 @@ capslock = overload(meta, esc);
 			isNormalUser = true;
 			description	= "n3rdium";
             shell = pkgs.fish;
-			extraGroups	= [ "networkmanager" "wheel" "dialout" "uucp" ];
+			extraGroups	= [ "networkmanager" "wheel" "audio" "jackaudio" "dialout" "uucp" ];
 		};
 
 		not-n3rdium = {
@@ -219,6 +217,13 @@ capslock = overload(meta, esc);
 			extraGroups	= [ "networkmanager" ];
 		};
 	};
+
+    # Thing
+    security.pam.loginLimits = [
+        { domain = "@audio"; type = "-"; item = "rtprio"; value = "95"; }
+        { domain = "@audio"; type = "-"; item = "memlock"; value = "unlimited"; }
+        { domain = "@audio"; type = "-"; item = "nice"; value = "-19"; }
+    ];
 
 	# Install firefox.
 	programs.firefox.enable = true;
@@ -231,8 +236,29 @@ capslock = overload(meta, esc);
 	nixpkgs.config.allowUnfree = true;
     nixpkgs.config.nvidia.acceptLicense = true;
 
+    # Env vars
+    environment.variables =
+        let
+            makePluginPath = format:
+            (lib.makeSearchPath format [
+                "$HOME/.nix-profile/lib"
+                "/run/current-system/sw/lib"
+                "/etc/profiles/per-user/$USER/lib"
+            ])
+            + ":$HOME/.${format}";
+        in
+        {
+            DSSI_PATH = makePluginPath "dssi";
+            LADSPA_PATH = makePluginPath "ladspa";
+            LV2_PATH = makePluginPath "lv2";
+            LXVST_PATH = makePluginPath "lxvst";
+            VST_PATH = makePluginPath "vst";
+            VST3_PATH = makePluginPath "vst3";
+            ROC_ENABLE_PRE_VEGA = "1";
+            EDITOR = "nvim";
+        };
+
 	# List packages installed in system profile.
-	environment.variables.EDITOR = "nvim";
 	environment.systemPackages = with pkgs; [
 		pkgs.home-manager
         any-nix-shell

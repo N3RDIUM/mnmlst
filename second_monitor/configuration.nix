@@ -22,10 +22,19 @@
     services.printing.enable = false;
     hardware.bluetooth.enable = false;
     services.pipewire.enable = false;
-    services.avahi.enable = false;
     programs.ssh.startAgent = false;
     services.displayManager.enable = false;
     services.xserver.enable = false; # no X11
+
+    # Avahi
+    services.avahi = {
+        enable = true;
+        ipv4 = true;
+        ipv6 = false;
+        nssmdns4 = true;
+        nssmdns6 = false;
+        openFirewall = true;
+    };
 
     # Boot Optimizations
 	systemd.services.systemd-udev-settle.enable	= false;

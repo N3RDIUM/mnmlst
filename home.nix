@@ -60,6 +60,43 @@
 
 		# Music
         lmms
+        zrythm
+        helm
+        dexed
+        zynaddsubfx
+        geonkick
+        opnplug
+        adlplug
+        odin
+        odin2
+        sonivox
+        padthv1
+        adms
+        tunefish
+        ams
+        yoshimi
+        gnaural
+        drumkv1
+        chow-kick
+        xsynth_dssi
+        samplv1
+        fluidsynth
+        synthv1
+        sunvox
+        virtual-ans
+        qtractor
+        ardour
+        carla
+        yabridge
+        yabridgectl
+        vital
+        surge
+        surge-XT
+        bespokesynth
+        zam-plugins
+        vaporizer2
+        infamousPlugins
+        lsp-plugins
         audacity
 		pavucontrol
 		youtube-music
@@ -105,6 +142,7 @@
 		discord
 		ani-cli
 		mangal
+        opencode
 
         # Shell stuff
         inputs.astal.packages.${pkgs.system}.io
