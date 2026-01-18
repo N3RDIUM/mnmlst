@@ -25,15 +25,23 @@
 		obsidian
         protonvpn-gui
         wakeonlan
+        zed-editor
 
 		# Astro
         gimp
+        hugin
         wineWowPackages.waylandFull
         wineWowPackages.fonts
         wineWow64Packages.fonts
         winetricks
 		stellarium
         siril
+
+        # Visual
+        rawtherapee
+        darktable
+        tesseract
+        python3Packages.pytesseract
 
 		# Code
 		trashy
@@ -106,7 +114,7 @@
 		# Prod
 		ffmpeg
 		kdePackages.kdenlive
-		blender-hip
+        pkgsRocm.blender
 
 		# Rice Stuff
 		cava

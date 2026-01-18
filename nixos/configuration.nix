@@ -276,7 +276,11 @@ capslock = overload(meta, esc);
 		cpio
         efibootmgr
         polkit_gnome
+        fancontrol-gui
 	];
+
+    # Nix LD
+    programs.nix-ld.enable = true;
 
 	# Automount
 	boot.supportedFilesystems = [ "ntfs" ];
