@@ -27,6 +27,7 @@
         wakeonlan
         zed-editor
         wl-clipboard
+        stirling-pdf
 
 		# Astro
         gimp
