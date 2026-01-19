@@ -26,6 +26,7 @@
         protonvpn-gui
         wakeonlan
         zed-editor
+        wl-clipboard
 
 		# Astro
         gimp
@@ -213,6 +214,18 @@
             };
 			credential.helper = "libsecret";
         };
+    };
+
+    services.cliphist = {
+        enable = true;
+        systemdTargets = ["default.target"];
+        extraOptions = [
+            "-max-dedupe-search"
+            "10"
+            "-max-items"
+            "65536"
+        ];
+        allowImages = true;
     };
 
 	gtk = {

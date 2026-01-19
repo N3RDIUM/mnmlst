@@ -33,6 +33,15 @@ vim.g.mapleader = " "
 -- Say goodbye to your mouse!
 vim.opt.mouse = ""
 
+-- Disable :COQnow greeting.
+vim.g.coq_settings = {
+    display = {
+        statusline = {
+            helo = false,
+        },
+    },
+}
+
 -- Recommended maximum line width?
 vim.opt.colorcolumn = { "80" }
 
