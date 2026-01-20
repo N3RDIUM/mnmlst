@@ -33,12 +33,17 @@ vim.g.mapleader = " "
 -- Say goodbye to your mouse!
 vim.opt.mouse = ""
 
--- Disable :COQnow greeting.
+-- coq.nvim configuration
 vim.g.coq_settings = {
+    auto_start = true,
     display = {
         statusline = {
             helo = false,
         },
+        pum = {
+            kind_context = {" [", "]"},
+            source_context = {"˹", "˼"}
+        }
     },
 }
 
