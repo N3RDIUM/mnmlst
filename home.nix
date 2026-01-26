@@ -28,6 +28,7 @@
         zed-editor
         wl-clipboard
         stirling-pdf
+        weylus
 
 		# Astro
         gimp

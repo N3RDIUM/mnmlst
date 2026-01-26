@@ -72,10 +72,16 @@
 
     # AMDGPU config
     hardware.amdgpu.initrd.enable = true;
-    hardware.amdgpu.opencl.enable = true;
+    hardware.amdgpu.opencl.enable = false;
     hardware.graphics.enable = true;
     hardware.graphics.enable32Bit = true;
     services.lact.enable = true;
+    hardware.graphics.extraPackages = with pkgs; [
+        mesa
+        mesa.drivers
+        mesa.opencl
+    ];
+    services.xserver.videoDrivers = [ "amdgpu" ];
 
 	# Whatever this is
 	programs.dconf.enable = true;		
@@ -203,13 +209,16 @@ capslock = overload(meta, esc);
         jack.enable = true;
 	};
 
+    # Create uinput group
+    users.groups.uinput = {};
+
 	# Define user accounts.
 	users.users = {
 		n3rdium = {
 			isNormalUser = true;
 			description	= "n3rdium";
             shell = pkgs.fish;
-			extraGroups	= [ "networkmanager" "wheel" "audio" "jackaudio" "dialout" "uucp" ];
+			extraGroups	= [ "networkmanager" "wheel" "audio" "jackaudio" "dialout" "uucp" "uinput" ];
 		};
 
 		not-n3rdium = {
@@ -219,6 +228,11 @@ capslock = overload(meta, esc);
 			extraGroups	= [ "networkmanager" ];
 		};
 	};
+
+    # Weylus uinput rule
+    services.udev.extraRules = ''
+        KERNEL=="uinput", MODE="0660", GROUP="uinput", OPTIONS+="static_node=uinput"
+    '';
 
     # Thing
     security.pam.loginLimits = [
@@ -257,6 +271,7 @@ capslock = overload(meta, esc);
             VST_PATH = makePluginPath "vst";
             VST3_PATH = makePluginPath "vst3";
             ROC_ENABLE_PRE_VEGA = "1";
+            RUSTICL_ENABLE = "radeonsi";
             EDITOR = "nvim";
         };
 
@@ -279,6 +294,11 @@ capslock = overload(meta, esc);
         efibootmgr
         polkit_gnome
         fancontrol-gui
+        steam-run
+        intel-ocl
+        ocl-icd
+        clinfo
+        gnupg
 	];
 
     # Nix LD
