@@ -262,6 +262,7 @@
         ".wallpapers/".source = ./theming/wallpapers;
         "scripts/".source = ./scripts;
 		".config/fish/config.fish".source = ./configs/config.fish;
+        ".config/circadian.json".source = ./configs/circadian.json;
 	};
 
 	home = {
