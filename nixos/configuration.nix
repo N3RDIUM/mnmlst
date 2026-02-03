@@ -209,8 +209,12 @@ capslock = overload(meta, esc);
         jack.enable = true;
 	};
 
-    # Create uinput group
+    # Create groups
     users.groups.uinput = {};
+    users.groups.i2c = {};
+
+    # i2c
+    hardware.i2c.enable = true;
 
 	# Define user accounts.
 	users.users = {

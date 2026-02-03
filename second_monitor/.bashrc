@@ -1,3 +1,3 @@
-echo "Starting second monitor..."
-sleep 2
-hyprland
+echo "loading n3rdium-lite"
+sleep 1.42
+start-hyprland

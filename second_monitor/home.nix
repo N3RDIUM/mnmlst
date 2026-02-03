@@ -9,7 +9,7 @@
         ".bash_profile".source = ./.bash_profile;
         ".bashrc".source = ./.bashrc;
         ".config/nvim".source = ../configs/nvim;
-		".confrg/hypr/hyprland.conf".source = ./hyprland.conf;
+		".config/hypr/hyprland.conf".source = ./hyprland.conf;
         "server.py".source = ./server.py;
 	};
 

@@ -30,9 +30,9 @@
     services.avahi = {
         enable = true;
         ipv4 = true;
-        ipv6 = false;
+        ipv6 = true;
         nssmdns4 = true;
-        nssmdns6 = false;
+        nssmdns6 = true;
         publish = {
             enable = true;
             addresses = true;
@@ -102,7 +102,7 @@
         settings = {
             PasswordAuthentication = true;
             AllowUsers = [ "n3rdium" ];
-            UseDns = true;
+            UseDns = false;
             X11Forwarding = false;
             PermitRootLogin = "no";
         };
@@ -114,8 +114,8 @@
         { address = "192.168.1.37"; prefixLength = 24; }
     ];
     networking.defaultGateway = "192.168.1.1";
-    networking.nameservers = [ "192.168.1.1" "8.8.8.8" ];
-    networking.firewall.allowedTCPPorts = [ 22 ];
+    networking.nameservers = [  "1.1.1.1" "8.8.8.8" ];
+    networking.firewall.allowedTCPPorts = [ 22 8001 ];
     networking.networkmanager.unmanaged = [
     "*"     # first unmanage everything
     "!eno1" # then exception: manage eno1
@@ -145,8 +145,10 @@
         wlvncc
         ethtool
         hyprsunset
-        python313
-        python313Packages.flask
+        (python313.withPackages (ps: with ps; [
+            flask
+        ]))
+        ddcutil
     ];
 
     programs.mtr.enable = true;
@@ -154,6 +156,11 @@
         enable = true;
         enableSSHSupport = true;
     };
+
+  # Allow users in 'video' group to adjust backlight
+systemd.tmpfiles.rules = [
+    "z /sys/class/backlight/acpi_video0/brightness 0664 root video -"
+];
 
     system.stateVersion = "25.05";
 }
