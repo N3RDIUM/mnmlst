@@ -1,4 +1,4 @@
-import time, json
+import time, json, os
 from datetime import datetime, timedelta
 import subprocess
 from typing import Literal
@@ -64,6 +64,8 @@ def interpolate(value_start, value_end, ratio):
 
 def mainloop():
     while True:
+        if os.path.exists("/home/n3rdium/.config/.circadian-pause"):
+            continue
         # Brightness
         b_start, b_end, b_val_start, b_val_end = get_current_range(brightness_schedule)
         now = timedelta(
