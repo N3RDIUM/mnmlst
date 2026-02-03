@@ -1,0 +1,65 @@
+#!/bin/sh
+
+set -euo pipefail
+
+usage() {
+    echo "Usage: distemp <left|right|both> <temperature 1000-20000 | -1 for reset>"
+    exit 1
+}
+
+[[ $# -eq 2 ]] || usage
+
+mode="$1"
+temp="$2"
+
+# Validate mode
+case "$mode" in
+    left|right|both) ;;
+    *) echo "Error: mode must be left, right, or both."; exit 1 ;;
+esac
+
+# Validate temperature
+if [[ "$temp" != "-1" ]]; then
+    if ! [[ "$temp" =~ ^[0-9]+$ ]]; then
+        echo "Error: temperature must be an integer."
+        exit 1
+    fi
+
+    if (( temp < 1000 || temp > 20000 )); then
+        echo "Error: temperature must be between 1000 and 20000, or -1 to reset."
+        exit 1
+    fi
+fi
+
+set_left() {
+    if [[ "$1" == "-1" ]]; then
+        hyprctl hyprsunset identity
+    else
+        hyprctl hyprsunset temperature "$1"
+    fi
+}
+
+set_right() {
+    if [[ "$1" == "-1" ]]; then
+        curl --fail --silent --show-error \
+            -X POST "http://192.168.1.37:8001/reset-temperature/" \
+            >/dev/null
+    else
+        curl --fail --silent --show-error \
+            -X POST "http://192.168.1.37:8001/set-temperature/$1" \
+            >/dev/null
+    fi
+}
+
+case "$mode" in
+    left)
+        set_left "$temp"
+        ;;
+    right)
+        set_right "$temp"
+        ;;
+    both)
+        set_left "$temp"
+        set_right "$temp"
+        ;;
+esac
