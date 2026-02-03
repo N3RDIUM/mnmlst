@@ -3,6 +3,10 @@ from datetime import datetime, timedelta
 import subprocess
 from typing import Literal
 
+# Enable by default
+if os.path.exists("/home/n3rdium/.config/.circadian-override"):
+    os.remove("/home/n3rdium/.config/.circadian-override")
+
 def set_temperature(value: int | None = None, mode: Literal["left", "right", "both"] = "both") -> None:
     if not value:
         _ = subprocess.run(
