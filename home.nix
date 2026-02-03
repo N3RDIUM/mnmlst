@@ -260,7 +260,7 @@
 		".config/superfile/".source = ./configs/superfile;
 		".zenith/assets/".source = ./assets;
         ".wallpapers/".source = ./theming/wallpapers;
-        "scripts/".source = ./scripts/;
+        "scripts/".source = ./scripts;
 		".config/fish/config.fish".source = ./configs/config.fish;
 	};
 
