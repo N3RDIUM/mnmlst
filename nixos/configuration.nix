@@ -14,7 +14,7 @@
 		# Latest kernel
 		kernelPackages = pkgs.linuxPackages_latest;
         extraModulePackages = with config.boot.kernelPackages; [ nct6687d ];
-        kernelModules = [ "nct6687" ];
+        kernelModules = [ "nct6687" "i2c-dev" ];
         blacklistedKernelModules = [ "nct6683" ];
 
 		# Grub
@@ -218,7 +218,7 @@ capslock = overload(meta, esc);
 			isNormalUser = true;
 			description	= "n3rdium";
             shell = pkgs.fish;
-			extraGroups	= [ "networkmanager" "wheel" "audio" "jackaudio" "dialout" "uucp" "uinput" ];
+			extraGroups	= [ "networkmanager" "wheel" "audio" "jackaudio" "dialout" "uucp" "uinput" "i2c" ];
 		};
 
 		not-n3rdium = {
@@ -299,6 +299,7 @@ capslock = overload(meta, esc);
         ocl-icd
         clinfo
         gnupg
+        ddcutil
 	];
 
     # Nix LD

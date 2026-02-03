@@ -144,6 +144,7 @@
         git
         wlvncc
         ethtool
+        hyprsunset
     ];
 
     programs.mtr.enable = true;

@@ -29,6 +29,7 @@
         wl-clipboard
         stirling-pdf
         weylus
+        hyprsunset
 
 		# Astro
         gimp
@@ -101,7 +102,6 @@
         yabridge
         yabridgectl
         vital
-        surge
         surge-XT
         bespokesynth
         zam-plugins
@@ -112,11 +112,11 @@
 		pavucontrol
 		youtube-music
         musescore
-        muse-sounds-manager
+        # muse-sounds-manager
 
 		# Prod
 		ffmpeg
-		kdePackages.kdenlive
+        # kdePackages.kdenlive
         pkgsRocm.blender
 
 		# Rice Stuff
@@ -154,6 +154,7 @@
 		ani-cli
 		mangal
         opencode
+        gource
 
         # Shell stuff
         inputs.astal.packages.${pkgs.system}.io
