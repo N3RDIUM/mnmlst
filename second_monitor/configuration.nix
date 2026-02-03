@@ -54,7 +54,7 @@
             };
         };
         firewall = {
-            allowedUDPPorts = [ 9 ];
+            allowedUDPPorts = [ 9 8001 ];
         };
     };
 
@@ -145,6 +145,8 @@
         wlvncc
         ethtool
         hyprsunset
+        python313
+        python313Packages.flask
     ];
 
     programs.mtr.enable = true;

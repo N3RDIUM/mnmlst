@@ -10,6 +10,7 @@
         ".bashrc".source = ./.bashrc;
         ".config/nvim".source = ../configs/nvim;
 		".confrg/hypr/hyprland.conf".source = ./hyprland.conf;
+        "server.py".source = ./server.py;
 	};
 
 	home.sessionVariables = { EDITOR = "nvim"; };

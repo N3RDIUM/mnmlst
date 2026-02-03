@@ -90,7 +90,7 @@
         gnaural
         drumkv1
         chow-kick
-        xsynth_dssi
+        # xsynth_dssi
         samplv1
         fluidsynth
         synthv1
