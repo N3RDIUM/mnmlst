@@ -1,0 +1,54 @@
+#!/bin/sh
+
+set -euo pipefail
+
+usage() {
+    echo "Usage: disbright <left|right|both> <brightness 0-100>"
+    exit 1
+}
+
+[[ $# -eq 2 ]] || usage
+
+mode="$1"
+bright="$2"
+
+# Validate mode
+case "$mode" in
+    left|right|both) ;;
+    *) echo "Error: mode must be left, right, or both."; exit 1 ;;
+esac
+
+# Validate brightness integer
+if ! [[ "$bright" =~ ^[0-9]+$ ]]; then
+    echo "Error: brightness must be an integer."
+    exit 1
+fi
+
+# Validate range
+if (( bright < 0 || bright > 100 )); then
+    echo "Error: brightness must be between 0 and 100."
+    exit 1
+fi
+
+set_left() {
+    ddcutil setvcp 10 "$1"
+}
+
+set_right() {
+    curl --fail --silent --show-error \
+        -X POST "http://192.168.1.37:8001/set-brightness/$1" \
+        >/dev/null
+}
+
+case "$mode" in
+    left)
+        set_left "$bright"
+        ;;
+    right)
+        set_right "$bright"
+        ;;
+    both)
+        set_left "$bright"
+        set_right "$bright"
+        ;;
+esac

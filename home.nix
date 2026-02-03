@@ -264,7 +264,10 @@
 		".config/fish/config.fish".source = ./configs/config.fish;
 	};
 
-	home.sessionVariables = { EDITOR = "nvim"; };
+	home = {
+        sessionVariables = { EDITOR = "nvim"; };
+        sessionPath = [ "/home/n3rdium/scripts" ];
+    };
 	services.gnome-keyring.enable = true;
 	programs.home-manager.enable = true;
 }
