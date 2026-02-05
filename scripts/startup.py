@@ -8,6 +8,57 @@ import subprocess
 import time
 import signal
 import atexit
+import fcntl
+
+def ensure_single_instance_or_replace(lock_path="/tmp/my_script.lock"):
+    lock_file = open(lock_path, "a+")
+
+    try:
+        # Try locking first
+        fcntl.flock(lock_file, fcntl.LOCK_EX | fcntl.LOCK_NB)
+
+    except BlockingIOError:
+        # Someone else holds the lock — read PID
+        lock_file.seek(0)
+        pid_str = lock_file.read().strip()
+
+        if pid_str.isdigit():
+            old_pid = int(pid_str)
+
+            try:
+                # Check if process exists
+                os.kill(old_pid, 0)
+
+                # Kill it gracefully first
+                os.kill(old_pid, signal.SIGTERM)
+
+                # Wait briefly
+                for _ in range(20):
+                    try:
+                        os.kill(old_pid, 0)
+                        time.sleep(0.1)
+                    except OSError:
+                        break
+                else:
+                    # Still alive → force kill
+                    os.kill(old_pid, signal.SIGKILL)
+
+            except OSError:
+                # Process already dead
+                pass
+
+        # Now block until lock becomes available
+        fcntl.flock(lock_file, fcntl.LOCK_EX)
+
+    # We now own the lock
+    lock_file.seek(0)
+    lock_file.truncate()
+    lock_file.write(str(os.getpid()))
+    lock_file.flush()
+
+    return lock_file
+
+ensure_single_instance_or_replace()
 
 # Store all daemon processes
 daemons = []
@@ -22,10 +73,6 @@ hyprsunset = subprocess.Popen(["hyprsunset"])
 daemons.append(hyprsunset)
 time.sleep(.1)
 start_circadian_daemon()
-
-# Clipboard
-clipboard_watcher = subprocess.Popen(["wl-paste", "--watch", "cliphist", "store"])
-daemons.append(clipboard_watcher)
 
 # Wallpaper
 swww_daemon = subprocess.Popen(["swww-daemon", "--no-cache"])
