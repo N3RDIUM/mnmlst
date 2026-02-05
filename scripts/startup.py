@@ -90,7 +90,7 @@ while True:
     if get_wayvnc_client_count() < 1:
         subprocess.call(["/home/n3rdium/scripts/second-reload"])
 
-    # TODO restart daemons if killed
+    # Restart daemons if killed
 
     time.sleep(4)
 
