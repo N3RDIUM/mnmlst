@@ -1,0 +1,2 @@
+#!/bin/sh
+curl -X POST http://192.168.1.37:8001/reconnect-vnc/

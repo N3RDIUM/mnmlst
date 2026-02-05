@@ -2,6 +2,7 @@ import time, json, os
 from datetime import datetime, timedelta
 import subprocess
 from typing import Literal
+from threading import Thread
 
 # Enable by default
 if os.path.exists("/home/n3rdium/.config/.circadian-override"):
@@ -9,10 +10,13 @@ if os.path.exists("/home/n3rdium/.config/.circadian-override"):
 
 def set_temperature(value: int | None = None, mode: Literal["left", "right", "both"] = "both") -> None:
     if not value:
-        _ = subprocess.run(
-            ["/home/n3rdium/scripts/distemp", mode, "reset"],
-            check=True,
-        )
+        try:
+            _ = subprocess.run(
+                ["/home/n3rdium/scripts/distemp", mode, "reset"],
+                check=True,
+            )
+        except subprocess.CalledProcessError as e:
+            print(f"Could not set temperature: {e}")
         return
 
     if value < 1000:
@@ -32,10 +36,13 @@ def set_brightness(value: int = 0, mode: Literal["left", "right", "both"] = "bot
     elif value > 100:
         value = 100
 
-    _ = subprocess.run(
-        ["/home/n3rdium/scripts/disbright", mode, str(value)],
-        check=True,
-    )
+    try:
+        _ = subprocess.run(
+            ["/home/n3rdium/scripts/disbright", mode, str(value)],
+            check=True,
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"Could not set brightness: {e}")
 
 with open("/home/n3rdium/.config/circadian.json", "r") as f:
     config = json.load(f)
@@ -90,6 +97,9 @@ def mainloop():
         print(current_brightness, current_temperature)
         time.sleep(5)
 
-if __name__ == "__main__":
-    mainloop()
+def start_daemon() -> None:
+    daemon = Thread(target=mainloop, args=[], daemon=True)
+    daemon.start()
+
+__all__ = ["start_daemon"]
 
