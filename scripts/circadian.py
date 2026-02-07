@@ -101,5 +101,8 @@ def start_daemon() -> None:
     daemon = Thread(target=mainloop, args=[], daemon=True)
     daemon.start()
 
+if __name__ == "__main__":
+    mainloop()
+
 __all__ = ["start_daemon"]
 
