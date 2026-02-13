@@ -12,7 +12,7 @@ vnc_process = None
 process_lock = threading.Lock()
 
 # Replace this with your actual command
-VNC_COMMAND = ["vncviewer", "192.168.1.42:5900"]
+VNC_COMMAND = ["vncviewer", "192.168.1.42:5900", "--FullScreen", "--RemoteResize=off"]
 
 @app.route("/reconnect-vnc/", methods=["POST", "GET"])
 def reconnect_vnc():
