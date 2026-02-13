@@ -248,13 +248,13 @@ capslock = overload(meta, esc);
 	# Install firefox.
 	programs.firefox.enable = true;
 
+    # This stuff
     services.devmon.enable = true;
     services.gvfs.enable = true;
     services.udisks2.enable = true;
 
-	# Stuff
+	# More stuff
 	nixpkgs.config.allowUnfree = true;
-    nixpkgs.config.nvidia.acceptLicense = true;
 
     # Env vars
     environment.variables =
@@ -281,29 +281,40 @@ capslock = overload(meta, esc);
 
 	# List packages installed in system profile.
 	environment.systemPackages = with pkgs; [
-		pkgs.home-manager
-        any-nix-shell
-		usbutils
-		jmtpfs
-		mpv
-		vlc
+        # Essentials
 		git
 		neovim
+        gnome-keyring
+        libsecret
 		wget
 		curl
 		kitty
-		cmake
-		meson
 		cpio
         efibootmgr
         polkit_gnome
         fancontrol-gui
+        gnupg
+        ddcutil
+
+        # Env stuff
+		pkgs.home-manager
+        any-nix-shell
         steam-run
+		cmake
+		meson
+
+        # Filesystem
+		usbutils
+		jmtpfs
+
+        # Media
+		mpv
+		vlc
+
+        # Compute
         intel-ocl
         ocl-icd
         clinfo
-        gnupg
-        ddcutil
 	];
 
     # Nix LD

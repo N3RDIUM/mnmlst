@@ -14,7 +14,7 @@ daemons = []
 
 # Second monitor
 headless_output = subprocess.call(["hyprctl", "output", "create", "headless", "NOTHING"])
-wayvnc = subprocess.Popen(["wayvnc", "-f", "60", "-o", "NOTHING", "-d", "-R", "0.0.0.0", "5900"])
+wayvnc = subprocess.Popen(["wayvnc", "-f", "60", "-o", "NOTHING", "-d", "-R", "0.0.0.0", "5900", "-p", "--gpu"])
 daemons.append(wayvnc)
 
 # Circadian

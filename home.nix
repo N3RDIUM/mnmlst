@@ -30,6 +30,9 @@
         stirling-pdf
         weylus
         hyprsunset
+        hyprpolkitagent
+        element-desktop
+        element-call
 
 		# Astro
         gimp
@@ -71,6 +74,7 @@
         liberation_ttf
 
 		# Music
+        qpwgraph
         lmms
         zrythm
         helm
@@ -172,6 +176,7 @@
 		});
 	};
 
+    services.gnome-keyring.enable = true;
     programs.zen-browser.enable = true;
 
 	programs.ags = {
@@ -269,6 +274,5 @@
         sessionVariables = { EDITOR = "nvim"; };
         sessionPath = [ "/home/n3rdium/scripts" ];
     };
-	services.gnome-keyring.enable = true;
 	programs.home-manager.enable = true;
 }

@@ -143,6 +143,7 @@
         wget
         git
         wlvncc
+        tigervnc
         ethtool
         hyprsunset
         (python313.withPackages (ps: with ps; [
