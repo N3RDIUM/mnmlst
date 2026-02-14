@@ -25,10 +25,13 @@ def set_temperature(value: int | None = None, mode: Literal["left", "right", "bo
         value = 20000
 
 
-    _ = subprocess.run(
-        ["/home/n3rdium/scripts/distemp", mode, str(value)],
-        check=True,
-    )
+    try:
+        _ = subprocess.run(
+            ["/home/n3rdium/scripts/distemp", mode, str(value)],
+            check=True,
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"Could not set temperature: {e}")
 
 def set_brightness(value: int = 0, mode: Literal["left", "right", "both"] = "both") -> None:
     if value < 0:
