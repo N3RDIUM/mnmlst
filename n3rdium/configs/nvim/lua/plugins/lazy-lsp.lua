@@ -52,6 +52,7 @@ return {
                 typescript = { "ts_ls" },
                 javascript = { "eslint" },
                 glsl = { "glslls" },
+                nim = { "nimlangserver" },
             },
             prefer_local = true,
 

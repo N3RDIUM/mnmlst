@@ -14,13 +14,13 @@ TODO:
     - [ ] Mnmlize config
 - NixOS
     - [x] Enable auto gc
-    - [ ] Move the second monitor config to this repo.
+    - [ ] Move the second monitor config to its own repo.
 - Theming
     - [x] Decide a name for this rice
     - [ ] Create a logo too
 
 ## Credits
-- The old date/time widget is a modified version of [@kotontrion](https://github.com/kotontrion)'s design. Looks like kotontrion liked it, because my modifications are being used in [kompass](https://github.com/kotontrion/kompass) as well!
+- The old date/time widget is a modified version of [@kotontrion](https://github.com/kotontrion)'s design. Also used in [kompass](https://github.com/kotontrion/kompass).
 
 ## Related Projects
 - [kompass](https://github.com/kotontrion/kompass)

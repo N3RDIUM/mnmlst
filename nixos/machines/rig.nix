@@ -33,4 +33,12 @@
 
     nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
     hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+    powerManagement.cpuFreqGovernor = "performance";
+
+    # disable power button because it's bugged
+    services.logind.settings.Login = {
+        HandlePowerKey = "ignore";
+        HandleSuspendKey = "ignore";
+    };
 }
