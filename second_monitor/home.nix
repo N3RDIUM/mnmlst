@@ -1,8 +1,8 @@
 { inputs, pkgs, ... }:
 
 {
-	home.username = "n3rdium";
-	home.homeDirectory = "/home/n3rdium";
+	home.username = "monitor";
+	home.homeDirectory = "/home/monitor";
 	home.stateVersion = "24.05"; # Please don't touch
 
 	home.file = {
