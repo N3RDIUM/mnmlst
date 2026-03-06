@@ -165,22 +165,6 @@
             X11Forwarding no
     '';
 
-    services.cgit = {
-        enable = true;
-
-        settings = {
-            root-title = "N3RDIUM Git";
-            root-desc = "Self-hosted repositories";
-
-            scan-path = "/var/lib/git";
-
-            clone-url = "git@n3rdium-lite.local:$CGIT_REPO_URL";
-
-            enable-index-owner = false;
-            enable-http-clone = true;
-        };
-    };
-
     # env pkgs
     environment.systemPackages = with pkgs; [
         kitty
