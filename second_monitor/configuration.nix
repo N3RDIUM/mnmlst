@@ -145,7 +145,7 @@
     users.groups.git = {};
 
     users.users.git = {
-        isSystemUser = true;
+        isNormalUser = true;
         group = "git";
         home = "/home/git";
         createHome = true;
