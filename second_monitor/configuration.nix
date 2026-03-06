@@ -160,7 +160,6 @@
         Match User git
             AllowTcpForwarding no
             AllowAgentForwarding no
-            PermitTTY no
             PasswordAuthentication no
             X11Forwarding no
     '';
