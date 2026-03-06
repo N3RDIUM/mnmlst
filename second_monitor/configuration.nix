@@ -138,7 +138,7 @@
         extraGroups = [ "wheel" ]; 
     };
     users.users.monitor = {
-        isSystemUser = true;
+        isNormalUser = true;
         extraGroups = [ "video" ]; 
     };
 
