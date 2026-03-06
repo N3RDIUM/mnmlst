@@ -1,6 +1,6 @@
 import sys, os
-sys.stdout = open("/home/n3rdium/server.log", "w")
-sys.stderr = open("/home/n3rdium/server.log", "w")
+sys.stdout = open("/home/monitor/server.log", "w")
+sys.stderr = open("/home/monitor/server.log", "w")
 
 from flask import Flask, jsonify
 import subprocess
