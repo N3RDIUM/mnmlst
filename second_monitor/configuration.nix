@@ -1,4 +1,5 @@
 { config, lib, pkgs, ... }:
+# TODO organize
 {
     imports = [
         ./hardware-configuration.nix
@@ -120,9 +121,9 @@
     networking.nameservers = [  "1.1.1.1" "8.8.8.8" ];
     networking.firewall.allowedTCPPorts = [ 22 8001 ];
     networking.networkmanager.unmanaged = [
-    "*"     # first unmanage everything
-    "!eno1" # then exception: manage eno1
-  ];
+        "*"     # first unmanage everything
+        "!eno1" # then exception: manage eno1
+    ];
 
     time.timeZone = "Asia/Kolkata";
 
@@ -140,6 +141,32 @@
         ];
     };
 
+    # Git server
+    users.users.git = {
+        isSystemUser = true;
+        group = "git";
+        home = "/var/lib/git-server";
+        createHome = true;
+        shell = "${pkgs.git}/bin/git-shell";
+        openssh.authorizedKeys.keys = [
+            "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB+OyIQBrmUL0No1td+0lZytP+Kak3WMizPC7pCNTbSt n3rdium"
+        ];
+    };
+
+    users.groups.git = {};
+
+    services.openssh = {
+        extraConfig = ''
+          Match user git
+            AllowTcpForwarding no
+            AllowAgentForwarding no
+            PasswordAuthentication no
+            PermitTTY no
+            X11Forwarding no
+        '';
+    };
+
+    # env pkgs
     environment.systemPackages = with pkgs; [
         kitty
         neovim
