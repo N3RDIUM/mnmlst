@@ -142,28 +142,44 @@
     };
 
     # Git server
+{
+    users.groups.git = {};
+
     users.users.git = {
         isSystemUser = true;
         group = "git";
-        home = "/var/lib/git-server";
+        home = "/home/git";
         createHome = true;
         shell = "${pkgs.git}/bin/git-shell";
+
         openssh.authorizedKeys.keys = [
             "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB+OyIQBrmUL0No1td+0lZytP+Kak3WMizPC7pCNTbSt n3rdium"
         ];
     };
 
-    users.groups.git = {};
-
-    services.openssh = {
-        extraConfig = ''
-          Match user git
+    services.openssh.extraConfig = ''
+        Match User git
             AllowTcpForwarding no
             AllowAgentForwarding no
-            PasswordAuthentication no
             PermitTTY no
+            PasswordAuthentication no
             X11Forwarding no
-        '';
+    '';
+
+    services.cgit = {
+        enable = true;
+
+        settings = {
+            root-title = "N3RDIUM Git";
+            root-desc = "Self-hosted repositories";
+
+            scan-path = "/var/lib/git";
+
+            clone-url = "git@n3rdium-lite.local:$CGIT_REPO_URL";
+
+            enable-index-owner = false;
+            enable-http-clone = true;
+        };
     };
 
     # env pkgs
@@ -188,7 +204,7 @@
         enableSSHSupport = true;
     };
 
-  # Allow users in 'video' group to adjust backlight
+    # Allow users in 'video' group to adjust backlight
     systemd.tmpfiles.rules = [
         "z /sys/class/backlight/acpi_video0/brightness 0664 root video -"
     ];
