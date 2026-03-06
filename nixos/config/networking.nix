@@ -31,4 +31,7 @@
 
 	# Install firefox.
 	programs.firefox.enable = true;
+
+    # Yggdrasil.
+    services.yggdrasil.enable = true;
 }

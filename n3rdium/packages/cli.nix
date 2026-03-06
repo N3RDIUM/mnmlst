@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
     home.packages = with pkgs; [
+        btop
 		gcr
 		sl
 		fzf
