@@ -8,7 +8,6 @@
 	home.file = {
         ".bash_profile".source = ./.bash_profile;
         ".bashrc".source = ./.bashrc;
-        ".config/nvim".source = ../configs/nvim;
 		".config/hypr/hyprland.conf".source = ./hyprland.conf;
         "server.py".source = ./server.py;
 	};
