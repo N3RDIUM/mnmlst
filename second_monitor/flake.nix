@@ -30,7 +30,7 @@
                             home-manager.useGlobalPkgs = true;
                             home-manager.useUserPackages = true;
                             home-manager.backupFileExtension = "backup";
-                            home-manager.users.n3rdium = import ./home.nix;
+                            home-manager.users.monitor = import ./home.nix;
                             home-manager.extraSpecialArgs = { inherit inputs; };
                         }
                 ];
