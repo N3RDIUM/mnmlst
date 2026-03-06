@@ -21,7 +21,7 @@
                 package = pkgs-unstable.mesa;
             };
 
-            nixosConfigurations.n3rdium = lib.nixosSystem {
+            nixosConfigurations.monitor = lib.nixosSystem {
                 inherit system;
                 modules = [
                     ./configuration.nix

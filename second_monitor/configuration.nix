@@ -98,7 +98,7 @@
     boot.loader.systemd-boot.graceful = true;
     boot.loader.timeout = 1;
 
-    services.getty.autologinUser = "n3rdium";
+    services.getty.autologinUser = "monitor";
 
     services.openssh = {
         enable = true;
@@ -135,10 +135,11 @@
 
     users.users.n3rdium = {
         isNormalUser = true;
-        extraGroups = [ "wheel" "video" ]; 
-        packages = with pkgs; [
-            tree
-        ];
+        extraGroups = [ "wheel" ]; 
+    };
+    users.users.monitor = {
+        isNormalUser = true;
+        extraGroups = [ "video" ]; 
     };
 
     # Git server
