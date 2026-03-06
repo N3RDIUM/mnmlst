@@ -142,7 +142,6 @@
     };
 
     # Git server
-{
     users.groups.git = {};
 
     users.users.git = {
