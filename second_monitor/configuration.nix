@@ -1,5 +1,5 @@
 { config, lib, pkgs, ... }:
-# TODO organize
+# TODO organize like the others, then separate into another repo.
 {
     imports = [
         ./hardware-configuration.nix
@@ -69,6 +69,7 @@
         };
     };
 
+    # Boot
 	boot = {
 		kernelPackages = pkgs.linuxPackages_latest;
 		plymouth.enable = true;
@@ -85,11 +86,6 @@
 		];
 	};
 
-    programs.hyprland = {
-        enable = true;
-        xwayland.enable = true;
-    };
-
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
     boot.loader.systemd-boot.graceful = true;
@@ -97,6 +93,13 @@
 
     services.getty.autologinUser = "monitor";
 
+    # WM
+    programs.hyprland = {
+        enable = true;
+        xwayland.enable = true;
+    };
+
+    # SSH
     services.openssh = {
         enable = true;
         ports = [ 22 ];
@@ -109,6 +112,9 @@
         };
     };
 
+    services.fail2ban.enable = true;
+
+    # Networking
     networking.networkmanager.enable = true;
     networking.hostName = "n3rdium-lite";
     networking.interfaces.eno1.ipv4.addresses = [
@@ -122,6 +128,7 @@
         "!eno1" # then exception: manage eno1
     ];
 
+    # Locale
     time.timeZone = "Asia/Kolkata";
 
     i18n.defaultLocale = "en_US.UTF-8";
@@ -130,6 +137,7 @@
         useXkbConfig = true;
     };
 
+    # Users
     users.users.n3rdium = {
         isNormalUser = true;
         extraGroups = [ "wheel" ]; 
@@ -163,19 +171,19 @@
             X11Forwarding no
     '';
 
-    # Yggdrasil
-    services.yggdrasil = {
-        enable = true;
-        persistentKeys = true;
-        settings = {
-            Peers = [
-                "tls://astrra.space:55535"
-                "tls://153.120.42.137:54232"
-                "tls://asia.deinfra.org:15015"
-                "tcp://yg-sin.magicum.net:23901"
-            ];
-        };
-    };
+    # Yggdrasil (uncomment when the time comes)
+    # services.yggdrasil = {
+    #     enable = true;
+    #     persistentKeys = true;
+    #     settings = {
+    #         Peers = [
+    #             "tls://astrra.space:55535"
+    #             "tls://153.120.42.137:54232"
+    #             "tls://asia.deinfra.org:15015"
+    #             "tcp://yg-sin.magicum.net:23901"
+    #         ];
+    #     };
+    # };
 
     # env pkgs
     environment.systemPackages = with pkgs; [
