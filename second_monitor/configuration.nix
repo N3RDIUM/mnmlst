@@ -42,9 +42,6 @@
         openFirewall = true;
     };
 
-    # yggdrasil
-    services.yggdrasil.enable = true;
-
     # Boot Optimizations
 	systemd.services.systemd-udev-settle.enable	= false;
 	systemd.services.NetworkManager-wait-online.enable = false;
@@ -165,6 +162,20 @@
             PasswordAuthentication no
             X11Forwarding no
     '';
+
+    # Yggdrasil
+    services.yggdrasil = {
+        enable = true;
+        persistentKeys = true;
+        settings = {
+            Peers = [
+                "tls://astrra.space:55535"
+                "tls://153.120.42.137:54232"
+                "tls://asia.deinfra.org:15015"
+                "tcp://yg-sin.magicum.net:23901"
+            ];
+        };
+    };
 
     # env pkgs
     environment.systemPackages = with pkgs; [
