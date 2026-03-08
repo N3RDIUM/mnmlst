@@ -104,7 +104,11 @@
         ports = [ 22 ];
         settings = {
             PasswordAuthentication = true;
-            AllowUsers = [ "n3rdium" "git" ];
+            AllowUsers = [ 
+                "n3rdium" 
+                "muke"
+                "git" 
+            ];
             UseDns = false;
             X11Forwarding = false;
             PermitRootLogin = "no";
@@ -144,6 +148,12 @@
     users.users.monitor = {
         isNormalUser = true;
         extraGroups = [ "video" ]; 
+    };
+    users.users.muke = {
+        isNormalUser = true;
+        openssh.authorizedKeys.keys = [
+            "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO1uMcSBn819iv8jLHl9GnnwYHCZdkiSmFcxdap2DUrX muke"
+        ];
     };
 
     # Git server
