@@ -9,7 +9,7 @@
         muse-sounds-manager
         
         # production
-        helvum
+        crosspipe
         lmms
         zrythm
         qtractor

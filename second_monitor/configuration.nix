@@ -72,7 +72,6 @@
     # Boot
 	boot = {
 		kernelPackages = pkgs.linuxPackages_latest;
-		plymouth.enable = true;
 		consoleLogLevel = 4;
 		initrd.verbose	= false;
 		kernelParams = [

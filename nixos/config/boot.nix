@@ -19,7 +19,6 @@
         };
         loader.efi.canTouchEfiVariables = true;
 
-		plymouth.enable = true;
 		consoleLogLevel = 4;
 		initrd.verbose	= false;
 		kernelParams = [
