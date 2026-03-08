@@ -170,19 +170,19 @@
             X11Forwarding no
     '';
 
-    # Yggdrasil (uncomment when the time comes)
-    # services.yggdrasil = {
-    #     enable = true;
-    #     persistentKeys = true;
-    #     settings = {
-    #         Peers = [
-    #             "tls://astrra.space:55535"
-    #             "tls://153.120.42.137:54232"
-    #             "tls://asia.deinfra.org:15015"
-    #             "tcp://yg-sin.magicum.net:23901"
-    #         ];
-    #     };
-    # };
+    # Yggdrasil
+    services.yggdrasil = {
+        enable = true;
+        persistentKeys = true;
+        settings = {
+            Peers = [
+                "tls://astrra.space:55535"
+                "tls://153.120.42.137:54232"
+                "tls://asia.deinfra.org:15015"
+                "tcp://yg-sin.magicum.net:23901"
+            ];
+        };
+    };
 
     # env pkgs
     environment.systemPackages = with pkgs; [

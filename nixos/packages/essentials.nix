@@ -13,5 +13,6 @@
         polkit_gnome
         gnupg
         authenticator
+        texliveMedium
     ];
 }
