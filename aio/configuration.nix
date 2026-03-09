@@ -27,6 +27,12 @@
 	# enable experimental features
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+    # home-manager stuff
+    environment.pathsToLink = [
+        "/share/applications"
+        "/share/xdg-desktop-portal"
+    ];
+
     # env pkgs
     environment.systemPackages = with pkgs; [
         kitty
