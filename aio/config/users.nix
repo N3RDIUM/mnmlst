@@ -17,4 +17,9 @@
             "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO1uMcSBn819iv8jLHl9GnnwYHCZdkiSmFcxdap2DUrX mewk"
         ];
     };
+
+    # Allow users in 'video' group to adjust backlight
+    systemd.tmpfiles.rules = [
+        "z /sys/class/backlight/acpi_video0/brightness 0664 root video -"
+    ];
 }
