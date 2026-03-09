@@ -8,7 +8,6 @@
 	home.file = {
         ".bash_profile".source = ./.bash_profile;
         ".bashrc".source = ./.bashrc;
-		".config/hypr/hyprland.conf".source = ./hyprland.conf;
         "server.py".source = ./server.py;
 	};
 
@@ -21,10 +20,15 @@
         ddcutil
     ];
 
-    programs.hyprland = {
-        enable = true;
-        xwayland.enable = true;
-    };
+	wayland.windowManager.hyprland = {
+		enable = true;
+		package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+        plugins = [ 
+        ];
+		extraConfig = builtins.readFile (builtins.path {
+			path = ./hyprland.conf;
+		});
+	};
 
     # Allow users in 'video' group to adjust backlight
     systemd.tmpfiles.rules = [
