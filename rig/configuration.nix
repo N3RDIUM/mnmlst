@@ -2,7 +2,7 @@
 
 {
 	imports = [
-        ./machines/rig.nix
+        ./hardware-configuration.nix
 
         ./config/amdgpu.nix
         ./config/audio.nix

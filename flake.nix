@@ -1,7 +1,7 @@
 {
-	description = "N3RDIUM's Flake!";
+	description = "N3RDIUM's Weird NixOS Flake";
 
-	inputs = {
+	inputs = {  # TODO move these inputs to respective configs (mostly rig ig)
 		nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 		home-manager = {
 			url = "github:nix-community/home-manager";
@@ -26,21 +26,36 @@
             pkgs-unstable = inputs.hyprland.inputs.nixpkgs.legacyPkgs.${nixpkgs.stdenv.hostPlatform.system};
 
 		in {
-            hardware.graphics = {
+            hardware.graphics = {  # TODO this must move too.
                 enable = true;
                 package = pkgs-unstable.mesa;
             };
 
-            nixosConfigurations.n3rdium = lib.nixosSystem {
+            nixosConfigurations.rig = lib.nixosSystem {
                 inherit system;
                 modules = [
-                    ./nixos/configuration.nix
+                    ./rig/configuration.nix
                     home-manager.nixosModules.home-manager
                     {
                         home-manager.useGlobalPkgs = true;
                         home-manager.useUserPackages = true;
                         home-manager.backupFileExtension = "backup";
-                        home-manager.users.n3rdium = import ./n3rdium/home.nix;
+                        home-manager.users.n3rdium = import ./rig/n3rdium/home.nix;
+                        home-manager.extraSpecialArgs = { inherit inputs; };
+                    }
+                ];
+            };
+
+            nixosConfigurations.aio = lib.nixosSystem {
+                inherit system;
+                modules = [
+                    ./aio/configuration.nix
+                    home-manager.nixosModules.home-manager
+                    {
+                        home-manager.useGlobalPkgs = true;
+                        home-manager.useUserPackages = true;
+                        home-manager.backupFileExtension = "backup";
+                        home-manager.users.monitor = import ./aio/monitor/home.nix;
                         home-manager.extraSpecialArgs = { inherit inputs; };
                     }
                 ];
