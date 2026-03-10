@@ -4,41 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "ff5eff036fec84f1",
+        "id": "523d45ed439b6d25",
         "type": "tabs",
         "children": [
           {
-            "id": "c9b6657922380e58",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "rice.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "rice"
-            }
-          },
-          {
-            "id": "3f0cd7c4c8868387",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "homelab.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "homelab"
-            }
-          },
-          {
-            "id": "00eaf9452199a6ee",
+            "id": "3ddb9b3aedd6d3c4",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -52,8 +22,7 @@
               "title": "index"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -240,8 +209,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "00eaf9452199a6ee",
+  "active": "3ddb9b3aedd6d3c4",
   "lastOpenFiles": [
+    "index.md",
+    "screenshot.png",
     "n3rdium.dev struct.md",
     "rice.md",
     "Untitled.md",
@@ -268,8 +239,6 @@
     "README.md",
     "assets",
     "assets/asdf.jpg",
-    "The One.md",
-    "Meta TODO.md",
     "patches",
     "Untitled.canvas",
     "kanban",
@@ -288,7 +257,6 @@
     "Writing Projects/Research/Nov 2025 English/Do t-s relationships impact learning outcomes.png",
     "Writing Projects/Research/Nov 2025 English/Most important quality.png",
     "Writing Projects/Research/Nov 2025 English/Teaching profession rating.png",
-    "Writing Projects/Research/Nov 2025 English/Previously considered career options.png",
     "Writing Projects/73120/Plot.canvas",
     "Kanban/Untitled.canvas",
     "Writing Projects/Mark Seven/Brainstorm.canvas",
