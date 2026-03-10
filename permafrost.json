@@ -1,0 +1,6 @@
+{
+    "source_vault": "docs",
+    "templates": {
+        "n3rdium.dev": "docs/template.html"
+    }
+}
