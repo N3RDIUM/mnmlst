@@ -1,0 +1,16 @@
+{
+  "accentColor": "#5e81ac",
+  "theme": "obsidian",
+  "cssTheme": "Minimal",
+  "interfaceFontFamily": "Iosevka Light",
+  "textFontFamily": "Iosevka",
+  "monospaceFontFamily": "Iosevka",
+  "baseFontSize": 20,
+  "showViewHeader": true,
+  "nativeMenus": false,
+  "baseFontSizeAction": false,
+  "showRibbon": false,
+  "enabledCssSnippets": [
+    "disable-smooth-scroll"
+  ]
+}

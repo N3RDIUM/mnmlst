@@ -1,0 +1,93 @@
+{
+  "items": [
+    {
+      "type": "file",
+      "ctime": 1747241879864,
+      "path": "Kanban/General TODO.md",
+      "title": "The TODO List"
+    },
+    {
+      "type": "file",
+      "ctime": 1759376119839,
+      "path": "Based/TODO Hunter.base",
+      "title": "TODO Hunter"
+    },
+    {
+      "type": "graph",
+      "ctime": 1758629947957,
+      "title": "The Graph",
+      "options": {
+        "collapse-filter": true,
+        "search": "",
+        "showTags": false,
+        "showAttachments": true,
+        "hideUnresolved": false,
+        "showOrphans": true,
+        "collapse-color-groups": true,
+        "colorGroups": [
+          {
+            "query": "tag:#forbidden  ",
+            "color": {
+              "a": 1,
+              "rgb": 16468276
+            }
+          },
+          {
+            "query": "tag:#daily",
+            "color": {
+              "a": 1,
+              "rgb": 4556168
+            }
+          },
+          {
+            "query": "tag:#fleet  ",
+            "color": {
+              "a": 1,
+              "rgb": 11657298
+            }
+          },
+          {
+            "query": "tag:#todo  ",
+            "color": {
+              "a": 1,
+              "rgb": 54783
+            }
+          }
+        ],
+        "collapse-display": true,
+        "showArrow": true,
+        "textFadeMultiplier": 0.7,
+        "nodeSizeMultiplier": 1.68742862241256,
+        "lineSizeMultiplier": 0.956013561741613,
+        "collapse-forces": true,
+        "centerStrength": 0.635438972162741,
+        "repelStrength": 16.0367594575303,
+        "linkStrength": 1,
+        "linkDistance": 30,
+        "scale": 0.2859912120422609,
+        "close": false
+      }
+    },
+    {
+      "type": "url",
+      "ctime": 1759153621052,
+      "url": "http://www.catb.org/~esr/jargon/",
+      "title": "Jargon File"
+    },
+    {
+      "type": "file",
+      "ctime": 1761302332723,
+      "path": "JEE.md"
+    },
+    {
+      "type": "file",
+      "ctime": 1761302303323,
+      "path": "Assignment Status.md"
+    },
+    {
+      "type": "file",
+      "ctime": 1761302318651,
+      "path": "ED Status.md"
+    }
+  ]
+}

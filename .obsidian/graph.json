@@ -1,0 +1,51 @@
+{
+  "collapse-filter": true,
+  "search": "",
+  "showTags": false,
+  "showAttachments": true,
+  "hideUnresolved": false,
+  "showOrphans": true,
+  "collapse-color-groups": false,
+  "colorGroups": [
+    {
+      "query": "tag:#forbidden  ",
+      "color": {
+        "a": 1,
+        "rgb": 16468276
+      }
+    },
+    {
+      "query": "tag:#daily",
+      "color": {
+        "a": 1,
+        "rgb": 4556168
+      }
+    },
+    {
+      "query": "tag:#fleet  ",
+      "color": {
+        "a": 1,
+        "rgb": 10732894
+      }
+    },
+    {
+      "query": "tag:#todo  ",
+      "color": {
+        "a": 1,
+        "rgb": 16766208
+      }
+    }
+  ],
+  "collapse-display": true,
+  "showArrow": true,
+  "textFadeMultiplier": 0.7,
+  "nodeSizeMultiplier": 1.68742862241256,
+  "lineSizeMultiplier": 0.956013561741613,
+  "collapse-forces": true,
+  "centerStrength": 0.635438972162741,
+  "repelStrength": 16.0367594575303,
+  "linkStrength": 1,
+  "linkDistance": 30,
+  "scale": 0.5568011813584852,
+  "close": true
+}

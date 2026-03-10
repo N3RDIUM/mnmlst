@@ -1,0 +1,13 @@
+html,
+body,
+.markdown-preview-view,
+.cm-scroller,
+.workspace-scrollable,
+.nav-files-container,
+.mod-root .workspace-tabs,
+.mod-settings .settings-nav,
+.mod-settings .settings-content {
+    scroll-behavior: auto !important;
+}
+
+

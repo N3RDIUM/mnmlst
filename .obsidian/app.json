@@ -1,0 +1,18 @@
+{
+  "alwaysUpdateLinks": true,
+  "showInlineTitle": true,
+  "showLineNumber": false,
+  "readableLineLength": true,
+  "spellcheck": false,
+  "strictLineBreaks": false,
+  "vimMode": true,
+  "livePreview": true,
+  "pdfExportSettings": {
+    "includeName": false,
+    "pageSize": "A4",
+    "landscape": false,
+    "margin": "0",
+    "downscalePercent": 100
+  },
+  "trashOption": "local"
+}
