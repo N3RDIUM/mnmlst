@@ -26,15 +26,11 @@
             pkgs-unstable = inputs.hyprland.inputs.nixpkgs.legacyPkgs.${nixpkgs.stdenv.hostPlatform.system};
 
 		in {
-            hardware.graphics = {  # TODO this must move too.
-                enable = true;
-                package = pkgs-unstable.mesa;
-            };
-
             nixosConfigurations.rig = lib.nixosSystem {
                 inherit system;
                 modules = [
                     ./rig/configuration.nix
+
                     home-manager.nixosModules.home-manager
                     {
                         home-manager.useGlobalPkgs = true;
@@ -44,6 +40,11 @@
                         home-manager.extraSpecialArgs = { inherit inputs; };
                     }
                 ];
+
+                hardware.graphics = {
+                    enable = true;
+                    package = pkgs-unstable.mesa;
+                };
             };
 
             nixosConfigurations.aio = lib.nixosSystem {

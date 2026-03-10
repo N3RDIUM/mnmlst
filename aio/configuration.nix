@@ -27,6 +27,9 @@
 	# enable experimental features
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+    # graphics
+    hardware.graphics.enable = true;
+
     # home-manager stuff
     environment.pathsToLink = [
         "/share/applications"
