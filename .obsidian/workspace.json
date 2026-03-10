@@ -41,22 +41,15 @@
             "id": "00eaf9452199a6ee",
             "type": "leaf",
             "state": {
-              "type": "kanban",
+              "type": "markdown",
               "state": {
-                "file": "kanban/The One.md",
-                "kanbanViewState": {
-                  "kanban-plugin": "board",
-                  "list-collapse": [
-                    false,
-                    false,
-                    false,
-                    false,
-                    false
-                  ]
-                }
+                "file": "index.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
               },
-              "icon": "lucide-trello",
-              "title": "The One"
+              "icon": "lucide-file",
+              "title": "index"
             }
           }
         ],
@@ -117,7 +110,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 382.5
+    "width": 378.5
   },
   "right": {
     "id": "a91306217691d425",
@@ -234,8 +227,6 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "obsidian-kanban:Create new board": false,
-      "callout-manager:Insert Callout": false,
       "bases:Create new base": false,
       "switcher:Open quick switcher": false,
       "canvas:Create new canvas": false,
@@ -244,6 +235,8 @@
       "command-palette:Open command palette": false,
       "zk-prefixer:Create new unique note": false,
       "workspaces:Manage workspace layouts": false,
+      "obsidian-kanban:Create new board": false,
+      "callout-manager:Insert Callout": false,
       "obsidian-git:Open Git source control": false
     }
   },

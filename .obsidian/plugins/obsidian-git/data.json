@@ -1,5 +1,5 @@
 {
-  "commitMessage": "[sync] {{date}}",
+  "commitMessage": "sync: {{date}}",
   "autoCommitMessage": "vault backup: {{date}}",
   "commitDateFormat": "YYYY-MM-DD HH:mm:ss",
   "autoSaveInterval": 0,
