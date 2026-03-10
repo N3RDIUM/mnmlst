@@ -9,4 +9,4 @@ feeds:
   - search.json
 template: n3rdium.dev
 ---
-Hello World
+Hello World. This is a test.
