@@ -1,2 +1,0 @@
-[profile.rust-analyzer]
-inherits = "dev"
