@@ -23,7 +23,6 @@
 		let
 			system = "x86_64-linux";
 			lib = nixpkgs.lib;
-            pkgs-unstable = inputs.hyprland.inputs.nixpkgs.legacyPkgs.${nixpkgs.stdenv.hostPlatform.system};
 
 		in {
             nixosConfigurations.rig = lib.nixosSystem {
@@ -40,11 +39,6 @@
                         home-manager.extraSpecialArgs = { inherit inputs; };
                     }
                 ];
-
-                hardware.graphics = {
-                    enable = true;
-                    package = pkgs-unstable.mesa;
-                };
             };
 
             nixosConfigurations.aio = lib.nixosSystem {

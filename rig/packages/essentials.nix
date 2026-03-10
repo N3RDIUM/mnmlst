@@ -15,4 +15,9 @@
         authenticator
         texliveMedium
     ];
+
+    hardware.graphics = {
+        enable = true;
+        package = pkgs.mesa;
+    };
 }
