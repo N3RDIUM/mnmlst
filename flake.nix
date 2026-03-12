@@ -55,6 +55,21 @@
                     }
                 ];
             };
+
+            nixosConfigurations.lap = lib.nixosSystem {
+                inherit system;
+                modules = [
+                    ./lap/configuration.nix
+                    home-manager.nixosModules.home-manager
+                    {
+                        home-manager.useGlobalPkgs = true;
+                        home-manager.useUserPackages = true;
+                        home-manager.backupFileExtension = "backup";
+                        home-manager.users.monitor = import ./lap/monitor/home.nix;
+                        home-manager.extraSpecialArgs = { inherit inputs; };
+                    }
+                ];
+            };
 		};
 }
 

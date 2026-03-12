@@ -11,9 +11,4 @@
         isNormalUser = true;
         extraGroups = [ "video" ]; 
     };
-
-    # Allow users in 'video' group to adjust backlight
-    systemd.tmpfiles.rules = [
-        "z /sys/class/backlight/acpi_video0/brightness 0664 root video -"
-    ];
 }
