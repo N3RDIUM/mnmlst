@@ -13,8 +13,10 @@ import atexit
 daemons = []
 
 # Second monitor
-headless_output = subprocess.call(["hyprctl", "output", "create", "headless", "NOTHING"])
-wayvnc = subprocess.Popen(["wayvnc", "-f", "60", "-o", "NOTHING", "-d", "-R", "0.0.0.0", "5900", "-p", "--gpu"])
+headless_output = subprocess.call(["hyprctl", "output", "create", "headless", "NOTHING-R"])
+headless_output = subprocess.call(["hyprctl", "output", "create", "headless", "NOTHING-L"])
+wayvnc = subprocess.Popen(["wayvnc", "-f", "60", "-o", "NOTHING-R", "-d", "-R", "0.0.0.0", "5900", "-p", "--gpu"])
+wayvnc = subprocess.Popen(["wayvnc", "-f", "60", "-o", "NOTHING-L", "-d", "-R", "0.0.0.0", "5901", "-p", "--gpu"])
 daemons.append(wayvnc)
 
 # Circadian
