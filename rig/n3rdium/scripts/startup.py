@@ -12,13 +12,6 @@ import atexit
 # Store all daemon processes
 daemons = []
 
-# Second monitor
-headless_output = subprocess.call(["hyprctl", "output", "create", "headless", "NOTHING-R"])
-headless_output = subprocess.call(["hyprctl", "output", "create", "headless", "NOTHING-L"])
-wayvnc = subprocess.Popen(["wayvnc", "-f", "60", "-o", "NOTHING-R", "-d", "-R", "0.0.0.0", "5900", "-p", "--gpu", "-S", "/tmp/wayvnc-r.sock"])
-wayvnc = subprocess.Popen(["wayvnc", "-f", "60", "-o", "NOTHING-L", "-d", "-R", "0.0.0.0", "5901", "-p", "--gpu", "-S", "/tmp/wayvnc-l.sock"])
-daemons.append(wayvnc)
-
 # Circadian
 hyprsunset = subprocess.Popen(["hyprsunset"])
 daemons.append(hyprsunset)
@@ -64,6 +57,6 @@ def signal_handler(signum, frame):
 signal.signal(signal.SIGINT, signal_handler)
 signal.signal(signal.SIGTERM, signal_handler)
 
-# Ask displays to connect
+# Ask displays to connect once
 subprocess.call(["/home/n3rdium/scripts/vnc-reload-all"])
 
