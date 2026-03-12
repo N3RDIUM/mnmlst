@@ -14,7 +14,7 @@ template: n3rdium.dev
 Welcome to the docs! [source](https://github.com/n3rdium/dotfiles). TODO actually write the docs.
 
 > [!WARNING]
-> These are my personal dotfiles, maintained to work on my machine only. In most cases, you can get it running by tweaking the hardware configuration.
+> These are my personal dotfiles, maintained to work on my machine(s) only. In most cases, you can get it running by tweaking the hardware configuration.
 ## What
 Modular nix flake that I use to configure my NixOS machines.
 ## TODOs
