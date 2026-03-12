@@ -10,6 +10,8 @@
         ./config/nobloat.nix
         ./config/ssh-server.nix
         ./config/users.nix
+
+        ./config/sambatest.nix
     ];
 
     # cachix stuff
