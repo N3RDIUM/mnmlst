@@ -13,6 +13,7 @@
         polkit_gnome
         gnupg
         authenticator
+        samba
         texliveMedium
     ];
 
