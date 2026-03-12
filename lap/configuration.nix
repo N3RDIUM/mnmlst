@@ -8,6 +8,7 @@
         ./config/locale.nix
         ./config/networking.nix
         ./config/nobloat.nix
+        ./config/samba-server.nix
         ./config/ssh-server.nix
         ./config/users.nix
     ];
