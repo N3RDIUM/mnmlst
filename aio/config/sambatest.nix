@@ -17,6 +17,7 @@
                 browseable = "yes";
                 writable = "yes";
                 "read only" = "no";
+                "guest ok" = "no";
             };
         };
     };
