@@ -89,8 +89,8 @@ def get_wayvnc_client_count() -> int:
         return 0
 
 while True:
-    if get_wayvnc_client_count() < 1:
-        subprocess.call(["/home/n3rdium/scripts/second-reload"])
+    if get_wayvnc_client_count() < 2:
+        subprocess.call(["/home/n3rdium/scripts/vnc-reload-all"])
 
     # Restart daemons if killed
 
