@@ -46,10 +46,6 @@
     networking.defaultGateway = "192.168.1.1";
     networking.nameservers = [  "1.1.1.1" "8.8.8.8" ];
     networking.firewall.allowedTCPPorts = [ 22 8001 ];
-    networking.networkmanager.unmanaged = [
-        "*"     # first unmanage everything
-        "!eno1" # then exception: manage eno1
-    ];
 
     # This stuff
     programs.mtr.enable = true;
