@@ -22,5 +22,8 @@
         };
     };
 
-    services.samba-wsdd.enable = true;
+    services.samba-wsdd = {
+        enable = true;
+        openFirewall = true;
+    };
 }
