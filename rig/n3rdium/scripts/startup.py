@@ -64,35 +64,6 @@ def signal_handler(signum, frame):
 signal.signal(signal.SIGINT, signal_handler)
 signal.signal(signal.SIGTERM, signal_handler)
 
-def get_wayvnc_client_count() -> int:
-    try:
-        result = subprocess.run(
-            ["wayvncctl", "client-list"],
-            capture_output=True,
-            text=True,
-            check=True,
-        )
-
-        # Example lines:
-        # "  1: 192.168.1.37"
-        # Count only lines that look like clients.
-        clients = [
-            line for line in result.stdout.splitlines()
-            if line.strip() and ":" in line
-        ]
-
-        return len(clients)
-
-    except subprocess.CalledProcessError:
-        return 0
-    except FileNotFoundError:
-        return 0
-
-while True:
-    if get_wayvnc_client_count() < 2:
-        subprocess.call(["/home/n3rdium/scripts/vnc-reload-all"])
-
-    # Restart daemons if killed
-
-    time.sleep(4)
+# Ask displays to connect
+subprocess.call(["/home/n3rdium/scripts/vnc-reload-all"])
 
