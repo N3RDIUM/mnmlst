@@ -17,23 +17,8 @@
 
     # wol
     networking = {
-        interfaces = {
-            eno1 = {
-                wakeOnLan.enable = true;
-            };
-        };
         firewall = {
             allowedUDPPorts = [ 9 8001 ];
-        };
-    };
-
-    systemd.services.wakeonlan = {
-        description = "Enable Wake-on-LAN (WoL)";
-        after = [ "network.target" ];
-        wantedBy = [ "multi-user.target" ];
-        serviceConfig = {
-            Type = "oneshot";
-            ExecStart = "${pkgs.ethtool}/bin/ethtool -s eno1 wol g";
         };
     };
 
