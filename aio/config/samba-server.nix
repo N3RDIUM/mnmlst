@@ -7,8 +7,8 @@
         settings = {
             global = {
             workgroup = "WORKGROUP";
-                "server string" = "nixos-samba";
-                "netbios name" = "nixos";
+                "server string" = "aio-samba";
+                "netbios name" = "aio";
                 security = "user";
             };
 

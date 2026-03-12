@@ -3,6 +3,7 @@
     environment.systemPackages = with pkgs; [
 		pkgs.home-manager
         gvfs
+        cifs-utils
         any-nix-shell
         steam-run
 		cmake
