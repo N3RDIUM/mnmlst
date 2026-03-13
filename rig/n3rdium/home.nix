@@ -24,6 +24,7 @@
 	home.file = {
 		".config/kitty/".source = ./configs/kitty;
 		".config/fastfetch/".source = ./configs/fastfetch;
+		".config/hypr/".source = ./configs/hypr;
 		".config/cava/".source = ./configs/cava;
 		".config/atuin/".source = ./configs/atuin;
 		".config/nvim/lua".source = ./configs/nvim/lua;

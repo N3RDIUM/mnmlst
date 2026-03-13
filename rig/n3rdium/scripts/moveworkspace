@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# usage: moveworkspace <monitor_id>
+
+VARFILE="/tmp/hyprvar_marked_workspace"
+
+if [ -z "$1" ]; then
+    echo "Usage: $0 <monitor_id>"
+    exit 1
+fi
+
+MONITOR="$1"
+
+if [ ! -f "$VARFILE" ]; then
+    echo "No marked workspace"
+    exit 1
+fi
+
+WORKSPACE=$(cat "$VARFILE")
+
+hyprctl dispatch moveworkspacetomonitor "$WORKSPACE" "$MONITOR"

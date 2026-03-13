@@ -10,7 +10,7 @@
     networking.defaultGateway = "192.168.1.1";
     networking.nameservers = [ "192.168.1.1" "8.8.8.8" ];
 
-    networking.firewall.allowedTCPPorts = [ 5900 5901 8000 5000 ];
+    networking.firewall.allowedTCPPorts = [ 5900 5901 8000 5000 8001 ];
 
     # Avahi
     services.avahi = {

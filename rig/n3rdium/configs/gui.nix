@@ -9,11 +9,6 @@
 	wayland.windowManager.hyprland = {
 		enable = true;
 		package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-        plugins = [ 
-        ];
-		extraConfig = builtins.readFile (builtins.path {
-			path = ./hypr/hyprland.conf;
-		});
 	};
 
 	gtk = {
