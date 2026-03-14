@@ -1,50 +1,61 @@
+import sys
+import os
+sys.path.append(os.path.dirname(__file__))
+
 from http.server import BaseHTTPRequestHandler, HTTPServer
+from enum import Enum
+
 from brightness import set_brightness
 from temperature import set_temperature
 from monitor import Monitor
 
 set_brightness(0, Monitor.CENTRE)
 
+
+class Setting(Enum):
+    VDARK = 0
+    DARK = 1
+    LIGHT = 2
+
+current = None
+
 def set_all_temperatures(value: int):
-    print("center")
     try:
         set_temperature(value, Monitor.CENTRE)
     except Exception as e:
         print(f"centre: {e}")
 
-    print("right")
     try:
         set_temperature(value, Monitor.RIGHT)
     except Exception as e:
         print(f"right: {e}")
 
-    print("left")
     try:
         set_temperature(value, Monitor.LEFT)
     except Exception as e:
         print(f"left: {e}")
 
-def very_dark_setting():
-    print("VERY DARK")
-
+def update_setting():
+    global current
     set_brightness(0, Monitor.CENTRE)
-    set_all_temperatures(1000)
 
-def dark_setting():
-    print("DARK")
-    set_brightness(0, Monitor.CENTRE)
-    set_all_temperatures(3000)
-
-def bright_setting():
-    print("BRIGHT")
-    set_all_temperatures(6000)
-
+    match current:
+        case Setting.VDARK:
+            set_all_temperatures(1000)
+        case Setting.DARK:
+            set_all_temperatures(3000)
+        case Setting.LIGHT:
+            set_all_temperatures(6000)
+        case None:
+            return
 
 samples = []
 
 class LDRHandler(BaseHTTPRequestHandler):
 
     def do_GET(self):
+        global current
+
         if self.path.startswith("/ldr/"):
             try:
                 value = int(self.path.split("/ldr/")[1])
@@ -53,15 +64,22 @@ class LDRHandler(BaseHTTPRequestHandler):
                 if len(samples) > 3:
                     samples.pop(0)
                 smooth = sum(samples) / len(samples)
+                # TODO do this^ on the board itself
 
                 print(f"LDR value received: {value} smooth: {smooth}")
 
-                if smooth < 42:
-                    very_dark_setting()
+                prev = current
+
+                if smooth < 28:
+                    current = Setting.VDARK
                 elif smooth < 100:
-                    dark_setting()
+                    current = Setting.DARK
                 else: 
-                    bright_setting()
+                    current = Setting.LIGHT
+
+                if prev != current:
+                    print(f"updating {prev} -> {current}")
+                    update_setting()
 
                 self.send_response(200)
                 self.send_header("Content-type", "text/plain")
